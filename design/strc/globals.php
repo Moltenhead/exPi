@@ -74,13 +74,6 @@ function objPath($access_type, $object_name)
     }
   }
 
-  $opt_regex = array();
-  foreach ($access_type_opt as $opt) {
-    if ($opt !== 'STRC') {
-      array_push($opt_regex, '/' . $opt . '/');
-    }
-  }
-
   if (gettype($object_name) === 'string') {
     if (gettype($access_type) === 'string') {
       if (in_array(strtoupper($access_type), $access_type_opt)) {
