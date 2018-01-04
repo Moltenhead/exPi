@@ -12,6 +12,7 @@
     'style',
     'normalize',
     'generale',
+    'colorizer',
     'css_mainNav',
     'css_footer',
     htmlspecialchars(CSSELF)
