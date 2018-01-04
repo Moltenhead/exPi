@@ -19,6 +19,26 @@
 -ms-align-items: center;
 align-items: center;
 }
+
+.search_bar input[type="text"] {
+  margin-right:10px;
+}
+
+.link_box a {
+  padding: 5px .5em;
+}
+
+.micro_picto {
+  width: 40px;
+  height: 40px;
+
+  display: block;
+}
+
+.avatar {
+  border-radius: 50%;
+  background-color: grey;
+}
 
 .horizontal_list
 {

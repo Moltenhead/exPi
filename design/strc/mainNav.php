@@ -1,4 +1,4 @@
-<div id="header_wrapper">
+<div class="main_wrapper">
   <a class="home_link" href=""><strong>W/</strong>ole</a>
   <div class="stretched_row">
     <div id="main_nav" class="spaced_row">
