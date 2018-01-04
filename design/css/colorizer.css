@@ -1,11 +1,13 @@
-#main_nav {
-  background-color: #00cc66;
-}
+.link_box a:hover { color: #ffcc33; }
 
-#main_nav .home_link strong {
-  color: #ccffff;
-}
+input[type="text"]:placeholder { color:grey; }
 
-.avatar {
+#main_nav { background-color: #00cc66; }
+
+#main_nav .home_link strong { color: #ccffff; }
+
+.avatar
+{
+  background-color: grey;
   border: 3px solid #ff9933;
 }
