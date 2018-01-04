@@ -1,7 +1,9 @@
 <div class="main_wrapper">
-  <a class="home_link" href=""><strong>W/</strong>ole</a>
+  <a class="home_link" href="">
+    <strong>W/</strong>ole
+  </a>
   <div class="stretched_row">
-    <div id="main_nav" class="spaced_row">
+    <div id="global_nav" class="spaced_row">
       <form class="search_bar spaced_row" action="" method="">
         <input type="text" placeholder="Envie de ...">
         <input type="submit" value="et je trouve !">
