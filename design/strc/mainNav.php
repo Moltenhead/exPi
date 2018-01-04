@@ -1,8 +1,8 @@
-<div class="main_wrapper">
+<div class="main_wrapper v_align">
   <a class="home_link" href="">
     <strong>W/</strong>ole
   </a>
-  <div class="flex_row stretched">
+  <div class="flex_row stretched v_align">
     <div id="global_nav" class="flex_row spaced">
       <form class="search_bar flex_row spaced" action="" method="">
         <input type="text" placeholder="Envie de ...">

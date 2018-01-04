@@ -30,6 +30,7 @@
 #main_nav .main_wrapper {
   width: 95%;
   margin-left: 5%;
+  height: 100%;
 
   display: grid;
   -ms-grid-template: "a div";
@@ -42,8 +43,6 @@
   width: 100%;
   font-size: 2.7vw;
   font-weight: bold;
-
-  padding-left: 15px;
 }
 #main_nav .main_wrapper > .home_link:hover {
   color: inherit;
