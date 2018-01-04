@@ -11,7 +11,8 @@ $access_type_opt = array (
   'CSS',
   'FNT',
   'IMG',
-  'VID'
+  'VID',
+  'JS'
 );
 
 /* ------------------------- ROOTS -------------------------*/
@@ -27,6 +28,7 @@ $access_type_opt = array (
   define('H_FNT', HTTPH . '/design/fnt/');
   define('H_IMG', HTTPH . '/design/img/');
   define('H_VID', HTTPH . '/design/vid/');
+  define('H_JS', HTTPH . '/lib/js/');
 
 /* -------------------- ACTIVE FILE PATHS ---------------------*/
 define('PHP_SELF', htmlspecialchars($_SERVER['PHP_SELF']));
@@ -122,23 +124,23 @@ function styLink($style_names)
 /*JS QUICK-LINKER*/
 function scriptLink($script_names)
 {
-  $echo_start = '<link rel="stylesheet" type="text/css" href="';
-  switch (gettype($style_names)) {
+  $echo_start = '<script src="';
+  switch (gettype($script_names)) {
     case 'array' :
-      for ($i = 0; $i < count($style_names); $i++) {
-        echo $echo_start . objPath('css', $style_names[$i]) . STYLE_EXT . '" />
+      for ($i = 0; $i < count($script_names); $i++) {
+        echo $echo_start . objPath('css', $script_names[$i]) . '.js"></script>
         ';
       }
       break;
     case 'string' :
-      echo $echo_start . objPath('css', $style_names) . STYLE_EXT . '" />
+      echo $echo_start . objPath('css', $script_names) . STYLE_EXT . '" />
       ';
       break;
     //if not an 'array' or 'string' type
     default :
       trigger_error(
         'invalid parameter, unexpected ' .
-        gettype($style_names) .
+        gettype($script_names) .
         ', expecting \'array\' or \'string\' type'
       );
       break;
