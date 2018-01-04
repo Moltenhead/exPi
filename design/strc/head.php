@@ -17,4 +17,6 @@
     'css_footer',
     htmlspecialchars(CSSELF)
   ));
-?>
+
+  scriLink('main');
+?>
