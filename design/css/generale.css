@@ -16,26 +16,25 @@
 .stretched { justify-content: space-between; }
 .v_align
 {
--ms-align-items: center;
-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
 }
 
-.search_bar input[type="text"] {
-  margin-right:10px;
-}
+.search_bar input[type="text"] { margin-right:10px; }
 
-.link_box a {
-  padding: 5px .5em;
-}
+.link_box a { padding: 5px .5em; }
+.link_box a:hover { color: #ffcc33; }
 
-.micro_picto {
+.micro_picto
+{
   width: 40px;
   height: 40px;
 
   display: block;
 }
 
-.avatar {
+.avatar
+{
   border-radius: 50%;
   background-color: grey;
 }
