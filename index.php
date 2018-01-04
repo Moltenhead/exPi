@@ -14,7 +14,7 @@
   </head>
 
   <body>
-    <nav id="main_nav" class="part_horiz_cover">
+    <nav id="main_nav" class="flex_row v_align">
       <?php
         include_once(objPath('strc', 'mainNav.php'));
       ?>

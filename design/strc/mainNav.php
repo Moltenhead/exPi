@@ -17,7 +17,8 @@
     </div>
     <div id="account_nav" class="connection_box flex_row spaced">
       <button id="profile_options_button">
-        <img src="<?php echo objPath('img', 'svg/menu_arrow.svg')?>" alt="flèche de menu">
+        <?php echo file_get_contents(objPath('img', 'svg/menu_arrow.svg')); ?>
+        <!--img src="<?php //echo objPath('img', 'svg/menu_arrow.svg')?>" alt="flèche de menu"-->
       </button>
       <a href="" id="profile">
         <img class="micro_picto avatar" src="" alt="">

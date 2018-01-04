@@ -9,14 +9,6 @@
   top: 0;
   right: 0;
   left: 0;
-
-  display: flex;
-  -webkit-flex-flow: row wrap;
-    -ms-flex-flow: row wrap;
-      flex-flow: row wrap;
-  justify-content: flex-start;
-  -ms-align-items: center;
-    align-items: center;
 }
 #main_nav * { color: white; }
 #main_nav a
