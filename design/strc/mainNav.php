@@ -22,7 +22,7 @@
         </svg>
       </button>
       <a href="" id="profile">
-        <img class="micro_picto avatar" src="" alt="">
+        <img class="micro_picto avatar" src="<?php echo objPath('img', 'svg/menu_arrow.svg')?>" alt="flèche de menu">
       </a>
     </div>
   </div>
