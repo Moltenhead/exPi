@@ -17,7 +17,7 @@ require_once(objPath('strc', 'db_connexion.php'));
   <body>
     <nav id="main_nav" class="part_horiz_cover">
       <?php
-        require_once(objPath('strc', 'mainNav.php'));
+        include_once(objPath('strc', 'mainNav.php'));
       ?>
     </nav>
 
@@ -30,7 +30,7 @@ require_once(objPath('strc', 'db_connexion.php'));
 
     <footer>
       <?php
-        require_once(objPath('strc', 'footer.php'));
+        include_once(objPath('strc', 'footer.php'));
       ?>
     </footer>
   </body>
