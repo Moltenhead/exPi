@@ -1,9 +1,9 @@
 <?php
-$db__host = 'ectopneorsdb1a.mysql.db';
-$db__name = 'ectopneorsdb1a';
+$db__host = 'localhost';
+$db__name = 'wole_dev';
 
-$db__user = 'ectopneorsdb1a';
-$db__pw = 'P4nd0r4sB0x';
+$db__user = 'root';
+$db__pw = '';
 
 try {
     $db = new PDO("mysql:host=$db__host;dbname=$db__name", $db__user, $db__pw);
