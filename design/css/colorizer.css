@@ -1,4 +1,4 @@
-.link_box a:hover { color: #ffcc33; }
+#main_nav .link_box a:hover { color: #ffcc33; }
 
 input[type="text"]:placeholder { color:grey; }
 
