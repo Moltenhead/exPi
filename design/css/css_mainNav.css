@@ -57,8 +57,25 @@
 }
 
 /* ---------------- ACCOUNT NAV ---------------- */
-#account_nav {
-  float: right;
+#account_nav { float: right; }
+
+#profile_options_button
+{
+  margin-right: 10px;
+
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+#profile_options_button svg
+{
+  width: 15px;
+  height: 15px;
+}
+#profile_options_button svg g path
+{
+  fill: white !important;
+
 }
 
 /* ---------------- PROFILE ---------------- */
