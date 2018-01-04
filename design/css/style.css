@@ -1,0 +1,25 @@
+/* --------------------- CSS PRESET --------------------- */
+* { margin:0; padding:0; box-sizing:border-box; }
+
+/*min page size 100% x 100% window size*/
+html { width:100vw; max-width:100%; }
+body { width:100%; min-height:100vh; }
+
+/*boxes to block*/
+div, section, aside, button, i { display:block; }
+
+/*text boxes to inline-block*/
+span, em, article, b, strong, p, a { display:inline-block; }
+
+/*button style reset*/
+button { border:none; background:none; color:black; }
+
+/*links style*/
+a { color:black; text-decoration: none; }
+a:link { color:inherit; }
+a:visited { color:inherit; }
+a:hover { color:green; }
+a:active {  }
+
+/*lists*/
+ul { list-style-type: none;}

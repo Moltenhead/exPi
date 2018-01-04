@@ -1,0 +1,28 @@
+#main_nav
+{
+  padding: 0 2%;
+
+  background-color: green;
+
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+
+  -ms-align-items: flex-end;
+  align-items: flex-end;
+}
+
+#main_nav > .content_wrapper
+{
+  width: 50%;
+  height: 100%;
+  padding: 5% 0;
+
+  float: right;
+}
+
+.content_wrapper > h1
+{
+  margin: 0;
+}

@@ -1,0 +1,12 @@
+AuthName "Site en cours de developpement, veuillez vous identifier"
+AuthType Basic
+AuthUserFile "/home/ectopneors/www/.htpasswd"
+Require valid-user
+
+RewriteEngine On
+
+RewriteCond %{SERVER_PORT} 80
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteRule ^design/strc/ - [L,R=404]
+RewriteRule [a-z\-_.]+/$ - [L,R=403]
