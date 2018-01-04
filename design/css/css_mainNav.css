@@ -21,7 +21,8 @@
 
 
 /* ---------------- WRAPPER ---------------- */
-#main_nav .main_wrapper {
+#main_nav .main_wrapper
+{
   width: 93%;
   margin: 0 2% 0 5%;
   height: 100%;
@@ -33,29 +34,25 @@
   grid-template-columns: 12% 88%;
 }
 
-#main_nav .main_wrapper .home_link {
+#main_nav .main_wrapper .home_link
+{
   width: 100%;
   font-size: 2.7vw;
   font-weight: bold;
 }
-#main_nav .main_wrapper > .home_link:hover {
-  color: inherit;
-}
+#main_nav .main_wrapper > .home_link:hover { color: inherit; }
 
-#main_nav .main_wrapper > .stretched_row {
-  width: 100%;
-}
+#main_nav .main_wrapper > .stretched_row { width: 100%; }
 
 /* ---------------- MAIN NAV ---------------- */
-#global_nav form input[type="text"], #main_nav form input[type="submit"] {
+#global_nav form input[type="text"], #main_nav form input[type="submit"]
+{
   height: 32px;
   color: black;
   font-weight: bold;
 }
 
-#global_nav > .link_box {
-  margin-left: .5em;
-}
+#global_nav > .link_box { margin-left: .5em; }
 
 /* ---------------- ACCOUNT NAV ---------------- */
 #account_nav { float: right; }
@@ -75,11 +72,6 @@
 {
   width: 12px;
   height: 12px;
-}
-#profile_options_button svg g path
-{
-  fill: white !important;
-
 }
 
 /* ---------------- PROFILE ---------------- */
