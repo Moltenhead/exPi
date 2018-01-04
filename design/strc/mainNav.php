@@ -15,14 +15,10 @@
     </div>
     <div id="account_nav" class="connection_box spaced_row">
       <button id="profile_options_button">
-        <svg>
-          <g>
-            <path points="0,0 30,0 15,30"></path>
-          </g>
-        </svg>
+        <img src="<?php echo objPath('img', 'svg/menu_arrow.svg')?>" alt="flèche de menu">
       </button>
       <a href="" id="profile">
-        <img class="micro_picto avatar" src="<?php echo objPath('img', 'svg/menu_arrow.svg')?>" alt="flèche de menu">
+        <img class="micro_picto avatar" src="" alt="avatar de votre profile">
       </a>
     </div>
   </div>
