@@ -3,7 +3,7 @@
 //stylesheets extension
 $style_ext = '.css';
 //'http' or 'https'
-$protocole_select = ''; // TODO: rajouter le protocole quand HTTP
+$protocole_select = 'http'; // TODO: a éditer lors du passage HTTPS
 
 //object typed existing directories
 $access_type_opt = array (
@@ -21,7 +21,7 @@ $access_type_opt = array (
 
 /* ------------------------- LINKS -------------------------*/
   define('H_SELECT', $protocole_select);
-  define('HTTPH', H_SELECT . '' . $_SERVER['HTTP_HOST']); // TODO: rajouter "://" entre les guillemets quand HTTP
+  define('HTTPH', H_SELECT . '://' . $_SERVER['HTTP_HOST'] .'/wole'); // TODO: suppr "/wole" quand HTTP
 //useful links
   define('H_CSS', HTTPH . '/design/css/');
   define('H_FNT', HTTPH . '/design/fnt/');
