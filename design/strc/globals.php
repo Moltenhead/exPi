@@ -15,41 +15,25 @@ $access_type_opt = array (
 );
 
 /* ------------------------- ROOTS -------------------------*/
-if (!defined(ROOT)) {
   define('ROOT', htmlspecialchars($_SERVER['DOCUMENT_ROOT']));
-}
 //useful roots
-if (!defined(STRC_ROOT)) {
   define('STRC_ROOT', ROOT . '/wole/design/strc/');
-}
 
 /* ------------------------- LINKS -------------------------*/
-if (!defined(HTTPH)) {
   define('H_SELECT', $protocole_select);
   define('HTTPH', H_SELECT . '' . $_SERVER['HTTP_HOST']); // TODO: rajouter "://" entre les guillemets quand HTTP
-}
 //useful links
-if (!defined(H_CSS)) {
   define('H_CSS', HTTPH . '/design/css/');
-}
-if (!defined(H_FNT)) {
   define('H_FNT', HTTPH . '/design/fnt/');
-}
-if (!defined(H_IMG)) {
   define('H_IMG', HTTPH . '/design/img/');
-}
-if (!defined(H_VID)) {
   define('H_VID', HTTPH . '/design/vid/');
-}
 
 /* -------------------- ACTIVE FILE PATHS ---------------------*/
 define('PHP_SELF', htmlspecialchars($_SERVER['PHP_SELF']));
 define('URI', htmlspecialchars($_SERVER['REQUEST_URI']));
 
 /* -------------------- FORMATING ---------------------*/
-if (!defined(STYLE_EXT)) {
   define('STYLE_EXT', $style_ext);
-}
 
 /* -------------------- ACTIVE FILE NAMES ---------------------*/
 $a__name = substr(PHP_SELF, strrpos(PHP_SELF, '/') + 1, strlen(PHP_SELF) - strrpos(PHP_SELF, '/'));
