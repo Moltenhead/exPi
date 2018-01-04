@@ -3,7 +3,7 @@
 //stylesheets extension
 $style_ext = '.css';
 //'http' or 'https'
-$protocole_select = 'https';
+$protocole_select = ''; // TODO: rajouter le protocole quand HTTP
 
 //object typed existing directories
 $access_type_opt = array (
@@ -20,13 +20,13 @@ if (!defined(ROOT)) {
 }
 //useful roots
 if (!defined(STRC_ROOT)) {
-  define('STRC_ROOT', ROOT . '/design/strc/');
+  define('STRC_ROOT', ROOT . '/wole/design/strc/');
 }
 
 /* ------------------------- LINKS -------------------------*/
 if (!defined(HTTPH)) {
   define('H_SELECT', $protocole_select);
-  define('HTTPH', H_SELECT . '://' . $_SERVER['HTTP_HOST']);
+  define('HTTPH', H_SELECT . '' . $_SERVER['HTTP_HOST']); // TODO: rajouter "://" entre les guillemets quand HTTP
 }
 //useful links
 if (!defined(H_CSS)) {
