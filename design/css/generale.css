@@ -12,8 +12,8 @@
   -ms-flex-flow: column wrap;
   flex-flow: column wrap;
 }
-.spaced_row { justify-content: space-around; }
-.stretched_row { justify-content: space-between; }
+.spaced { justify-content: space-around; }
+.stretched { justify-content: space-between; }
 .v_align
 {
 -ms-align-items: center;
