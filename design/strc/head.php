@@ -1,5 +1,5 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta rel="canonical" href="https://charliegardai.ectopneo.fr">
+<meta rel="canonical" href="">
 
 <title>Charlie GARDAI, web d&eacute;veloppeur et cr&eacute;ateur de contenus multim&eacute;dias</title>
 
