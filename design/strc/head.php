@@ -18,5 +18,5 @@
     htmlspecialchars(CSSELF)
   ));
 
-  scriLink('main');
+  scriptLink('main');
 ?>

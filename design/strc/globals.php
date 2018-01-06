@@ -128,12 +128,12 @@ function scriptLink($script_names)
   switch (gettype($script_names)) {
     case 'array' :
       for ($i = 0; $i < count($script_names); $i++) {
-        echo $echo_start . objPath('css', $script_names[$i]) . '.js"></script>
+        echo $echo_start . objPath('js', $script_names[$i]) . '.js"></script>
         ';
       }
       break;
     case 'string' :
-      echo $echo_start . objPath('css', $script_names) . STYLE_EXT . '" />
+      echo $echo_start . objPath('js', $script_names) . '.js" />
       ';
       break;
     //if not an 'array' or 'string' type
