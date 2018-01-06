@@ -18,5 +18,5 @@
     htmlspecialchars(CSSELF)
   ));
 
-  scriptLink('main');
+  scriptLink('main'); echo 'yo !';
 ?>
