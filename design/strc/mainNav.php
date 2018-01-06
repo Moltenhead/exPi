@@ -16,7 +16,7 @@
       </nav>
     </div>
     <div id="account_nav" class="connection_box flex_row spaced v_align">
-      <button id="profile_options_button" title="options de compte">
+      <button id="profile_options_button" class="activable" title="options de compte">
         <?php echo file_get_contents(objPath('img', 'svg/menu_arrow.svg')); ?>
       </button>
       <a href="" id="profile" title="accéder à votre profil">

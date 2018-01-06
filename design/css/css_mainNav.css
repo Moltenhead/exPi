@@ -67,6 +67,10 @@
   transform: rotate(-90deg);
 
   cursor: pointer;
+
+  -webkit-transition: transform .2s ease-out;
+  -o-transition: transform .2s ease-out;
+  transition: transform .2s ease-out;
 }
 #profile_options_button svg
 {
