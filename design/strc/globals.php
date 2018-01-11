@@ -18,11 +18,11 @@ $access_type_opt = array (
 /* ------------------------- ROOTS -------------------------*/
   define('ROOT', htmlspecialchars($_SERVER['DOCUMENT_ROOT']));
 //useful roots
-  define('STRC_ROOT', ROOT . '/wole/design/strc/');
+  define('STRC_ROOT', ROOT . '/expi/design/strc/');
 
 /* ------------------------- LINKS -------------------------*/
   define('H_SELECT', $protocole_select);
-  define('HTTPH', H_SELECT . '://' . $_SERVER['HTTP_HOST'] .'/wole'); // TODO: suppr "/wole" quand HTTP
+  define('HTTPH', H_SELECT . '://' . $_SERVER['HTTP_HOST'] .'/expi'); // TODO: suppr "/wole" quand HTTP
 //useful links
   define('H_CSS', HTTPH . '/design/css/');
   define('H_FNT', HTTPH . '/design/fnt/');

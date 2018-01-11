@@ -1,5 +1,5 @@
 <?php
-  require_once(htmlspecialchars($_SERVER['DOCUMENT_ROOT']) . '/wole/design/strc/globals.php');
+  require_once(htmlspecialchars($_SERVER['DOCUMENT_ROOT']) . '/expi/design/strc/globals.php');
   require_once(objPath('strc', 'db_connexion.php'));
 ?>
 
