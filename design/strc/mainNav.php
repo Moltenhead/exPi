@@ -1,5 +1,5 @@
 <div class="main_wrapper flex_row v_align">
-  <a class="home_link logo no_depth" href="">
+  <a class="home_link logo no_depth" href="" title="exPi">
       <?php echo file_get_contents(objPath('img', 'svg/exPi_logo_v8.svg')); ?>
   </a>
   <div id="global_nav" class="flex_row spaced">

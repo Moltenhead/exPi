@@ -20,6 +20,10 @@
       ?>
     </nav>
 
+    <div id="background_sticker" class="logo big_logo">
+      <?php echo file_get_contents(objPath('img', 'svg/exPi_logo_v8.svg')); ?>
+    </div>
+
     <main>
       <div class="">
 
