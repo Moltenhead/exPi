@@ -26,17 +26,11 @@
   width: 93%;
   margin: 0 2% 0 5%;
   height: 100%;
-
-  display: grid;
-  -ms-grid-template: "a div";
-  grid-template: "a div";
-  -ms-grid-template-columns: 12% 88%;
-  grid-template-columns: 12% 88%;
 }
 
-#main_nav .main_wrapper .home_link
+/* ---------------- HOME LINK ---------------- */
+#main_nav .main_wrapper > .home_link
 {
-  width: 100%;
   font-size: 2.7vw;
   font-weight: bold;
 }
@@ -45,6 +39,11 @@
 #main_nav .main_wrapper > .stretched_row { width: 100%; }
 
 /* ---------------- MAIN NAV ---------------- */
+#global_nav
+{
+  margin-left: 15px;
+}
+
 #global_nav form input[type="text"], #main_nav form input[type="submit"]
 {
   height: 32px;
@@ -55,7 +54,7 @@
 #global_nav > .link_box { margin-left: .5em; }
 
 /* ---------------- ACCOUNT NAV ---------------- */
-#account_nav { float: right; }
+#account_nav { margin-left: auto; }
 
 #profile_options_button
 {
