@@ -34,6 +34,11 @@
   font-size: 2.7vw;
   font-weight: bold;
 }
+#main_nav .main_wrapper > .logo > svg
+{
+  width: 60px;
+  height: 60px;
+}
 #main_nav .main_wrapper > .home_link:hover { color: inherit; }
 
 #main_nav .main_wrapper > .stretched_row { width: 100%; }

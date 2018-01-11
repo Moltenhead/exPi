@@ -1,9 +1,6 @@
 <div class="main_wrapper flex_row v_align">
-  <a class="home_link" href="">
-    <div class="logo">
+  <a class="home_link logo no_depth" href="">
       <?php echo file_get_contents(objPath('img', 'svg/exPi_logo_v8.svg')); ?>
-    </div>
-    e<strong>x&#1051;</strong>i
   </a>
   <div id="global_nav" class="flex_row spaced">
     <form class="search_bar flex_row spaced" action="" method="">
