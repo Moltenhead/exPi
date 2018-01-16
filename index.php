@@ -9,7 +9,7 @@
 
   <head>
       <?php
-        require_once(objPath('strc', 'head.php')); echo 'yo !';
+        require_once(objPath('strc', 'head.php'));
       ?>
   </head>
 

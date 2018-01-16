@@ -1,9 +1,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta rel="canonical" href="">
 
-<title>Charlie GARDAI, web d&eacute;veloppeur et cr&eacute;ateur de contenus multim&eacute;dias</title>
+<title>exPi</title>
 
-<meta name="description" content="Wole" />
+<meta name="description" content="exPi" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
