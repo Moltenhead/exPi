@@ -15,11 +15,16 @@
     </nav>
   </div>
   <div id="account_nav" class="connection_box flex_row spaced v_align">
+    <?php if (session_status() !== PHP_SESSION_NONE) { ?>
     <button id="profile_options_button" class="activable" title="options de compte">
       <?php echo file_get_contents(objPath('img', 'svg/menu_arrow.svg')); ?>
     </button>
     <a href="" id="profile" title="accéder à votre profil">
       <img class="micro_picto avatar" src="" alt="">
     </a>
+    <?php } else { ?>
+      <a href="">s'enregistrer</a>
+      <a href="">se connecter</a>
+    <?php } ?>
   </div>
 </div>
