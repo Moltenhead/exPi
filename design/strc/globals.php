@@ -33,7 +33,7 @@ define('STRC_ROOT', ROOT . PREFIX . '/design/strc/');
 
 /* ------------------------- LINKS -------------------------*/
 define('H_SELECT', $protocole_select);
-define('HTTPH', H_SELECT . '://' . $_SERVER['HTTP_HOST'] . PREFIX); // TODO: suppr "/wole" quand HTTP
+define('HTTPH', H_SELECT . '://' . $_SERVER['HTTP_HOST'] . PREFIX);
 //useful links
 define('H_CSS', HTTPH . 'design/css/');
 define('H_FNT', HTTPH . 'design/fnt/');
