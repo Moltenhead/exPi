@@ -2,6 +2,7 @@
 <meta rel="canonical" href="">
 
 <title>exPi</title>
+<link rel="icon" type="image/png" href="<?php echo objPath('img', 'bitmap/exPi_logo_favicon.png') ?>" />
 
 <meta name="description" content="exPi" />
 
