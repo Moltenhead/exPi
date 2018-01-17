@@ -88,7 +88,8 @@
   transform: rotate(0);
 }
 
-/* ---------------- PROFILE ---------------- */
-#profile {
-
+/* ---------------- CONNECT NAV ---------------- */
+#connect_nav > a:nth-child(1)
+{
+  margin-right: .5em;
 }

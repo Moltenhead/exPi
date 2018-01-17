@@ -23,8 +23,10 @@
       <img class="micro_picto avatar" src="" alt="">
     </a>
     <?php } else { ?>
-      <a href="">s'enregistrer</a>
-      <a href="">se connecter</a>
+      <div id="connect_nav">
+        <a href="">s'enregistrer</a>
+        <a href="">se connecter</a>
+      </div>
     <?php } ?>
   </div>
 </div>
