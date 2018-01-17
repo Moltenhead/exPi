@@ -13,6 +13,6 @@ if (isset($page)) {
   }
 
 } else {
-  include_once(objPath('pages', 'home.php'));
+  include_once(objPath('page', 'home.php'));
 }
 ?>
