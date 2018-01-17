@@ -12,8 +12,14 @@ $access_type_opt = array (
   'FNT',
   'IMG',
   'VID',
-  'JS'
+  'JS',
+  'PAGE'
 );
+
+/* -------------------- PAGINATION ---------------------*/
+if (isset($_GET['page'])) {
+  public $page = htmlspecialchars($_GET['page']);
+}
 
 /* -------------------- ACTIVE FILE PATHS ---------------------*/
 define('PHP_SELF', htmlspecialchars($_SERVER['PHP_SELF']));
@@ -33,6 +39,7 @@ define('H_FNT', HTTPH . 'design/fnt/');
 define('H_IMG', HTTPH . 'design/img/');
 define('H_VID', HTTPH . 'design/vid/');
 define('H_JS', HTTPH . 'lib/js/');
+define('H_PAGE', HTTPH . 'pages/');
 
 /* -------------------- FORMATING ---------------------*/
 define('STYLE_EXT', $style_ext);
