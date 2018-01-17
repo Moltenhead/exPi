@@ -21,13 +21,6 @@ define('URI', htmlspecialchars($_SERVER['REQUEST_URI']));
 
 /* ------------------------- ROOTS -------------------------*/
 define('ROOT', htmlspecialchars($_SERVER['DOCUMENT_ROOT']));
-//auto prefixing
-(preg_match('#/ex[pP]{1}i/#', PHP_SELF)) ?
-  define(
-    'PREFIX',
-    substr(PHP_SELF, 0 , stripos(PHP_SELF, '/exPi/') + 6)
-  ) :
-  define('PREFIX', '');
 //useful roots
 define('STRC_ROOT', ROOT . PREFIX . '/design/strc/');
 

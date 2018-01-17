@@ -1,5 +1,12 @@
 <?php
-  require_once(htmlspecialchars($_SERVER['DOCUMENT_ROOT']) . '/expi/design/strc/globals.php');
+  //url auto-prefixing
+  (preg_match('#/ex[pP]{1}i/#', $_SERVER['PHP_SELF'])) ?
+    define(
+      'PREFIX',
+      substr($_SERVER['PHP_SELF'], 0 , stripos($_SERVER['PHP_SELF'], '/exPi/') + 6)
+    ) :
+    define('PREFIX', ''); echo PREFIX;
+  require_once(htmlspecialchars($_SERVER['DOCUMENT_ROOT']) . PREFIX . 'design/strc/globals.php');
   require_once(objPath('strc', 'db_connexion.php'));
 ?>
 
