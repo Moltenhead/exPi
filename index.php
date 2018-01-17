@@ -5,7 +5,7 @@
       'PREFIX',
       substr($_SERVER['PHP_SELF'], 0 , stripos($_SERVER['PHP_SELF'], '/exPi/') + 6)
     ) :
-    define('PREFIX', ''); echo PREFIX;
+    define('PREFIX', '');
   require_once(htmlspecialchars($_SERVER['DOCUMENT_ROOT']) . PREFIX . 'design/strc/globals.php');
   require_once(objPath('strc', 'db_connexion.php'));
 ?>
