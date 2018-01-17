@@ -15,27 +15,34 @@ $access_type_opt = array (
   'JS'
 );
 
-/* ------------------------- ROOTS -------------------------*/
-  define('ROOT', htmlspecialchars($_SERVER['DOCUMENT_ROOT']));
-//useful roots
-  define('STRC_ROOT', ROOT . '/expi/design/strc/');
-
-/* ------------------------- LINKS -------------------------*/
-  define('H_SELECT', $protocole_select);
-  define('HTTPH', H_SELECT . '://' . $_SERVER['HTTP_HOST'] .'/expi'); // TODO: suppr "/wole" quand HTTP
-//useful links
-  define('H_CSS', HTTPH . '/design/css/');
-  define('H_FNT', HTTPH . '/design/fnt/');
-  define('H_IMG', HTTPH . '/design/img/');
-  define('H_VID', HTTPH . '/design/vid/');
-  define('H_JS', HTTPH . '/lib/js/');
-
 /* -------------------- ACTIVE FILE PATHS ---------------------*/
 define('PHP_SELF', htmlspecialchars($_SERVER['PHP_SELF']));
 define('URI', htmlspecialchars($_SERVER['REQUEST_URI']));
 
+/* ------------------------- ROOTS -------------------------*/
+define('ROOT', htmlspecialchars($_SERVER['DOCUMENT_ROOT']));
+//auto prefixing
+(preg_match('#/ex[pP]{1}i/#', PHP_SELF)) ?
+  define(
+    'PREFIX',
+    substr(PHP_SELF, 0 , stripos(PHP_SELF, '/exPi/') + 6)
+  ) :
+  define('PREFIX', '');
+//useful roots
+define('STRC_ROOT', ROOT . PREFIX . '/design/strc/');
+
+/* ------------------------- LINKS -------------------------*/
+define('H_SELECT', $protocole_select);
+define('HTTPH', H_SELECT . '://' . $_SERVER['HTTP_HOST'] . PREFIX); // TODO: suppr "/wole" quand HTTP
+//useful links
+define('H_CSS', HTTPH . 'design/css/');
+define('H_FNT', HTTPH . 'design/fnt/');
+define('H_IMG', HTTPH . 'design/img/');
+define('H_VID', HTTPH . 'design/vid/');
+define('H_JS', HTTPH . 'lib/js/');
+
 /* -------------------- FORMATING ---------------------*/
-  define('STYLE_EXT', $style_ext);
+define('STYLE_EXT', $style_ext);
 
 /* -------------------- ACTIVE FILE NAMES ---------------------*/
 $a__name = substr(PHP_SELF, strrpos(PHP_SELF, '/') + 1, strlen(PHP_SELF) - strrpos(PHP_SELF, '/'));
