@@ -15,10 +15,15 @@ $access_type_opt = array (
   'JS',
   'PAGE'
 );
+$root_opt = array (
+  'STRC',
+  'PAGE'
+);
 
 /* -------------------- PAGINATION ---------------------*/
+$page;
 if (isset($_GET['page'])) {
-  public $page = htmlspecialchars($_GET['page']);
+  $page = htmlspecialchars($_GET['page']);
 }
 
 /* -------------------- ACTIVE FILE PATHS ---------------------*/
@@ -29,6 +34,7 @@ define('URI', htmlspecialchars($_SERVER['REQUEST_URI']));
 define('ROOT', htmlspecialchars($_SERVER['DOCUMENT_ROOT']));
 //useful roots
 define('STRC_ROOT', ROOT . PREFIX . '/design/strc/');
+define('PAGE_ROOT', ROOT . PREFIX . '/pages/');
 
 /* ------------------------- LINKS -------------------------*/
 define('H_SELECT', $protocole_select);
@@ -39,7 +45,6 @@ define('H_FNT', HTTPH . 'design/fnt/');
 define('H_IMG', HTTPH . 'design/img/');
 define('H_VID', HTTPH . 'design/vid/');
 define('H_JS', HTTPH . 'lib/js/');
-define('H_PAGE', HTTPH . 'pages/');
 
 /* -------------------- FORMATING ---------------------*/
 define('STYLE_EXT', $style_ext);
@@ -54,7 +59,7 @@ define('CSSELF', 'css_' . $a__shortname);
 /*OBJECT PATH GENERATOR*/
 function objPath($access_type, $object_name)
 {
-  global $access_type_opt;
+  global $access_type_opt, $root_opt;
 
   //option list string, used in $access_type missmatch cases
   $opt_count = count($access_type_opt) - 1;
@@ -71,7 +76,7 @@ function objPath($access_type, $object_name)
     if (gettype($access_type) === 'string') {
       if (in_array(strtoupper($access_type), $access_type_opt)) {
         //ternary operator
-        return (strtoupper($access_type) !== 'STRC') ?
+        return (!in_array(strtoupper($access_type), $root_opt)) ?
           constant('H_' . strtoupper($access_type)) . $object_name :
           constant(strtoupper($access_type) . '_ROOT') . $object_name;
           //ternary end
