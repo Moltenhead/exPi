@@ -14,7 +14,7 @@
 }
 .spaced { justify-content: space-around; }
 .stretched { justify-content: space-between; }
-.v_align
+.aligned
 {
   -ms-align-items: center;
   align-items: center;
@@ -22,7 +22,17 @@
 
 .search_bar input[type="text"] { margin-right:10px; }
 
-.link_box a { padding: 5px .5em; }
+.link_box > a
+{
+  padding: 0 5px;
+  margin-right: .5em;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+.link_box > a:last-child
+{
+  margin-right: 0;
+}
 
 .micro_picto
 {
@@ -30,6 +40,11 @@
   height: 40px;
 
   display: block;
+}
+.micro_picto > svg
+{
+  width: 100%;
+  height: 100%;
 }
 
 .avatar { border-radius: 50%; }
@@ -63,6 +78,12 @@
 .logo.no_depth > svg > #layer6
 {
   display: none;
+}
+
+.picto > svg
+{
+  width: 50px;
+  height: 50px;
 }
 
 #background_sticker
