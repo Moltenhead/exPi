@@ -25,7 +25,8 @@
 .link_box > a
 {
   padding: 0 5px;
-  margin-right: .5em;
+  margin-right: 5px;
+
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
 }
