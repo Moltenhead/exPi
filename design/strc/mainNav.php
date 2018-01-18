@@ -8,10 +8,6 @@
       <input type="submit" value="et je trouve !">
     </form>
     <nav class="link_box flex_row spaced">
-      <a href="">August</a>
-      <a href="">Bertholt</a>
-      <a href="">Camille</a>
-      <a href="">Diana</a>
     </nav>
   </div>
   <div id="account_nav" class="connection_box flex_row spaced v_align">
@@ -24,8 +20,7 @@
     </a>
     <?php } else { ?>
       <div id="connect_nav">
-        <a href="">s'enregistrer</a>
-        <a href="">se connecter</a>
+        <a href="">participer</a>
       </div>
     <?php } ?>
   </div>
