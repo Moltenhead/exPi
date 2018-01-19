@@ -23,7 +23,13 @@
 /*-----------*/
 
 /*GLOBAL NAVIGATION*/
-.search_bar input[type="text"] { margin-right:10px; }
+.search_bar *
+{
+  border-right: 1px solid #dcdcdc;
+  border-radius: 0;
+}
+.search_bar *:first-child { border-radius: 2px 0 0 2px; }
+.search_bar *:last-child { border-radius: 0 2px 2px 0; }
 
 form > input[type="text"], form > input[type="submit"]
 {
@@ -40,6 +46,75 @@ form > input[type="text"], form > input[type="submit"]
   box-sizing: content-box;
 }
 .link_box > a:last-child { margin-right: 0; }
+/*-----------*/
+
+/*SELECT HACKING*/
+/*beaucoup pour pas grand chose ; hack pour éditer le bouton des select
+* merci à Eric Rasch pour l'idée de base pour ce hack :
+* https://codepen.io/ericrasch/pen/zjDBx
+*/
+.select_wrapper:before
+{
+  content: "";
+  width: 32px;
+  height:28px;
+
+  border-left: 1px solid #eaeaea;
+
+  position: absolute;
+  top: 50%;
+  right: 0;
+  z-index: 5;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.select_wrapper
+{
+  width: 240px;
+  background-color: white;
+
+  position: relative;
+
+  overflow: hidden;
+}
+.select_wrapper.rounded { border-radius: 2px; }
+.select_wrapper:after
+{
+  content: "";
+  width: 32px;
+  height:28px;
+  background: url("../img/svg/menu_arrow.svg") no-repeat 50% 50%;
+  -webkit-background-size: 12px 12px;
+  background-size: 12px 12px;
+
+  position: absolute;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translateY(-50%) rotate(90deg);
+  -ms-transform: translateY(-50%) rotate(90deg);
+  transform: translateY(-50%) rotate(90deg);
+
+  -webkit-transition: transform .08s;
+  -o-transition: transform .08s;
+  transition: transform .08s;
+}
+.select_wrapper.active:after
+{
+  -webkit-transform: translateY(-50%) rotate(0deg);
+  -ms-transform: translateY(-50%) rotate(0deg);
+  transform: translateY(-50%) rotate(0deg);
+}
+.select_wrapper * { cursor: pointer; }
+
+.select_wrapper > select
+{
+  background-color: transparent;
+  width: 268px; /*+28px*/
+
+  position: relative;
+  z-index: 5;
+}
 /*-----------*/
 
 /*PICTOS AND ICONS*/

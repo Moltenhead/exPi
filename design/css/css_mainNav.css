@@ -48,6 +48,10 @@
   margin-left: 15px;
 }
 
+#global_nav > form > .select_wrapper { width: 130px; }
+#global_nav > form > .select_wrapper > select { width: 158px; }
+#global_nav > form > .select_wrapper > select > option { width: 130px; }
+
 #global_nav > .link_box { margin-left: .5em; }
 
 #global_nav > .link_box > a > svg > g > path

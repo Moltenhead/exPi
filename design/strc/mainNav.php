@@ -5,24 +5,17 @@
   <div id="global_nav" class="flex_row spaced aligned">
     <form class="search_bar flex_row spaced" action="" method="">
       <input type="text" name="search" placeholder="Envie de ...">
-      <div class="select_wrapper activable">
+      <div class="select_wrapper activable"> <!-- TODO: besoin d'une foncton js pour "focusable" - bug avec activable -->
         <select name="sens_filter">
-          <option value="" class="micro_picto"><img src=<?php echo '"' . objPath('img', 'svg/picto_eye.svg') . '"'; ?>></option>
-          <option value="" class="micro_picto"><?php echo file_get_contents(objPath('img', 'svg/picto_eye.svg')) ?></option>
-          <option value="" class="micro_picto"><?php echo file_get_contents(objPath('img', 'svg/picto_eye.svg')) ?></option>
-          <option value="" class="micro_picto"><?php echo file_get_contents(objPath('img', 'svg/picto_eye.svg')) ?></option>
-          <option value="" class="micro_picto"><?php echo file_get_contents(objPath('img', 'svg/picto_eye.svg')) ?></option>
+          <option value="" class="micro_picto">voir</option>
+          <option value="" class="micro_picto">écouter</option>
+          <option value="" class="micro_picto">goûter</option>
+          <option value="" class="micro_picto">rencontrer</option>
+          <option value="" class="micro_picto">sortir</option>
         </select>
       </div>
       <input type="submit" value="et je trouve !">
     </form>
-    <nav class="link_box flex_row spaced">
-      <a href="" class="micro_picto" title="voir"><?php echo file_get_contents(objPath('img', 'svg/picto_eye.svg')) ?></a>
-      <a href="" class="micro_picto" title="écouter"><?php echo file_get_contents(objPath('img', 'svg/picto_eye.svg')) ?></a>
-      <a href="" class="micro_picto" title="goûter"><?php echo file_get_contents(objPath('img', 'svg/picto_eye.svg')) ?></a>
-      <a href="" class="micro_picto" title="rencontrer"><?php echo file_get_contents(objPath('img', 'svg/picto_eye.svg')) ?></a>
-      <a href="" class="micro_picto" title="sortir"><?php echo file_get_contents(objPath('img', 'svg/picto_eye.svg')) ?></a>
-    </nav>
   </div>
   <div id="account_nav" class="connection_box flex_row spaced aligned">
     <?php if (session_status() !== PHP_SESSION_NONE) { ?>
