@@ -5,13 +5,15 @@
   <div id="global_nav" class="flex_row spaced aligned">
     <form class="search_bar flex_row spaced" action="" method="">
       <input type="text" name="search" placeholder="Envie de ...">
-      <select name="sens_filter">
-        <option value="" class="micro_picto"><img src=<?php echo '"' . objPath('img', 'svg/picto_eye.svg') . '"'; ?>></option>
-        <option value="" class="micro_picto"><?php echo file_get_contents(objPath('img', 'svg/picto_eye.svg')) ?></option>
-        <option value="" class="micro_picto"><?php echo file_get_contents(objPath('img', 'svg/picto_eye.svg')) ?></option>
-        <option value="" class="micro_picto"><?php echo file_get_contents(objPath('img', 'svg/picto_eye.svg')) ?></option>
-        <option value="" class="micro_picto"><?php echo file_get_contents(objPath('img', 'svg/picto_eye.svg')) ?></option>
-      </select>
+      <div class="select_wrapper">
+        <select name="sens_filter">
+          <option value="" class="micro_picto"><img src=<?php echo '"' . objPath('img', 'svg/picto_eye.svg') . '"'; ?>></option>
+          <option value="" class="micro_picto"><?php echo file_get_contents(objPath('img', 'svg/picto_eye.svg')) ?></option>
+          <option value="" class="micro_picto"><?php echo file_get_contents(objPath('img', 'svg/picto_eye.svg')) ?></option>
+          <option value="" class="micro_picto"><?php echo file_get_contents(objPath('img', 'svg/picto_eye.svg')) ?></option>
+          <option value="" class="micro_picto"><?php echo file_get_contents(objPath('img', 'svg/picto_eye.svg')) ?></option>
+        </select>
+      </div>
       <input type="submit" value="et je trouve !">
     </form>
     <nav class="link_box flex_row spaced">

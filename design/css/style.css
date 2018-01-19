@@ -45,6 +45,31 @@ input, select
   padding: 5px;
 }
 input[type="submit"] { cursor:pointer; }
+
+/*merci à Eric Rasch pour ce hack : https://codepen.io/ericrasch/pen/zjDBx*/
+.select_wrapper
+{
+  overflow: hidden;
+  width: 240px;
+}
+.select_wrapper > select
+{
+  background-color: white;
+  width: 268px; /*+28px*/
+
+  position: relative;
+}
+.select_wrapper > select:after
+{
+  content: "";
+  background-image: url("../img/svg/menu_arrow.svg");
+  position: absolute;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
 
 /*lists*/
 ul { list-style-type: none; }
