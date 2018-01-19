@@ -48,9 +48,13 @@
   margin-left: 15px;
 }
 
-#global_nav > form > .select_wrapper { width: 130px; }
-#global_nav > form > .select_wrapper > select { width: 158px; }
-#global_nav > form > .select_wrapper > select > option { width: 130px; }
+#global_nav > form > .select_wrapper { width: 135px; }
+#global_nav > form > .select_wrapper > select
+{
+  width: 163px;/*+28px*/
+  font-weight: bold;
+  text-transform: capitalize;
+}
 
 #global_nav > .link_box { margin-left: .5em; }
 

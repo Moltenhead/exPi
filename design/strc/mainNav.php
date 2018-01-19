@@ -7,11 +7,12 @@
       <input type="text" name="search" placeholder="Envie de ...">
       <div class="select_wrapper activable"> <!-- TODO: besoin d'une foncton js pour "focusable" - bug avec activable -->
         <select name="sens_filter">
-          <option value="" class="micro_picto">voir</option>
-          <option value="" class="micro_picto">écouter</option>
-          <option value="" class="micro_picto">goûter</option>
-          <option value="" class="micro_picto">rencontrer</option>
-          <option value="" class="micro_picto">sortir</option>
+          <option value="" selected>Tout</option>
+          <option value="" class="micro_picto">Voir</option>
+          <option value="" class="micro_picto">&Eacute;couter</option>
+          <option value="" class="micro_picto">Goûter</option>
+          <option value="" class="micro_picto">Rencontrer</option>
+          <option value="" class="micro_picto">Sortir</option>
         </select>
       </div>
       <input type="submit" value="et je trouve !">
