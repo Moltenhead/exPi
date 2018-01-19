@@ -1,3 +1,4 @@
+/*FLEX STYLING*/
 .flex_row
 {
   display: flex;
@@ -19,7 +20,9 @@
   -ms-align-items: center;
   align-items: center;
 }
+/*-----------*/
 
+/*GLOBAL NAVIGATION*/
 .search_bar input[type="text"] { margin-right:10px; }
 
 .link_box > a
@@ -30,11 +33,27 @@
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
 }
-.link_box > a:last-child
-{
-  margin-right: 0;
-}
+.link_box > a:last-child { margin-right: 0; }
+/*-----------*/
 
+/*PICTOS AND ICONS*/
+.logo > svg
+{
+  max-width: 200px;
+  max-height: 200px;
+}
+.logo.big_logo > svg
+{
+  max-width: 450px;
+  max-height: 450px;
+}
+.logo.no_depth > svg > #layer6 { display: none; }
+
+.picto > svg
+{
+  width: 50px;
+  height: 50px;
+}
 .micro_picto
 {
   width: 40px;
@@ -49,44 +68,9 @@
 }
 
 .avatar { border-radius: 50%; }
-
-.horizontal_list
-{
-  display: flex;
-  -webkit-flex-flow: row wrap;
-  -ms-flex-flow: row wrap;
-  flex-flow: row wrap;
-}
-
-.part_horiz_cover
-{
-  width: 50%;
-  height: 100%;
-}
+/*-----------*/
 
-.logo > svg
-{
-  max-width: 200px;
-  max-height: 200px;
-}
-
-.logo.big_logo > svg
-{
-  max-width: 450px;
-  max-height: 450px;
-}
-
-.logo.no_depth > svg > #layer6
-{
-  display: none;
-}
-
-.picto > svg
-{
-  width: 50px;
-  height: 50px;
-}
-
+/*GLOBAL DESIGN*/
 #background_sticker
 {
   position: fixed;
@@ -100,3 +84,4 @@
   -o-filter: grayscale(85%) blur(2px);
   filter: grayscale(85%) blur(2px);
 }
+/*-----------*/

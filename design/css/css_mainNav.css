@@ -49,12 +49,14 @@
   margin-left: 15px;
 }
 
+/*FORMULAIRE*/
 #global_nav form input[type="text"], #main_nav form input[type="submit"]
 {
   height: 32px;
   color: black;
   font-weight: bold;
 }
+/*-----------*/
 
 #global_nav > .link_box { margin-left: .5em; }
 
