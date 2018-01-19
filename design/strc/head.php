@@ -7,7 +7,7 @@
 <meta name="description" content="exPi" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+
 <?php
   styLink(array (
     'style',
@@ -17,7 +17,27 @@
     'css_mainNav',
     'css_footer',
     htmlspecialchars(CSSELF)
-  ));
+    )
+  );
+
+  $handle = curl_init("https://code.jquery.com/jquery-3.2.1.min.js");
+  curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
+
+  /* Get the HTML or whatever is linked in $url. */
+  $response = curl_exec($handle);
+
+  /* Check for 404 (file not found). */
+  $httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
+  if($httpCode == 404) {
+    scriptLink('jquery-3.2.1.min');
+  } else {
+    echo '<script
+    			  src="https://code.jquery.com/jquery-3.2.1.min.js"
+    			  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    			  crossorigin="anonymous"></script>';
+  }
+
+  curl_close($handle);
 
   scriptLink('main');
 ?>
