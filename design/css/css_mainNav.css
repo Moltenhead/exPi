@@ -58,6 +58,11 @@
 
 #global_nav > .link_box { margin-left: .5em; }
 
+#global_nav > .link_box > a > svg > g > path
+{
+  fill: #ccffff;
+}
+
 /* ---------------- ACCOUNT NAV ---------------- */
 #account_nav { margin-left: auto; }
 
