@@ -5,7 +5,7 @@
   <div id="global_nav" class="flex_row spaced aligned">
     <form class="search_bar flex_row spaced" action="" method="">
       <input type="text" name="search" placeholder="Envie de ...">
-      <div class="select_wrapper">
+      <div class="select_wrapper activable">
         <select name="sens_filter">
           <option value="" class="micro_picto"><img src=<?php echo '"' . objPath('img', 'svg/picto_eye.svg') . '"'; ?>></option>
           <option value="" class="micro_picto"><?php echo file_get_contents(objPath('img', 'svg/picto_eye.svg')) ?></option>
