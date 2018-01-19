@@ -25,6 +25,12 @@
 /*GLOBAL NAVIGATION*/
 .search_bar input[type="text"] { margin-right:10px; }
 
+form > input[type="text"], form > input[type="submit"]
+{
+  color: black;
+  font-weight: bold;
+}
+
 .link_box > a
 {
   padding: 0 5px;
@@ -56,8 +62,8 @@
 }
 .micro_picto
 {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
 
   display: block;
 }
