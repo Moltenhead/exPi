@@ -26,6 +26,11 @@
         include_once(objPath('strc', 'mainNav.php'));
       ?>
     </nav>
+    <nav id="second_nav" class="">
+      <?php
+        include_once(objPath('strc', 'secondNav.php'));
+      ?>
+    </nav>
 
     <div id="background_sticker" class="logo big_logo">
       <?php
