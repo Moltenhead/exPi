@@ -15,6 +15,7 @@
     'generale',
     'colorizer',
     'css_mainNav',
+    'css_secondNav',
     'css_footer',
     htmlspecialchars(CSSELF)
     )

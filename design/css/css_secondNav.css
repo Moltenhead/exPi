@@ -1,0 +1,10 @@
+#second_nav
+{
+  width: 250px;
+  height:100%;
+  padding-top: 60px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}

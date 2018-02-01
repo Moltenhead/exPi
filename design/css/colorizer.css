@@ -13,3 +13,5 @@ input[type="text"]:placeholder { color:grey; }
 }
 
 #profile_options_button svg g path { fill: white !important; }
+
+#second_nav { background-color:#ccc; }
