@@ -20,6 +20,52 @@ $root_opt = array (
   'PAGE'
 );
 
+/* -------------------- CLASSES ---------------------*/
+class Link
+{
+  private $_title;
+  private $_href;
+
+  public function init($title, $href)
+  {
+    $this->_title = $title;
+    $this->_href = $href;
+  }
+}
+
+class Menu
+{
+  private $_sections = array();
+
+  public function init_title($string)
+  {
+    push_array($this->_sections, string);
+    $this->_sections[count($this->_sections) - 1] = array();
+  }
+
+  public function push_link($index, $title, $href)
+  {
+    $new_link = new Link;
+    $new_link->init($title, $href);
+
+    if (!empty($index) OR !empty($title) OR !empty($href)) {
+      if (array_key_exists($index, $this->_sections)) {
+        push_array($this->_sections[$index], $new_link);
+      } else {
+        trigger_error(
+          'invalid index, menu title doesn\'t exist',
+          E_USER_ERROR
+        );
+      }
+    } else {
+      trigger_error(
+        'missing parameter, expecting $title, $link_title, $href',
+        E_USER_ERROR
+      );
+    }
+  }
+}
+
 /* -------------------- PAGE MANAGEMENT ---------------------*/
 $page;
 if (isset($_GET['page'])) {
