@@ -28,7 +28,7 @@
     </a>
     <?php } else { ?>
       <div id="connect_nav">
-        <a href="">participer</a>
+        <a href="">je participe</a>
       </div>
     <?php } ?>
   </div>

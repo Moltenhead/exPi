@@ -20,11 +20,22 @@ $root_opt = array (
   'PAGE'
 );
 
-/* -------------------- PAGINATION ---------------------*/
+/* -------------------- PAGE MANAGEMENT ---------------------*/
 $page;
 if (isset($_GET['page'])) {
   $page = htmlspecialchars($_GET['page']);
 }
+
+//secondMenu display filters cf: secondNav.php
+$interest_menu = [
+  'accueil',
+  'research'
+];
+
+$profile_menu = [
+  'profile'
+];
+// ------------
 
 /* -------------------- ACTIVE FILE PATHS ---------------------*/
 define('PHP_SELF', htmlspecialchars($_SERVER['PHP_SELF']));
