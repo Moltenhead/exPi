@@ -14,6 +14,7 @@
   flex-flow: column wrap;
 }
 .spaced { justify-content: space-around; }
+.centered { justify-content: center;}
 .stretched { justify-content: space-between; }
 .aligned
 {
