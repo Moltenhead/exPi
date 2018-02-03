@@ -66,12 +66,6 @@ class Menu
   }
 }
 
-/* -------------------- PAGE MANAGEMENT ---------------------*/
-$page;
-if (isset($_GET['page'])) {
-  $page = htmlspecialchars($_GET['page']);
-}
-
 //secondMenu display filters cf: secondNav.php
 $interest_menu = [
   'accueil',
