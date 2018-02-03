@@ -7,7 +7,7 @@ $que_nav_titles = $db->prepare('SELECT nav_first_section_title AS 1st_section,
                                     WHERE id = ?
                                 ');
 //links query
-$que_nav_links = $db->prepare('SELECT section_id, title, href
+$que_nav_links = $db->prepare('SELECT nav_section_id, title, class, href
                                   FROM nav_links
                                     WHERE page_id = ?
                                 ');

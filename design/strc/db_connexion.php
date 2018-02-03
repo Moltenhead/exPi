@@ -1,6 +1,6 @@
 <?php
 $db__host = 'localhost';
-$db__name = 'wole_dev';
+$db__name = 'exPi_dev';
 
 $db__user = 'root';
 $db__pw = '';
