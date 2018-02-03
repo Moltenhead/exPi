@@ -1,6 +1,10 @@
 <?php
+$allowed_pages = array(
+  'accueil',
+);
+
 if (isset($page)) {
-  if ($page !== NULL AND in_array($page, $allowed_pages)) {
+  if (!empty($page) AND in_array($page, $allowed_pages)) {
     switch ($page) {
       case 1 :
         //TODO: gestion des pages à afficher

@@ -20,7 +20,47 @@ $root_opt = array (
   'PAGE'
 );
 
+//secondMenu display filters cf: secondNav.php
+$interest_menu = [
+  'accueil',
+  'research'
+];
+
+$profile_menu = [
+  'profile'
+];
+
 /* -------------------- CLASSES ---------------------*/
+class Page
+{
+  private $_id;
+  private $_name;
+  private $_class;
+  private $_nav_sections = array();
+
+  public function init($id, $name, $class)
+  {
+    $this->_id = $id;
+    $this->_name = $name;
+    $this->_class = $class;
+  }
+
+  public function push_section($title, $class)
+  {
+    array_push($this->_nav_sections, array('title' => $title, 'class' => $class));
+  }
+
+  public function get_section($index, $select)
+  {
+    $index = $index || 0;
+    if ($select == 'title' || $select == 'class') {
+      return $this->_nav_sections[$index][$select];
+    } else {
+      return 'parameter error';
+    }
+  }
+}
+
 class Link
 {
   private $_title;
@@ -65,17 +105,6 @@ class Menu
     }
   }
 }
-
-//secondMenu display filters cf: secondNav.php
-$interest_menu = [
-  'accueil',
-  'research'
-];
-
-$profile_menu = [
-  'profile'
-];
-// ------------
 
 /* -------------------- ACTIVE FILE PATHS ---------------------*/
 define('PHP_SELF', htmlspecialchars($_SERVER['PHP_SELF']));
