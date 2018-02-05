@@ -125,7 +125,7 @@ class LinkCollection
     array_push($this->_links, $link);
   }
 
-  public function print_link($index)
+  public function print_a($index)
   {
     $full_line = '<a href="' . $_links[$index]->get('href') . '"'
     if (!empty($_links[$index]->get('class'))) {

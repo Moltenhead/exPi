@@ -9,10 +9,15 @@ $que_nav_links = $db->prepare('SELECT section_id, title, class, href
 
 //checking if there is a page_id for the active page
 if (!empty($page_inf->get('id'))) {
+  $data_nav_links = $que_na_links->fetchAll(PDO::FETCH_ASSOC);
+  $data_nav_links = $data_nav_links[0];
+
 ?>
   <h4 class="section_header"><?php echo $page_inf->get_section(0, 'title'); ?></h4>
   <ul class="link_box">
-  <?php ?>
+  <?php while () { ?>
+    <li><?php $links[0]->print_link(i); i++; ?></li>
+  <?php } ?>
   </ul>
   <?php if ($page_inf->has_mutiple()) { ?>
   <h4 class="section_header"><?php echo $page_inf->get_section(1, 'title'); ?></h4>
