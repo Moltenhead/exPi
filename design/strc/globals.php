@@ -50,6 +50,22 @@ class Page
     array_push($this->_nav_sections, array('title' => $title, 'class' => $class));
   }
 
+  public function get($select)
+  {
+    if ($select == 'id') {
+      return $this->_id;
+    } else if ($select == 'name') {
+      return $this->_name;
+    } else if ($class == 'class') {
+      return $this->_class;
+    } else {
+      trigger_error(
+        'invalid parameter, expecting \'id\' OR \'name\' OR \'class\'',
+        E_USER_ERROR
+      );
+    }
+  }
+
   public function get_section($index, $select)
   {
     $index = $index || 0;
@@ -59,50 +75,65 @@ class Page
       return 'parameter error';
     }
   }
+
+  public function has_mutiple()
+  {
+    if (count($this->_nav_sections) > 1) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
 class Link
 {
   private $_title;
   private $_href;
+  private $_class;
 
-  public function init($title, $href)
+  public function init($title, $href, $class)
   {
     $this->_title = $title;
     $this->_href = $href;
-  }
-}
-
-class Menu
-{
-  private $_sections = array();
-
-  public function init_title($string)
-  {
-    push_array($this->_sections, string);
-    $this->_sections[count($this->_sections) - 1] = array();
+    $this->_class = $class;
   }
 
-  public function push_link($index, $title, $href)
+  public function get($select)
   {
-    $new_link = new Link;
-    $new_link->init($title, $href);
+    if ($select == 'title') {
+      return $this->
+    } else if ($select == 'href') {
 
-    if (!empty($index) OR !empty($title) OR !empty($href)) {
-      if (array_key_exists($index, $this->_sections)) {
-        push_array($this->_sections[$index], $new_link);
-      } else {
-        trigger_error(
-          'invalid index, menu title doesn\'t exist',
-          E_USER_ERROR
-        );
-      }
+    } else if ($select == 'class') {
+
     } else {
       trigger_error(
-        'missing parameter, expecting $title, $link_title, $href',
+        'invalid parameter, expecting \'title\' OR \'href\' OR \'class\'',
         E_USER_ERROR
       );
     }
+  }
+}
+
+class LinkCollection
+{
+  private $_links;
+
+  public function push($link)
+  {
+    array_push($this->_links, $link);
+  }
+
+  public function print_link($index)
+  {
+    $full_line = '<a href="' . $_links[$index]->get('href') . '"'
+    if (!empty($_links[$index]->get('class'))) {
+      $full_line = $full_line . ' class="' . $_links[$index]->get('class') . '"';
+    }
+    $full_line = $full_line . '>' . $_links[$index]->get('title') . '</a>';
+
+    echo $full_line;
   }
 }
 
