@@ -102,7 +102,7 @@ class Link
   public function get($select)
   {
     if ($select == 'title') {
-      return $this->
+
     } else if ($select == 'href') {
 
     } else if ($select == 'class') {
@@ -127,10 +127,11 @@ class LinkCollection
 
   public function print_a($index)
   {
-    $full_line = '<a href="' . $_links[$index]->get('href') . '"'
+    $full_line = '<a href="' . $_links[$index]->get('href') . '"';
     if (!empty($_links[$index]->get('class'))) {
       $full_line = $full_line . ' class="' . $_links[$index]->get('class') . '"';
     }
+
     $full_line = $full_line . '>' . $_links[$index]->get('title') . '</a>';
 
     echo $full_line;

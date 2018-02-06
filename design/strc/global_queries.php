@@ -1,7 +1,7 @@
 <?php
 /* -------------------- PAGE MANAGEMENT ---------------------*/
 $page;
-if (isset($_GET['page'])) {
+if (isset($_GET['page']) AND $_GET['page'] != null) {
   $page = escape_string($_GET['page']);
 } else {
   $page = 'accueil';

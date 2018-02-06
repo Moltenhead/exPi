@@ -15,9 +15,9 @@ if (!empty($page_inf->get('id'))) {
 ?>
   <h4 class="section_header"><?php echo $page_inf->get_section(0, 'title'); ?></h4>
   <ul class="link_box">
-  <?php while () { ?>
-    <li><?php $links[0]->print_link(i); i++; ?></li>
-  <?php } ?>
+  <?php// while () { ?>
+    <li><?php// $links[0]->print_link(i); i++; ?></li>
+  <?php// } ?>
   </ul>
   <?php if ($page_inf->has_mutiple()) { ?>
   <h4 class="section_header"><?php echo $page_inf->get_section(1, 'title'); ?></h4>
