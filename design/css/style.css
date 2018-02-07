@@ -11,8 +11,14 @@
  }
 
 /*min page size 100% x 100% window size*/
-html { width:100vw; max-width:100%; }
-body { width:100%; min-height:100vh; }
+html { width: 100vw; max-width: 100%; }
+body { width: 100%; min-height: 100vh; }
+
+main
+{
+  width: 100%;
+  padding-top: 60px;
+}
 
 /*boxes to block*/
 div, section, aside, button, i { display:block; }

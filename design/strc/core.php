@@ -3,8 +3,8 @@ $allowed_pages = array(
   'accueil',
 );
 
-if (isset($page)) {
-  if (!empty($page) AND in_array($page, $allowed_pages)) {
+if (isset($page_id)) {
+  if (!empty($page_id) AND in_array($allowed_pages, $page_id)) {
     switch ($page) {
       case 1 :
         include_once(objPath('page', 'home.php'));
