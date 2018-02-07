@@ -15,3 +15,5 @@ input[type="text"]:placeholder { color:grey; }
 #profile_options_button svg g path { fill: white !important; }
 
 #second_nav { background-color: #ccff99; }
+
+#second_nav > button.picto > svg path { fill: #ff9933; }

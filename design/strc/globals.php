@@ -37,12 +37,14 @@ class Page
   private $_name;
   private $_class;
   private $_nav_sections = array();
+  private $_nav_description;
 
-  public function init($id, $name, $class)
+  public function init($id, $name, $class, $nav_descr)
   {
     $this->_id = $id;
     $this->_name = $name;
     $this->_class = $class;
+    $this->_nav_description = $nav_descr;
   }
 
   public function push_section($title, $class)
@@ -56,8 +58,10 @@ class Page
       return $this->_id;
     } else if ($select == 'name') {
       return $this->_name;
-    } else if ($class == 'class') {
+    } else if ($select == 'class') {
       return $this->_class;
+    } else if ($select == 'nav_descr') {
+      return $this->_nav_description;
     } else {
       trigger_error(
         'invalid parameter, expecting \'id\' OR \'name\' OR \'class\'',

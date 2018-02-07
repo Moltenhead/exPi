@@ -1,4 +1,4 @@
-<div class="main_wrapper flex_column centered aligned">
+<div class="main_wrapper flex_column spaced aligned">
 <?php //TODO: insert needed tables for the following code to work
 
 // checking if there is a page_id for the active page
@@ -46,17 +46,21 @@ if (!empty($page_inf->get('id'))) {
     }
     $que_nav_links->closeCursor();
 ?>
-  <h4 class="section_header"><?php echo $page_inf->get_section(0, 'title'); ?></h4>
-  <ul class="link_box">
+  <div class="nav_section">
+    <h4 class="section_header"><?php echo $page_inf->get_section(0, 'title'); ?></h4>
+    <ul class="link_box">
     <?php for ($i = 0; $i < count($l_collections[0]); $i++) { ?>
-    <li><?php @$l_collections[0]->print_a($i); // @ = stfu error operator ?></li>
+      <li><?php @$l_collections[0]->print_a($i); // @ = stfu error operator ?></li>
     <?php } ?>
-  </ul>
+    </ul>
+  </div>
     <?php if ($page_inf->has_mutiple()) { ?>
-  <h4 class="section_header"><?php echo $page_inf->get_section(1, 'title'); ?></h4>
-  <ul class="link_box">
+  <div class="nav_section">
+    <h4 class="section_header"><?php echo $page_inf->get_section(1, 'title'); ?></h4>
+    <ul class="link_box">
     <?php ?>
-  </ul>
+    </ul>
+  </div>
     <?php }
   } else { ?>
   <h4 class="section_header">No links</h4>
@@ -65,6 +69,6 @@ if (!empty($page_inf->get('id'))) {
   <h4 class="section_header">No page index</h4>
 <?php } ?>
 </div>
-<button class="picto micro_picto">
+<button class="picto micro_picto activable parent_transmissive" title="<?php echo $page_inf->get('nav_descr') ?>">
   <?php echo file_get_contents(objPath('img', 'svg/arrow.svg')); ?>
 </button>

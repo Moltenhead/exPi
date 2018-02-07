@@ -13,7 +13,8 @@ $que_page = $db->query('SELECT id,
                                first_nav_title AS first_title,
                                first_nav_class AS first_class,
                                second_nav_title AS second_title,
-                               second_nav_class AS second_class
+                               second_nav_class AS second_class,
+                               nav_description
                           FROM pages
                             WHERE class = \'' . $page . '\'');
 
@@ -25,7 +26,8 @@ $page_inf = new Page;
 $page_inf->init(
   $data_page['id'],
   $data_page['title'],
-  $data_page['class']
+  $data_page['class'],
+  $data_page['nav_description']
 );
 $page_inf->push_section($data_page['first_title'], $data_page['first_class']);
 $page_inf->push_section($data_page['second_title'], $data_page['second_class']);
