@@ -102,11 +102,11 @@ class Link
   public function get($select)
   {
     if ($select == 'title') {
-
+      return $this->_title;
     } else if ($select == 'href') {
-
+      return $this->_href;
     } else if ($select == 'class') {
-
+      return $this->_class;
     } else {
       trigger_error(
         'invalid parameter, expecting \'title\' OR \'href\' OR \'class\'',
@@ -116,23 +116,25 @@ class Link
   }
 }
 
-class LinkCollection
+class LinksCollection
 {
-  private $_links;
+  private $_links = array();
 
   public function push($link)
   {
     array_push($this->_links, $link);
   }
 
-  public function print_a($index)
+  public function print_a($index, $target)
   {
-    $full_line = '<a href="' . $_links[$index]->get('href') . '"';
-    if (!empty($_links[$index]->get('class'))) {
-      $full_line = $full_line . ' class="' . $_links[$index]->get('class') . '"';
+    $index = $index || 0;
+    $target = $target || 0;
+    $full_line = '<a href="' . $this->_links[$index]->get('href') . '"';
+    if (!empty($this->_links[$index]->get('class'))) {
+      $full_line = $full_line . ' class="' . $this->_links[$index]->get('class') . '"';
     }
 
-    $full_line = $full_line . '>' . $_links[$index]->get('title') . '</a>';
+    $full_line = $full_line . ' target="_' . $target . '">' . $this->_links[$index]->get('title') . '</a>';
 
     echo $full_line;
   }
