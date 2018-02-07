@@ -128,7 +128,7 @@ class LinksCollection
   public function print_a($index, $target)
   {
     $index = $index || 0;
-    $target = $target || 0;
+    $target = $target || '_blank';
     $full_line = '<a href="' . $this->_links[$index]->get('href') . '"';
     if (!empty($this->_links[$index]->get('class'))) {
       $full_line = $full_line . ' class="' . $this->_links[$index]->get('class') . '"';
