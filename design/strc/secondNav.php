@@ -9,8 +9,10 @@ $que_nav_links = $db->prepare('SELECT section_id, title, class, href
 
 //checking if there is a page_id for the active page
 if (!empty($page_inf->get('id'))) {
-  $data_nav_links = $que_na_links->fetchAll(PDO::FETCH_ASSOC);
-  $data_nav_links = $data_nav_links[0];
+  $data_nav_links = $que_nav_links->fetchAll(PDO::FETCH_ASSOC);
+  if (count($data_nav_links) >= 1) {
+    $data_nav_links = $data_nav_links[0];
+  }
 
 ?>
   <h4 class="section_header"><?php echo $page_inf->get_section(0, 'title'); ?></h4>
