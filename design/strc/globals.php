@@ -14,12 +14,14 @@ $access_type_opt = array (
   'VID',
   'JS',
   'PAGE',
-  'OBJ'
+  'OBJ',
+  'MOD'
 );
 $root_opt = array (
   'STRC',
   'PAGE',
-  'OBJ'
+  'OBJ',
+  'MOD'
 );
 
 //secondMenu display filters cf: secondNav.php
@@ -156,6 +158,7 @@ define('ROOT', htmlspecialchars($_SERVER['DOCUMENT_ROOT']));
 define('STRC_ROOT', ROOT . PREFIX . '/design/strc/');
 define('PAGE_ROOT', ROOT . PREFIX . '/pages/');
 define('OBJ_ROOT', ROOT . PREFIX . '/lib/obj/');
+define('MOD_ROOT', ROOT . PREFIX . '/design/mod/');
 
 /* ------------------------- LINKS -------------------------*/
 define('H_SELECT', $protocole_select);
