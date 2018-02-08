@@ -20,6 +20,10 @@ main
   padding-top: 60px;
 
   float: right;
+
+  -webkit-transition: width .15s ease-out;
+  -o-transition: width .15s ease-out;
+  transition: width .15s ease-out;
 }
 
 /*boxes to block*/
