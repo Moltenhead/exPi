@@ -21,11 +21,11 @@ class Slide
   public function get($select)
   {
     switch ($select) {
+      case 'id' :
+        return $this->_id;
+        break;
       case 'title' :
         return $this->_title;
-        break;
-      case 'href' :
-        return $this->_href;
         break;
       case 'img' :
         return $this->_img;
@@ -41,5 +41,31 @@ class Slide
         break;
     }
   }
+
+  public function print()
+  {
+    echo '<div class="slide flex_row">
+      <figure class="slide_representation">
+        <a href="' . $this->_href . '">
+          <figcaption>' . $this->_title . '</figcaption>
+        </a>
+        <img src="' . $this->_img . '" alt="' . $this->_alt . '">
+      </figure>
+      <div class="slide_informations">
+        <article class="slide_description">
+          ' . $this->_short_description . '
+        </article>
+        <nav class="flex_row">
+          <a href="' . objPath('mod', '') . '">&Ccedil;a m\'intéresse</a>
+          <a href="' . objPath('page', 'xp_display.php') . '?xp=' . $this->_id . '">En savoir +</a>
+        </nav>
+        <mark>
+          <strong>&Eacute;dité le </strong>
+          <span>' . $this->_date_update . '</span>
+        </mark>
+      </div>
+    </div>';
+  }
+  //TODO: replace "Ca m'intéresse" by a button with ajax db treatments on click
 }
 ?>
