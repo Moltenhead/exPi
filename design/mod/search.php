@@ -4,10 +4,10 @@ if (isset($_POST['search']) AND !empty($_POST['search'])) {
   $que_skel = 'SELECT * FROM experiences e';
   if (isset($_POST['type']) AND !empty($_POST['type'])) {
     $que_skel .= ' INNER JOIN types t ON e.type_id = t.id WHERE MATCH(t.id)' .
-      ' AGAINST("' . escaped_string($_POST['type']) . ') AND")';
+      ' AGAINST(' . $db->quote(htmlspecialchars($_POST['type'])) . ') AND';
   }
-  $que_skel .= ' MATCH() AGAINST("' . escaped_string($_POST['search']) .
-    ' LIMIT 3")';
+  $que_skel .= ' MATCH() AGAINST(' . $db->quote(htmlspecialchars($_POST['search'])) .
+    ') LIMIT 3';
 
   $que_xp = $db->query($que_skel);
 

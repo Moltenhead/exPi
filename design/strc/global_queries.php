@@ -1,8 +1,8 @@
 <?php
 /* -------------------- PAGE MANAGEMENT ---------------------*/
 $page;
-if (isset($_GET['page']) AND $_GET['page'] != null) {
-  $page = escape_string($_GET['page']);
+if (isset($_GET['page']) && $_GET['page'] != null) {
+  $page = $db->quote(htmlspecialchars($_GET['page']));
 } else {
   $page = 'accueil';
 }
@@ -16,7 +16,7 @@ $que_page = $db->query('SELECT id,
                                second_nav_class AS second_class,
                                nav_description
                           FROM pages
-                            WHERE class = \'' . $page . '\'');
+                            WHERE class = ' . $page . '');
 
 $data_page = $que_page->fetchAll(PDO::FETCH_ASSOC);
 $que_page->closeCursor();

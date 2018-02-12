@@ -6,7 +6,7 @@
     <form class="search_bar flex_row spaced" action="" method="">
       <input type="text" name="search" placeholder="Envie de ...">
       <div class="select_wrapper activable"> <!-- TODO: besoin d'une foncton js pour "focusable" - bug avec activable -->
-        <select name="sens_filter">
+        <select name="type">
           <option value="" selected>Tout</option>
           <option value="" class="micro_picto">Voir</option>
           <option value="" class="micro_picto">&Eacute;couter</option>
