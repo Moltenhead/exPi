@@ -50,7 +50,7 @@ if (!empty($page_inf->get('id'))) {
     <h4 class="section_header"><?php echo $page_inf->get_section(0, 'title'); ?></h4>
     <ul class="link_box">
     <?php for ($i = 0; $i < count($l_collections[0]); $i++) { ?>
-      <li><?php @$l_collections[0]->print_a($i); // @ = stfu error operator ?></li>
+      <li><?php @$l_collections[0]->print_a($i, 'blank'); // @ = stfu error operator ?></li>
     <?php } ?>
     </ul>
   </div>
