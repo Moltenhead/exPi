@@ -7,16 +7,13 @@ $protocole_select = 'http'; // TODO: a éditer lors du passage HTTPS
 
 //object typed existing directories
 $access_type_opt = array (
-  'STRC',
   'CSS',
   'FNT',
   'IMG',
   'VID',
-  'JS',
-  'PAGE',
-  'OBJ',
-  'MOD'
+  'JS'
 );
+
 $root_opt = array (
   'STRC',
   'PAGE',
@@ -90,7 +87,7 @@ function objPath($access_type, $object_name)
 
   if (gettype($object_name) === 'string') {
     if (gettype($access_type) === 'string') {
-      if (in_array(strtoupper($access_type), $access_type_opt)) {
+      if (in_array(strtoupper($access_type), $access_type_opt) OR in_array(strtoupper($access_type), $root_opt)) {
         //ternary operator
         return (!in_array(strtoupper($access_type), $root_opt)) ?
           constant('H_' . strtoupper($access_type)) . $object_name :
