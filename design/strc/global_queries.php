@@ -4,7 +4,7 @@ $page;
 if (isset($_GET['page']) && $_GET['page'] != null) {
   $page = $db->quote(htmlspecialchars($_GET['page']));
 } else {
-  $page = 'accueil';
+  $page = '\'accueil\'';
 }
 
 $que_page = $db->query('SELECT id,
