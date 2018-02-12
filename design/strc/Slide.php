@@ -1,17 +1,17 @@
 <?php
 class Slide
 {
+  private $_id;
   private $_title;
-  private $_href;
   private $_img;
   private $_alt;
   private $_short_description;
   private $_date_maj;
 
-  public function init($title, $href, $img, $alt, $short_descr, $date_update)
+  public function init($id, $title, $img, $alt, $short_descr, $date_update)
   {
+    $this->_id = $id;
     $this->_title = $title;
-    $this->_href = $href;
     $this->_img = $img;
     $this->_alt = $alt;
     $this->_short_description = $short_descr;
@@ -57,7 +57,7 @@ class Slide
         </article>
         <nav class="flex_row">
           <a href="' . objPath('mod', '') . '">&Ccedil;a m\'intéresse</a>
-          <a href="' . objPath('page', 'xp_display.php') . '?xp=' . $this->_id . '">En savoir +</a>
+          <a href="?page=xp_display&xp=' . $this->_id . '">En savoir +</a>
         </nav>
         <mark>
           <strong>&Eacute;dité le </strong>

@@ -2,8 +2,8 @@
 <?php
 require_once(objPath('mod', 'search.php'));
 
-
+forEach($slides AS $slide) {
+  $slide->print();
+}
 ?>
-
-<?php } ?>
 </div>
