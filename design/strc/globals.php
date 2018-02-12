@@ -21,16 +21,6 @@ $root_opt = array (
   'MOD'
 );
 
-//secondMenu display filters cf: secondNav.php
-$interest_menu = [
-  'accueil',
-  'research'
-];
-
-$profile_menu = [
-  'profile'
-];
-
 /* ------------------- CLASSES AUTOLOADER --------------------*/
 function __autoload($class_name)
 {
