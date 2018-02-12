@@ -9,4 +9,10 @@ $que_xp = $db->query(
             AGAINST("' . $search . '")
           LIMIT 3'
 );
+
+$slides = array();
+while ($data_xp = $que_xp->fetch(PDO::ASSOC)) {
+  array_push($slides, new Slide);
+  $slides[count($slides) - 1]->init();
+}
 ?>
