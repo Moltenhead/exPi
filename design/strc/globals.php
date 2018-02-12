@@ -34,7 +34,7 @@ $profile_menu = [
   'profile'
 ];
 
-/* -------------------- CLASSES ---------------------*/
+/* ------------------- CLASSES AUTOLOADER --------------------*/
 function __autoload($class_name)
 {
   include $class_name . '.php';
