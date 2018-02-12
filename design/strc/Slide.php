@@ -57,7 +57,7 @@ class Slide
         </article>
         <nav class="flex_row">
           <a href="' . objPath('mod', '') . '">&Ccedil;a m\'intéresse</a>
-          <a href="?page=xp_display&xp=' . $this->_id . '">En savoir +</a>
+          <a href="?page=4&xp=' . $this->_id . '">En savoir +</a>
         </nav>
         <mark>
           <strong>&Eacute;dité le </strong>
