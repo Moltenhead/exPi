@@ -7,7 +7,7 @@ if (!empty($page_inf->get('id'))) {
   //important informations query
   $que_nav_inf = $db->query('SELECT COUNT(*),
                                     MAX(section_id)
-                                FROM nav_links
+                                FROM pages_links
                                   WHERE page_id = ' . $id
                            );
   //usable informations query
@@ -15,7 +15,7 @@ if (!empty($page_inf->get('id'))) {
                                       title,
                                       class,
                                       href
-                                  FROM nav_links
+                                  FROM pages_links
                                     WHERE page_id = ' . $id
                              );
 

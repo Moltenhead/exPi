@@ -1,6 +1,7 @@
 <?php
 $allowed_pages = array(
-  'accueil',
+  1,
+  4
 );
 
 if (isset($page_inf)) {
