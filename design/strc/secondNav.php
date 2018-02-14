@@ -5,19 +5,21 @@
 if (!empty($page_inf->get('id'))) {
   $id = $page_inf->get('id');
   //important informations query
-  $que_nav_inf = $db->query('SELECT COUNT(*),
-                                    MAX(section_id)
-                                FROM pages_links
-                                  WHERE page_id = ' . $id
-                           );
+  $que_nav_inf = $db->query(
+    'SELECT COUNT(*),
+      MAX(section_id)
+      FROM pages_links
+        WHERE page_id = ' . $id
+);
   //usable informations query
-  $que_nav_links = $db->query('SELECT section_id,
-                                      title,
-                                      class,
-                                      href
-                                  FROM pages_links
-                                    WHERE page_id = ' . $id
-                             );
+  $que_nav_links = $db->query(
+    'SELECT section_id,
+      title,
+      class,
+      href
+      FROM pages_links
+        WHERE page_id = ' . $id
+);
 
   //stocking first query datas
   $data_nav_inf = $que_nav_inf->fetch(PDO::FETCH_NUM);
