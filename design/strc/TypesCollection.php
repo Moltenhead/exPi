@@ -8,7 +8,7 @@ class TypesCollection
     $type = new Type;
     $type->init($name, $class);
 
-    array_push($type, $this->_types_list);
+    array_push($this->_types_list, $type);
   }
 
   public function get($index, $select)
