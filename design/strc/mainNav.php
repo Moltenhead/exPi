@@ -9,7 +9,7 @@
         <select name="type">
           <option value="" selected>Tout</option>
           <?php for($i = 0; $i < count(constant('TYPES')); $i++) { ?>
-            <option value="" class="micro_picto"><?php constant('TYPES')->get($i, 'name'); ?></option>
+          <option value="<?php echo constant('TYPES')->get($i, 'class'); ?>" class="micro_picto"><?php echo constant('TYPES')->get($i, 'name'); ?></option>
           <?php } ?>
         </select>
       </div>

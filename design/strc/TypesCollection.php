@@ -1,17 +1,19 @@
 <?php
 class TypesCollection
 {
-  private $_types_list = array();
-
-  public function pushType($name, $class)
+  public function __construct(Type $type)
   {
-    $type = new Type;
-    $type->init($name, $class);
+    $type->add('TypesCollection');
+  }
+
+  public function pushType($id, $name, $class)
+  {
+    $type->init($id, $name, $class);
 
     array_push($this->_types_list, $type);
   }
 
-  public function get($index, $select)
+  public function getType($index, $select)
   {
     $index = $index || 0;
     $select = $select || 'name';
