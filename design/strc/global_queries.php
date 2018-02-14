@@ -34,6 +34,7 @@ $page_inf->init(
 $page_inf->push_section($data_page['first_title'], $data_page['first_class']);
 $page_inf->push_section($data_page['second_title'], $data_page['second_class']);
 
+/* -------------------- TYPES DEFINITION -------------------- */
 $que_types = $db->query(
   'SELECT id, name, class
     FROM types
@@ -44,4 +45,6 @@ $types_inf = new TypesCollection;
 while ($data_types = $que_types->fetch(PDO::FETCH_ASSOC)) {
   $types_inf->pushType($data_types['id'], $data_types['name'], $data_types['class']);
 }
+
+define('TYPES', $types_inf);
 ?>
