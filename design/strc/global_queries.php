@@ -7,16 +7,18 @@ if (isset($_GET['page']) && $_GET['page'] != null) {
   $page = '\'accueil\'';
 }
 
-$que_page = $db->query('SELECT id,
-                               title,
-                               class,
-                               first_nav_title AS first_title,
-                               first_nav_class AS first_class,
-                               second_nav_title AS second_title,
-                               second_nav_class AS second_class,
-                               nav_description
-                          FROM pages
-                            WHERE class = ' . $page . '');
+$que_page = $db->query(
+  'SELECT id,
+    title,
+    class,
+    first_nav_title AS first_title,
+    first_nav_class AS first_class,
+    second_nav_title AS second_title,
+    second_nav_class AS second_class,
+    nav_description
+      FROM pages
+        WHERE class = ' . $page
+);
 
 $data_page = $que_page->fetchAll(PDO::FETCH_ASSOC);
 $que_page->closeCursor();
@@ -31,4 +33,15 @@ $page_inf->init(
 );
 $page_inf->push_section($data_page['first_title'], $data_page['first_class']);
 $page_inf->push_section($data_page['second_title'], $data_page['second_class']);
+
+$que_types = $db->query(
+  'SELECT id, name, class
+    FROM types
+      WHERE is_used = 1'
+);
+
+$types_inf = new TypesCollection;
+while ($data_types = $que_types->fetch(PDO::FETCH_ASSOC)) {
+  $types_inf->pushType($data_types['id'], $data_types['name'], $data_types['class']);
+}
 ?>
