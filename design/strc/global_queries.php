@@ -46,5 +46,5 @@ while ($data_types = $que_types->fetch(PDO::FETCH_ASSOC)) {
   $types_inf->pushType($data_types['id'], $data_types['name'], $data_types['class']);
 }
 //define('TYPES', $types_inf);
-var_dump($types_inf->getType(0, 'class'));
+var_dump($types_inf->get(0, 'class'));
 ?>

@@ -5,7 +5,7 @@ class Type
   private $_name;
   private $_class;
 
-  public function init($id, $name, $class)
+  public function __construct($id, $name, $class)
   {
     $this->_id = $id;
     $this->_name = $name;
