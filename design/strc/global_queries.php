@@ -41,10 +41,10 @@ $que_types = $db->query(
       WHERE is_used = 1'
 );
 
-$types_inf = new TypesCollection;
+$types_inf = array();
 while ($data_types = $que_types->fetch(PDO::FETCH_ASSOC)) {
-  $types_inf->pushType($data_types['id'], $data_types['name'], $data_types['class']);
+  $type = new Type($data_types['id'], $data_types['name'], $data_types['class']);
+  array_push($types_inf, $type);
 }
-//define('TYPES', $types_inf);
-var_dump($types_inf->get(0, 'class'));
+//TODO:define('TYPES', $types_inf);
 ?>

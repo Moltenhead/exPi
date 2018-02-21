@@ -8,8 +8,8 @@
       <div class="select_wrapper activable"> <!-- TODO: besoin d'une foncton js pour "focusable" - bug avec activable -->
         <select name="type">
           <option value="" selected>Tout</option>
-          <?php for($i = 0; $i < count(constant('TYPES')); $i++) { ?>
-          <option value="<?php echo constant('TYPES')->get($i, 'class'); ?>" class="micro_picto"><?php echo constant('TYPES')->get($i, 'name'); ?></option>
+          <?php for($i = 0; $i < count($types_inf); $i++) { ?>
+          <option value="<?php echo $types_inf[$i]->get('class'); ?>" class="micro_picto"><?php echo $types_inf[$i]->get('name'); ?></option>
           <?php } ?>
         </select>
       </div>
