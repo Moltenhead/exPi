@@ -7,7 +7,7 @@ class Page
   private $_nav_sections = array();
   private $_nav_description;
 
-  public function init($id, $name, $class, $nav_descr)
+  public function __construct($id, $name, $class, $nav_descr)
   {
     $this->_id = $id;
     $this->_name = $name;

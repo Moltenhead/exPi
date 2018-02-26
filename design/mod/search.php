@@ -1,6 +1,6 @@
 <?php //TODO: in need of evolution for theme and places matching
 $slides = array();
-$que_skel = 'SELECT
+$que_slides_skel = 'SELECT
   e.uuid,
   e.title,
   i.title AS img_title,
@@ -16,7 +16,7 @@ $que_skel = 'SELECT
     LEFT JOIN experiences_images i ON e.id = i.experience_id
     LEFT JOIN places p ON e.place_id = p.id';
 if (isset($_POST['search']) AND !empty($_POST['search'])) {
-  $que_skel .= ' WHERE MATCH(
+  $que_slides_skel .= ' WHERE MATCH(
       e.title,
       e.short_description,
       e.long_description)
@@ -24,22 +24,22 @@ if (isset($_POST['search']) AND !empty($_POST['search'])) {
 }
 
 if (isset($_POST['type']) AND !empty($_POST['type']) AND $_POST['type'] != 0) {
-  $que_skel .= ' AND e.type_id = ' . (int) $_POST['type'];
+  $que_slides_skel .= ' AND e.type_id = ' . (int) $_POST['type'];
 }
 
-$que_skel .= ' LIMIT 3'; //TODO: need edition when pagination gets implemented
-$que_xp = $db->query($que_skel);
+$que_slides_skel .= ' LIMIT 3 OFFSET ' . ($page - 1) * $pagination;
+$que_slides = $db->query($que_slides_skel);
 
-while ($data_xp = $que_xp->fetch(PDO::FETCH_ASSOC)) {
+while ($data_slides = $que_slides->fetch(PDO::FETCH_ASSOC)) {
   array_push($slides, new Slide(
-      $data_xp['uuid'],
-      $data_xp['title'],
-      $data_xp['img_title'],
-      $data_xp['img_href'],
-      $data_xp['alt'],
-      $data_xp['short_description'],
-      $data_xp['created_at'],
-      $data_xp['update_last']
+      $data_slides['uuid'],
+      $data_slides['title'],
+      $data_slides['img_title'],
+      $data_slides['img_href'],
+      $data_slides['alt'],
+      $data_slides['short_description'],
+      $data_slides['created_at'],
+      $data_slides['update_last']
     )
   );
 }

@@ -1,13 +1,13 @@
 <?php
 /* -------------------- PAGE MANAGEMENT ---------------------*/
-$page;
-if (isset($_GET['page']) && $_GET['page'] != null) {
-  $page = $db->quote(htmlspecialchars($_GET['page']));
+$wh;
+if (isset($_GET['wh']) && $_GET['wh'] != null) {
+  $wh = htmlspecialchars($_GET['wh']);
 } else {
-  $page = '\'accueil\'';
+  $wh = 'accueil';
 }
 
-$que_page = $db->query(
+$que_wh = $db->query(
   'SELECT id,
     title,
     class,
@@ -17,22 +17,21 @@ $que_page = $db->query(
     second_nav_class AS second_class,
     nav_description
       FROM pages
-        WHERE class = ' . $page
+        WHERE class = ' . $db->quote($wh)
 );
 
-$data_page = $que_page->fetchAll(PDO::FETCH_ASSOC);
-$que_page->closeCursor();
-$data_page = $data_page[0];
+$data_wh = $que_wh->fetchAll(PDO::FETCH_ASSOC);
+$que_wh->closeCursor();
+$data_wh = $data_wh[0];
 
-$page_inf = new Page;
-$page_inf->init(
-  $data_page['id'],
-  $data_page['title'],
-  $data_page['class'],
-  $data_page['nav_description']
+$where_inf = new Page(
+  $data_wh['id'],
+  $data_wh['title'],
+  $data_wh['class'],
+  $data_wh['nav_description']
 );
-$page_inf->push_section($data_page['first_title'], $data_page['first_class']);
-$page_inf->push_section($data_page['second_title'], $data_page['second_class']);
+$where_inf->push_section($data_wh['first_title'], $data_wh['first_class']);
+$where_inf->push_section($data_wh['second_title'], $data_wh['second_class']);
 
 /* -------------------- TYPES DEFINITION -------------------- */
 $que_types = $db->query(

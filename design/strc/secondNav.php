@@ -2,8 +2,8 @@
 <?php //TODO: insert needed tables for the following code to work
 
 // checking if there is a page_id for the active page
-if (!empty($page_inf->get('id'))) {
-  $id = $page_inf->get('id');
+if (!empty($where_inf->get('id'))) {
+  $id = $where_inf->get('id');
   //important informations query
   $que_nav_inf = $db->query(
     'SELECT COUNT(*),
@@ -49,16 +49,16 @@ if (!empty($page_inf->get('id'))) {
     $que_nav_links->closeCursor();
 ?>
   <div class="nav_section">
-    <h4 class="section_header"><?php echo $page_inf->get_section(0, 'title'); ?></h4>
+    <h4 class="section_header"><?php echo $where_inf->get_section(0, 'title'); ?></h4>
     <ul class="link_box">
     <?php for ($i = 0; $i < count($l_collections[0]); $i++) { ?>
       <li><?php @$l_collections[0]->print_a($i, 'blank'); // @ = stfu error operator ?></li>
     <?php } ?>
     </ul>
   </div>
-    <?php if ($page_inf->has_mutiple()) { ?>
+    <?php if ($where_inf->has_mutiple()) { ?>
   <div class="nav_section">
-    <h4 class="section_header"><?php echo $page_inf->get_section(1, 'title'); ?></h4>
+    <h4 class="section_header"><?php echo $where_inf->get_section(1, 'title'); ?></h4>
     <ul class="link_box">
     <?php ?>
     </ul>
@@ -71,6 +71,6 @@ if (!empty($page_inf->get('id'))) {
   <h4 class="section_header">No page index</h4>
 <?php } ?>
 </div>
-<button class="picto micro_picto activable parent_transmissive" title="<?php echo $page_inf->get('nav_descr') ?>">
+<button class="picto micro_picto activable parent_transmissive" title="<?php echo $where_inf->get('nav_descr') ?>">
   <?php echo file_get_contents(objPath('img', 'svg/arrow.svg')); ?>
 </button>

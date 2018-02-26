@@ -159,4 +159,13 @@ function scriptLink($script_names)
       break;
   }
 }
+
+/* --------------------- PAGINATION MANAGEMENT --------------------- */
+$page;
+(isset($_GET['page']) && !empty($_GET['page']) && $_GET['page'] != null) ?
+  $page = htmlspecialchars($_GET['page']) :
+  $page = 1
+;
+
+$pagination = 25;
 ?>
