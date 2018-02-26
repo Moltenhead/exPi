@@ -1,9 +1,10 @@
 <?php //TODO: in need of evolution for theme and places matching
+$real_pagination = (int) ($page - 1) * ($pagination + 3);
+
 $slides = array();
-$que_slides_skel = 'SELECT
+$que_skel = 'SELECT
   e.uuid,
   e.title,
-  i.title AS img_title,
   i.href AS img_href,
   i.alt,
   e.short_description,
@@ -16,7 +17,7 @@ $que_slides_skel = 'SELECT
     LEFT JOIN experiences_images i ON e.id = i.experience_id
     LEFT JOIN places p ON e.place_id = p.id';
 if (isset($_POST['search']) AND !empty($_POST['search'])) {
-  $que_slides_skel .= ' WHERE MATCH(
+  $que_skel .= ' WHERE MATCH(
       e.title,
       e.short_description,
       e.long_description)
@@ -24,22 +25,39 @@ if (isset($_POST['search']) AND !empty($_POST['search'])) {
 }
 
 if (isset($_POST['type']) AND !empty($_POST['type']) AND $_POST['type'] != 0) {
-  $que_slides_skel .= ' AND e.type_id = ' . (int) $_POST['type'];
+  $que_skel .= ' AND e.type_id = ' . (int) $_POST['type'];
 }
 
-$que_slides_skel .= ' LIMIT 3 OFFSET ' . ($page - 1) * $pagination;
-$que_slides = $db->query($que_slides_skel);
+$que_skel .= ' LIMIT 3 OFFSET ' . $real_pagination;
+$que_slides = $db->query($que_skel);
 
 while ($data_slides = $que_slides->fetch(PDO::FETCH_ASSOC)) {
   array_push($slides, new Slide(
       $data_slides['uuid'],
       $data_slides['title'],
-      $data_slides['img_title'],
       $data_slides['img_href'],
       $data_slides['alt'],
       $data_slides['short_description'],
       $data_slides['created_at'],
       $data_slides['update_last']
+    )
+  );
+}
+
+$board_xps = array();
+$que_board_skel = substr($que_skel, 0, strpos($que_skel, ' LIMIT ') + 6);
+$que_board_skel .= ' 25 OFFSET ' . ($real_pagination + 3);
+
+$que_board_xps = $db->query($que_board_skel);
+while ($data_board_xps = $que_board->fetch(PDO::FETCH_ASSOC)) {
+  array_push($board_xps, new BoardXp(
+    $data_board_xps['uuid'],
+    $data_board_xps['title'],
+    $data_board_xps['img_href'],
+    $data_board_xps['alt'],
+    $data_board_xps['short_description'],
+    $data_board_xps['created_at'],
+    $data_board_xps['update_last']
     )
   );
 }

@@ -52,17 +52,11 @@
 #global_nav > form > .select_wrapper { width: 135px; }
 #global_nav > form > .select_wrapper > select
 {
-  width: 163px;/*+28px*/
+  width: 163px;/*135+28px*/
   font-weight: bold;
-  text-transform: capitalize;
 }
 
 #global_nav > .link_box { margin-left: .5em; }
-
-#global_nav > .link_box > a > svg > g > path
-{
-  fill: #ccffff;
-}
 
 /* ---------------- ACCOUNT NAV ---------------- */
 #account_nav { margin-left: auto; }

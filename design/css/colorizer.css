@@ -12,6 +12,11 @@ input[type="text"]:placeholder { color:grey; }
   border: 3px solid #ff9933;
 }
 
+#global_nav > .link_box > a > svg > g > path
+{
+  fill: #ccffff;
+}
+
 #profile_options_button svg g path { fill: white !important; }
 
 #second_nav { background-color: #ccff99; }

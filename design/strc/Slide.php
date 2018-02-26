@@ -4,17 +4,15 @@ class Slide
   private $_id;
   private $_title;
   private $_href;
-  private $_img;
   private $_alt;
   private $_short_description;
   private $_date_maj;
 
-  public function __construct($id, $title, $href, $img, $alt, $short_descr, $date_update)
+  public function __construct($id, $title, $href, $alt, $short_descr, $date_update)
   {
     $this->_id = $id;
     $this->_title = $title;
     $this->_href = $href;
-    $this->_img = $img;
     $this->_alt = $alt;
     $this->_short_description = $short_descr;
     $this->_date_update = $date_update;
@@ -28,9 +26,6 @@ class Slide
         break;
       case 'title' :
         return $this->_title;
-        break;
-      case 'img' :
-        return $this->_img;
         break;
       case 'alt' :
         return $this->_alt;
@@ -49,7 +44,7 @@ class Slide
     echo '<div class="slide flex_row">
       <figure class="slide_representation">
         <a href="' . $this->_href . '">
-          <figcaption>' . $this->_title . '</figcaption>
+          <figcaption>' . $this->_alt . '</figcaption>
         </a>
         <img src="' . $this->_img . '" alt="' . $this->_alt . '">
       </figure>

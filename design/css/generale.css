@@ -50,8 +50,8 @@ form > input[type="text"], form > input[type="submit"]
 /*-----------*/
 
 /*SELECT HACKING*/
-/*beaucoup pour pas grand chose ; hack pour éditer le bouton des select
-* merci à Eric Rasch pour l'idée de base pour ce hack :
+/*much for little ; buttons' select hack
+* thanks to Eric Rasch for the base idea :
 * https://codepen.io/ericrasch/pen/zjDBx
 */
 .select_wrapper:before
@@ -95,10 +95,10 @@ form > input[type="text"], form > input[type="submit"]
   -webkit-transform: translateY(-50%) rotate(90deg);
   -ms-transform: translateY(-50%) rotate(90deg);
   transform: translateY(-50%) rotate(90deg);
-
+  /*TODO: in need of edition once selects are JQ structured
   -webkit-transition: transform .08s;
   -o-transition: transform .08s;
-  transition: transform .08s;
+  transition: transform .08s; */
 }
 .select_wrapper.active:after
 {
