@@ -16,6 +16,7 @@
     'colorizer',
     'css_mainNav',
     'css_secondNav',
+    'css_de_board',
     'css_footer',
     htmlspecialchars(CSSELF)
     )

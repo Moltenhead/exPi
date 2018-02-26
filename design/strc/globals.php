@@ -154,16 +154,23 @@ function scriptLink($script_names)
       trigger_error(
         'invalid parameter, unexpected ' .
         gettype($script_names) .
-        ', expecting \'array\' or \'string\' type'
+        ', expecting \'array\' or \'string\' type',
+        E_USER_ERROR
       );
       break;
   }
 }
 
+/*USER CONNECTION DETECTION*/
+function isConnected()
+{
+  return (session_status() === PHP_SESSION_ACTIVE) ? TRUE : FALSE;
+}
+
 /* --------------------- PAGINATION MANAGEMENT --------------------- */
 $page;
 (isset($_GET['page']) && !empty($_GET['page']) && $_GET['page'] != null) ?
-  $page = htmlspecialchars($_GET['page']) :
+  $page = (int) $_GET['page'] :
   $page = 1
 ;
 

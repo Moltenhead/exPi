@@ -15,7 +15,7 @@ $que_skel = 'SELECT
   e.update_last
   FROM experiences e
     LEFT JOIN experiences_images i ON e.id = i.experience_id
-    LEFT JOIN places p ON e.place_id = p.id';
+    LEFT JOIN locations_places p ON e.place_id = p.id';
 if (isset($_POST['search']) AND !empty($_POST['search'])) {
   $que_skel .= ' WHERE MATCH(
       e.title,
@@ -32,7 +32,7 @@ $que_skel .= ' LIMIT 3 OFFSET ' . $real_pagination;
 $que_slides = $db->query($que_skel);
 
 while ($data_slides = $que_slides->fetch(PDO::FETCH_ASSOC)) {
-  array_push($slides, new Slide(
+  array_push($slides, new SlideXp(
       $data_slides['uuid'],
       $data_slides['title'],
       $data_slides['img_href'],

@@ -22,6 +22,12 @@
   </head>
 
   <body>
+    <div id="background_sticker" class="logo big_logo">
+      <?php
+        echo file_get_contents(objPath('img', 'svg/exPi_logo_v8.svg'));
+      ?>
+    </div>
+
     <nav id="main_nav" class="flex_row v_align">
       <?php
         include_once(objPath('strc', 'mainNav.php'));
@@ -32,12 +38,6 @@
         include_once(objPath('strc', 'secondNav.php'));
       ?>
     </nav>
-
-    <div id="background_sticker" class="logo big_logo">
-      <?php
-        echo file_get_contents(objPath('img', 'svg/exPi_logo_v8.svg'));
-      ?>
-    </div>
 
     <main>
       <?php

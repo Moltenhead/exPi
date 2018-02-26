@@ -1,7 +1,5 @@
-<div id="magic_hat" class="slider_wrapper">
+<div id="magic_hat" class="flex_row slider_wrapper">
 <?php
-require_once(objPath('mod', 'search.php'));
-
 forEach($slides AS $slide) {
   $slide->print();
 }

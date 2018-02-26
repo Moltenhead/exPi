@@ -36,7 +36,7 @@ $where_inf->push_section($data_wh['second_title'], $data_wh['second_class']);
 /* -------------------- TYPES DEFINITION -------------------- */
 $que_types = $db->query(
   'SELECT id, name, class
-    FROM types
+    FROM interests_types
       WHERE is_used = 1'
 );
 
