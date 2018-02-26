@@ -28,20 +28,19 @@ if (isset($_POST['type']) AND !empty($_POST['type']) AND $_POST['type'] != 0) {
 }
 
 $que_skel .= ' LIMIT 3'; //TODO: need edition when pagination gets implemented
-echo $que_skel;
 $que_xp = $db->query($que_skel);
 
-while ($data_xp = $que_xp->fetch(PDO::FETCH_ASSOC)) { var_dump($data_xp);
-  array_push($slides, new Slide);
-  $slides[count($slides) - 1]->init(
-    $data_xp['uuid'],
-    $data_xp['title'],
-    $data_xp['img_title'],
-    $data_xp['img_href'],
-    $data_xp['alt'],
-    $data_xp['short_description'],
-    $data_xp['created_at'],
-    $data_xp['update_last']
+while ($data_xp = $que_xp->fetch(PDO::FETCH_ASSOC)) {
+  array_push($slides, new Slide(
+      $data_xp['uuid'],
+      $data_xp['title'],
+      $data_xp['img_title'],
+      $data_xp['img_href'],
+      $data_xp['alt'],
+      $data_xp['short_description'],
+      $data_xp['created_at'],
+      $data_xp['update_last']
+    )
   );
 }
 ?>

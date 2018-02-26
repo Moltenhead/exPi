@@ -3,15 +3,17 @@ class Slide
 {
   private $_id;
   private $_title;
+  private $_href;
   private $_img;
   private $_alt;
   private $_short_description;
   private $_date_maj;
 
-  public function init($id, $title, $img, $alt, $short_descr, $date_update)
+  public function __construct($id, $title, $href, $img, $alt, $short_descr, $date_update)
   {
     $this->_id = $id;
     $this->_title = $title;
+    $this->_href = $href;
     $this->_img = $img;
     $this->_alt = $alt;
     $this->_short_description = $short_descr;
