@@ -1,5 +1,5 @@
 <?php
-class Slide extends Xp
+class BoardXp extends Xp
 {
   public function print()
   {

@@ -3,7 +3,7 @@ $real_pagination = (int) ($page - 1) * ($pagination + 3);
 
 $slides = array();
 $que_skel = 'SELECT
-  e.uuid,
+  e.uuid AS uuid,
   e.title,
   i.href AS img_href,
   i.alt,
@@ -49,7 +49,7 @@ $que_board_skel = substr($que_skel, 0, strpos($que_skel, ' LIMIT ') + 6);
 $que_board_skel .= ' 25 OFFSET ' . ($real_pagination + 3);
 
 $que_board_xps = $db->query($que_board_skel);
-while ($data_board_xps = $que_board->fetch(PDO::FETCH_ASSOC)) {
+while ($data_board_xps = $que_board_xps->fetch(PDO::FETCH_ASSOC)) {
   array_push($board_xps, new BoardXp(
     $data_board_xps['uuid'],
     $data_board_xps['title'],
