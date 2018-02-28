@@ -14,7 +14,7 @@ $que_skel = 'SELECT
   e.created_at,
   e.update_last
   FROM experiences e
-    LEFT JOIN experiences_images i ON e.id = i.experience_id
+    LEFT JOIN experiences_images i ON e.img_uuid = i.uuid
     LEFT JOIN locations_places p ON e.place_id = p.id';
 if (isset($_POST['search']) AND !empty($_POST['search'])) {
   $que_skel .= ' WHERE MATCH(

@@ -7,7 +7,9 @@ class BoardXp extends Xp
       <div class="true_box">
         <div class="xp flex_row">
           <div class="img_wrapper">
-            <img class="xp_img" src="<?php echo objPath('up_img', $this->_href); ?>" alt="<?php echo $this->_alt; ?>">
+            <img class="xp_img" src="<?php echo ($this->_href != null) ?
+              objPath('up_img', $this->_href) :
+              objPath('img', 'bitmap/exPi_logo_placeholder.png'); ?>" alt="<?php echo $this->_alt; ?>">
           </div>
           <div class="xp_informations flex_column stretched">
             <article>

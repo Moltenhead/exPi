@@ -11,7 +11,8 @@ $access_type_opt = array (
   'FNT',
   'IMG',
   'VID',
-  'JS'
+  'JS',
+  'UP_IMG'
 );
 
 $root_opt = array (
@@ -48,6 +49,7 @@ define('H_FNT', HTTPH . 'design/fnt/');
 define('H_IMG', HTTPH . 'design/img/');
 define('H_VID', HTTPH . 'design/vid/');
 define('H_JS', HTTPH . 'lib/js/');
+define('H_UP_IMG', HTTPH . 'uploads/img/');
 
 /* -------------------- FORMATING ---------------------*/
 define('STYLE_EXT', $style_ext);

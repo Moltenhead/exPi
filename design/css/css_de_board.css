@@ -40,10 +40,13 @@
 
   overflow: hidden;
 }
-.xp > .img_wrapper > .xp_image
+.xp > .img_wrapper > .xp_img
 {
-  height: 100%;
+  height: 250px;
   width: auto;
+
+  position: relative;
+  left: -30%;
 }
 .xp > .xp_informations
 {
@@ -51,6 +54,9 @@
   height: 100%;
   padding: 5px;
 
-  -webkit-box-shadow: -2px 0 2px rgba(0,0,0,.2);
-  box-shadow: -2px 0 2px rgba(0,0,0,.2);
+  -webkit-box-shadow: -3px 0 2px rgba(0,0,0,.5);
+  box-shadow: -3px 0 2px rgba(0,0,0,.5);
+
+  position: relative;
+  z-index: 5;
 }
