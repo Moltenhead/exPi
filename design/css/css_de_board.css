@@ -2,20 +2,25 @@
 {
   width: 95%;
 }
+/*#de_board::after
+{
+  content: "";
+  flex: auto;
+}*/
 
 .xp_wrapper
 {
-  width: 15.666666%;
+  width: 14.5vw;
   height: 250px;
   padding: 5px;
-  margin: 1vh 1% 1vh 0;
+  margin: 1vh 1vw 1vh 0;
   border-radius: 20px 0;
   border-width: 2px;
   border-style: solid;
 
   position: relative;
 }
-.xp_wrapper:nth-child(n+6) { margin: 1vh 0; }
+/*.xp_wrapper:nth-child(n+6) { margin: 1vh 0; }*/
 
 .xp_wrapper > .true_box
 {

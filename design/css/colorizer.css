@@ -1,32 +1,41 @@
-#main_nav a:hover { color: #ffcc33; }
+/*Contains color selections
+* TODO: adding the palette within this commentary
+*/
 
+/* ---------------------- GLOBAL ---------------------- */
 input[type="text"]:placeholder { color:grey; }
 
+/* ---------------------- MAIN NAV ---------------------- */
 #main_nav { background-color: #00cc66; }
+
+#main_nav a:hover { color: #ffcc33; }
 
 #main_nav .home_link strong { color: #ccffff; }
 
-.avatar
-{
-  background-color: grey;
-  border: 3px solid #ff9933;
-}
+.avatar { background-color: grey; border: 3px solid #ff9933; }
 
-#global_nav > .link_box > a > svg > g > path
-{
-  fill: #ccffff;
-}
+#global_nav > .link_box > a > svg > g > path { fill: #ccffff; }
 
 #profile_options_button svg g path { fill: white !important; }
 
+/* ---------------------- SECOND NAV ---------------------- */
 #second_nav { background-color: #ccff99; }
 
 #second_nav > button.picto > svg path { fill: #ff9933; }
 
-.xp_wrapper
+/* ---------------------- MAGIC HAT ---------------------- */
+#magic_hat
 {
-  border-color: #00cc66;
+  background-color: #00cc66;
 }
+
+#magic_hat .slide_informations
+{
+  background-color: #ccffff;
+}
+
+/* ---------------------- DE BOARD ---------------------- */
+.xp_wrapper { border-color: #00cc66; }
 .xp_wrapper > .true_box
 {
   background-color: rgba(0,204,102,.1);
