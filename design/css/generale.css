@@ -159,6 +159,30 @@ form > input[type="text"], form > input[type="submit"]
 .avatar { border-radius: 50%; }
 /*-----------*/
 
+/*SLIDERS*/
+.slider_wrapper
+{
+  position: relative;
+
+  overflow: hidden;
+}
+.slider_wrapper > button
+{
+  position: absolute;
+
+  top: 60%;
+}
+.slider_wrapper > button:first-child
+{
+  left: 0;
+  transform: rotate(180deg);
+}
+.slider_wrapper > button:last-child
+{
+  right: 0;
+}
+/*-----------*/
+
 /*GLOBAL DESIGN*/
 #background_sticker
 {
@@ -173,5 +197,10 @@ form > input[type="text"], form > input[type="submit"]
   -webkit-filter: grayscale(85%) blur(2px);
   -o-filter: grayscale(85%) blur(2px);
   filter: grayscale(85%) blur(2px);
+}
+
+main > .main_wrapper
+{
+
 }
 /*-----------*/

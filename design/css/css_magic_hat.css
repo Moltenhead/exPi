@@ -1,0 +1,19 @@
+#magic_hat
+{
+  width: 50%;
+  height: 50vh;
+}
+
+#magic_hat .slider_container
+{
+  width: 300%;
+}
+#magic_hat .slider_wrapper > button
+{
+
+}
+
+#magic_hat .slide_wrapper
+{
+  width: 33.333333%;
+}
