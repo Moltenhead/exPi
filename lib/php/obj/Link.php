@@ -5,7 +5,7 @@ class Link
   private $_href;
   private $_class;
 
-  public function init($title, $href, $class)
+  public function __construct($title, $href, $class)
   {
     $this->_title = $title;
     $this->_href = $href;

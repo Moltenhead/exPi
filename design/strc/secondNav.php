@@ -38,8 +38,7 @@ if (!empty($where_inf->get('id'))) {
 
     //push all links to the associated index within $l_collections
     while ($data_nav_links = $que_nav_links->fetch(PDO::FETCH_ASSOC)) {
-      $link = new Link;
-      $link->init(
+      $link = new Link(
         $data_nav_links['title'],
         $data_nav_links['class'],
         $data_nav_links['href']
