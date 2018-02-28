@@ -3,8 +3,8 @@ class BoardXp extends Xp
 {
   public function print()
   { ?>
-    <div class="xp_wrapper">
-      <a class="xp flex_row">
+    <a class="xp_wrapper">
+      <div class="xp flex_row">
         <img src="<?php $this->_href ?>" alt="<?php echo $this->_alt ?>">
         <div class="xp_informations">
           <article class="slide_description">
@@ -16,7 +16,7 @@ class BoardXp extends Xp
             <span><?php echo $this->_date_update; ?></span>
           </mark>
         </div>
-      </a>
+      </div>
       <nav class="flex_column hovering_nav">
       <?php if (isConnected()) {
         if (in_array($interest101->get('xps'), $this->_id)) {?>
@@ -29,9 +29,8 @@ class BoardXp extends Xp
         </a>
         <?php } ?>
       <?php } ?>
-        <a href="<?php echo HTTPH; ?>?wh=4&xp=<?php echo $this->_uuid ?>">En savoir +</a>
       </nav>
-    </div>
+    </a>
   <?php }
   //TODO: replace "Ca m'intéresse" by a button with ajax db treatments on click
 }
