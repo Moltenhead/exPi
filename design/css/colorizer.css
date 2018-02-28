@@ -22,3 +22,13 @@ input[type="text"]:placeholder { color:grey; }
 #second_nav { background-color: #ccff99; }
 
 #second_nav > button.picto > svg path { fill: #ff9933; }
+
+.xp_wrapper
+{
+  border-color: #00cc66;
+}
+.xp_wrapper > .true_box
+{
+  background-color: rgba(0,204,102,.2);
+  border-color: #00cc66;
+}
