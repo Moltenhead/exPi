@@ -1,3 +1,5 @@
+/* ----------------- AROUND THE OBJECT ----------------- */
+/*MAGIC HAT WRAPPER*/
 #magic_wrapper
 {
   -webkit-box-sizing: content-box;
@@ -8,6 +10,7 @@
   position: relative;
 }
 
+/*MAGIC HAT SLIDING BUTTONS*/
 #magic_wrapper > button
 {
   position: absolute;
@@ -24,6 +27,7 @@
   right: 0;
 }
 
+/* --------------------- MAIN OBJECT --------------------- */
 #magic_hat
 {
   width: 70vw;
@@ -32,7 +36,7 @@
   -webkit-box-shadow: 0 0 5px 4px rgba(0,0,0,.1);
   box-shadow: 0 0 5px 4px rgba(0,0,0,.1);
 }
-
+/*SLIDING OBJECT*/
 #magic_hat .slider_container
 {
   width: 210vw;
@@ -41,7 +45,7 @@
 
   flex-wrap: nowrap;
 }
-
+/*MULTIPLE SLIDES CONTAINER*/
 #magic_hat .magic_carpet
 {
   width: 70vw;
@@ -52,12 +56,14 @@
   overflow: hidden;
 }
 
+/* --------------------- SLIDES --------------------- */
 #magic_hat .slide_wrapper
 {
   width: 33.333333%;
   height: 100%;
 }
 
+/*TEXT PART*/
 #magic_hat .slide_informations
 {
   padding: 10px 15px;
