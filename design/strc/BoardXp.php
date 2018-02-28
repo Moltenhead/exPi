@@ -6,16 +6,18 @@ class BoardXp extends Xp
     <a class="xp_wrapper">
       <div class="true_box">
         <div class="xp flex_row">
-          <img src="<?php $this->_href ?>" alt="<?php echo $this->_alt ?>">
-          <div class="xp_informations">
-            <article class="slide_description">
-              <h6><?php echo $this->_title; ?></h6>
-              <?php echo $this->_short_description; ?>
+          <img class="xp_img" src="<?php $this->_href ?>" alt="<?php echo $this->_alt ?>">
+          <div class="xp_informations flex_column stretched">
+            <article>
+              <h3 class="txt_centered"><?php echo $this->_title; ?></h3>
+              <p class="txt_justified"><?php echo $this->_short_description; ?></p>
             </article>
-            <mark>
-              <strong>&Eacute;dité le </strong>
-              <span><?php echo $this->_date_update; ?></span>
-            </mark>
+            <div class="txt_right">
+              <p>
+                édité le
+                <span><?php echo $this->_date_update; ?></span>
+              </p>
+            </div>
           </div>
         </div>
         <nav class="flex_column hovering_nav">

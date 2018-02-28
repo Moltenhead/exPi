@@ -29,6 +29,8 @@ input[type="text"]:placeholder { color:grey; }
 }
 .xp_wrapper > .true_box
 {
-  background-color: rgba(0,204,102,.2);
+  background-color: rgba(0,204,102,.1);
   border-color: #00cc66;
 }
+
+.xp > .xp_img { background-color: #ccc;}

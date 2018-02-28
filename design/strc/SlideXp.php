@@ -11,17 +11,18 @@ class SlideXp extends Xp
           </a>
           <img src="<?php echo $this->_href; ?>" alt="<?php echo $this->_alt; ?>">
         </figure>
-        <div class="slide_informations">
+        <div class="slide_informations flex_column stretched">
           <article class="slide_description">
-            <?php echo $this->_short_description; ?>
+            <h1><?php echo$this->_title; ?></h1>
+            <p class="txt_justified"><?php echo $this->_short_description; ?></p>
           </article>
-          <mark>
+          <div class="txt_right">
             <strong>&Eacute;dité le </strong>
             <span><?php echo $this->_date_update; ?></span>
-          </mark>
+          </div>
         </div>
       </div>
-      <nav class="flex_column">
+      <nav class="flex_row stretched">
         <a href="<?php echo objPath('mod', ''); ?>">&Ccedil;a m'intéresse</a>
         <a href="<?php echo HTTPH; ?>?wh=4&xp=<?php echo $this->_uuid; ?>">En savoir +</a>
       </nav>

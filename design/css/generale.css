@@ -1,3 +1,13 @@
+/*TEXT*/
+.txt_justified
+{
+  text-align: justify;
+  -ms-text-justify: distribute;
+  text-justify: distribute;
+}
+.txt_centered { text-align: center; }
+.txt_right { text-align: right; }
+
 /*FLEX STYLING*/
 .flex_row
 {

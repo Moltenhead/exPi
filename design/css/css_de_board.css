@@ -21,8 +21,29 @@
 {
   width: 100%;
   height: 100%;
-  padding: 5px;
   border-radius: 15px 0;
   border-width: 1px;
   border-style: solid;
+
+  overflow: hidden;
+}
+
+.xp_wrapper .xp
+{
+  width: 100%;
+  height: 100%;
+}
+.xp > .xp_img
+{
+  width: 35%;
+  height: 100%;
+}
+.xp > .xp_informations
+{
+  width: 65%;
+  height: 100%;
+  padding: 5px;
+
+  -webkit-box-shadow: -2px 0 2px rgba(0,0,0,.2);
+  box-shadow: -2px 0 2px rgba(0,0,0,.2);
 }

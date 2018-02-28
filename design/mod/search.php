@@ -3,12 +3,12 @@ $real_pagination = (int) ($page - 1) * ($pagination + 3);
 
 $slides = array();
 $que_skel = 'SELECT
-  e.uuid AS uuid,
-  e.title,
+  e.uuid,
+  e.title AS xp_title,
   i.href AS img_href,
   i.alt,
   e.short_description,
-  p.title,
+  p.title AS place_title,
   p.longitude,
   p.latitude,
   e.created_at,
@@ -34,7 +34,7 @@ $que_slides = $db->query($que_skel);
 while ($data_slides = $que_slides->fetch(PDO::FETCH_ASSOC)) {
   array_push($slides, new SlideXp(
       $data_slides['uuid'],
-      $data_slides['title'],
+      $data_slides['xp_title'],
       $data_slides['img_href'],
       $data_slides['alt'],
       $data_slides['short_description'],
@@ -52,7 +52,7 @@ $que_board_xps = $db->query($que_board_skel);
 while ($data_board_xps = $que_board_xps->fetch(PDO::FETCH_ASSOC)) {
   array_push($board_xps, new BoardXp(
     $data_board_xps['uuid'],
-    $data_board_xps['title'],
+    $data_board_xps['xp_title'],
     $data_board_xps['img_href'],
     $data_board_xps['alt'],
     $data_board_xps['short_description'],
