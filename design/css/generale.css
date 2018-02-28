@@ -197,6 +197,13 @@ form > input[type="text"], form > input[type="submit"]
   right: 0;
 }
 
+.slider_wrapper > .slider_container
+{
+  -webkit-transition: left .5s;
+  -o-transition: left .5s;
+  transition: left .5s;
+}
+
 .slide_wrapper > .slide_representation
 {
   width: 55%;

@@ -10,13 +10,34 @@
   position: relative;
 }
 
-/*MAGIC HAT SLIDING BUTTONS*/
+/*MAGIC HAT BUTTONS*/
 #magic_wrapper > button
 {
+  -webkit-filter: opacity(.2);
+  -o-filter: opacity(.2);
+  filter: opacity(.2);
+
   position: absolute;
   top: 50%;
   z-index: 10;
+
+  cursor: pointer;
+
+  -webkit-transition: filter .5s;
+  -o-transition: filter .5s;
+  transition: filter .5s;
 }
+#magic_wrapper > button:hover
+{
+  -webkit-filter: opacity(1);
+  -o-filter: opacity(1);
+  filter: opacity(1);
+
+  -webkit-transition: filter .2s;
+  -o-transition: filter .2s;
+  transition: filter .2s;
+}
+
 #magic_wrapper > button:first-child
 {
   left: 0;
