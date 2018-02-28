@@ -15,6 +15,7 @@ if (isset($page_inf)) {
         include_once(objPath('page', 'xp_display.php'));
         break;
       default :
+        include_once(objPath('page', 'home.php'));
         break;
     }
   } else {

@@ -1,8 +1,15 @@
 <?php
 /* -------------------- PAGE MANAGEMENT ---------------------*/
+$que_p_names = $db->query('SELECT class FROM pages');
+$pages_names = $que_p_names->fetchAll(PDO::FETCH_COLUMN, 0);
+
 $wh;
 if (isset($_GET['wh']) && $_GET['wh'] != null) {
-  $wh = htmlspecialchars($_GET['wh']);
+  if (in_array($_GET['wh'], $pages_names)) {
+    $wh = htmlspecialchars($_GET['wh']);
+  } else {
+    $wh = 'accueil';
+  }
 } else {
   $wh = 'accueil';
 }

@@ -199,13 +199,13 @@ form > input[type="text"], form > input[type="submit"]
 
 .slide_wrapper > .slide_representation
 {
-  width: 60%;
+  width: 55%;
   height: 100%;
 }
 
 .slide_wrapper > .slide_informations
 {
-  width: 40%;
+  width: 45%;
   height: 100%;
 }
 /*-----------*/

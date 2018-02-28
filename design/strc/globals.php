@@ -5,8 +5,15 @@ $style_ext = '.css';
 //'http' or 'https'
 $protocole_select = 'http'; // TODO: a éditer lors du passage HTTPS
 
+//where to start for first page enumeration
+$starting_page = 1;
+//how much xps within the de_board
+$pagination = 24;
+//how much slides within the magic_hat (meant to be a multiple of 3)
+$slides_number = 9;
+
 //object typed existing directories
-$access_type_opt = array (
+$href_opt = array (
   'CSS',
   'FNT',
   'IMG',
@@ -14,19 +21,14 @@ $access_type_opt = array (
   'JS',
   'UP_IMG'
 );
-
+//
 $root_opt = array (
   'STRC',
   'PAGE',
   'OBJ',
-  'MOD'
+  'MOD',
+  'VIEW'
 );
-
-/* ------------------- CLASSES AUTOLOADER --------------------*/
-function __autoload($class_name)
-{
-  include $class_name . '.php';
-}
 
 /* -------------------- ACTIVE FILE PATHS ---------------------*/
 define('PHP_SELF', htmlspecialchars($_SERVER['PHP_SELF']));
@@ -37,8 +39,9 @@ define('ROOT', htmlspecialchars($_SERVER['DOCUMENT_ROOT']));
 //useful roots
 define('STRC_ROOT', ROOT . PREFIX . '/design/strc/');
 define('PAGE_ROOT', ROOT . PREFIX . '/pages/');
-define('OBJ_ROOT', ROOT . PREFIX . '/lib/obj/');
-define('MOD_ROOT', ROOT . PREFIX . '/design/mod/');
+define('OBJ_ROOT', ROOT . PREFIX . '/lib/php/obj/');
+define('MOD_ROOT', ROOT . PREFIX . '/lib/php/mod/');
+define('VIEW_ROOT', ROOT . PREFIX . '/lib/php/view/');
 
 /* ------------------------- LINKS -------------------------*/
 define('H_SELECT', $protocole_select);
@@ -55,8 +58,14 @@ define('H_UP_IMG', HTTPH . 'uploads/img/');
 define('STYLE_EXT', $style_ext);
 
 /* -------------------- ACTIVE FILE NAMES ---------------------*/
-$a__name = substr(PHP_SELF, strrpos(PHP_SELF, '/') + 1, strlen(PHP_SELF) - strrpos(PHP_SELF, '/'));
-$a__shortname = substr($a__name, 0, strlen($a__name) - strrpos($a__name, '.') + 1);
+$a__name = substr(
+  PHP_SELF, strrpos(PHP_SELF, '/') + 1,
+  strlen(PHP_SELF) - strrpos(PHP_SELF, '/')
+);
+$a__shortname = substr(
+  $a__name, 0,
+  strlen($a__name) - strrpos($a__name, '.') + 1
+);
 //to call with styLink()
 define('CSSELF', 'css_' . $a__shortname);
 
@@ -64,12 +73,12 @@ define('CSSELF', 'css_' . $a__shortname);
 /*OBJECT PATH GENERATOR*/
 function objPath($access_type, $object_name)
 {
-  global $access_type_opt, $root_opt;
+  global $href_opt, $root_opt;
 
   //option list string, used in $access_type missmatch cases
-  $opt_count = count($access_type_opt) - 1;
+  $opt_count = count($href_opt) - 1;
   $opt_string = '';
-  foreach ($access_type_opt as $opt_id => $opt) {
+  foreach ($href_opt as $opt_id => $opt) {
     if ($opt_id < $opt_count) {
       $opt_string .= '<b>"' . $opt . '"</b> or ';
     } else if ($opt_id === $opt_count) {
@@ -79,7 +88,7 @@ function objPath($access_type, $object_name)
 
   if (gettype($object_name) === 'string') {
     if (gettype($access_type) === 'string') {
-      if (in_array(strtoupper($access_type), $access_type_opt) OR in_array(strtoupper($access_type), $root_opt)) {
+      if (in_array(strtoupper($access_type), $href_opt) OR in_array(strtoupper($access_type), $root_opt)) {
         //ternary operator
         return (!in_array(strtoupper($access_type), $root_opt)) ?
           constant('H_' . strtoupper($access_type)) . $object_name :
@@ -169,12 +178,16 @@ function isConnected()
   return (session_status() === PHP_SESSION_ACTIVE) ? TRUE : FALSE;
 }
 
+/* ------------------- CLASSES AUTOLOADER --------------------*/
+function __autoload($class_name)
+{
+  include objPath('obj', $class_name . '.php');
+}
+
 /* --------------------- PAGINATION MANAGEMENT --------------------- */
 $page;
 (isset($_GET['page']) && !empty($_GET['page']) && $_GET['page'] != null) ?
   $page = (int) $_GET['page'] :
-  $page = 1
+  $page = $starting_page;
 ;
-
-$pagination = 25;
 ?>

@@ -24,15 +24,10 @@ input[type="text"]:placeholder { color:grey; }
 #second_nav > button.picto > svg path { fill: #ff9933; }
 
 /* ---------------------- MAGIC HAT ---------------------- */
-#magic_hat
-{
-  background-color: #00cc66;
-}
+#magic_hat { background-color: #00cc66; }
 
-#magic_hat .slide_informations
-{
-  background-color: #ccffff;
-}
+#magic_hat .slide_representation { background-color: #00cc66;}
+#magic_hat .slide_informations { background-color: #ccffff; }
 
 /* ---------------------- DE BOARD ---------------------- */
 .xp_wrapper { border-color: #00cc66; }
