@@ -33,4 +33,4 @@ input[type="text"]:placeholder { color:grey; }
   border-color: #00cc66;
 }
 
-.xp > .xp_img { background-color: #ccc;}
+.xp > .img_wrapper { background-color: #ccc;}

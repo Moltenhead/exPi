@@ -6,7 +6,9 @@ class BoardXp extends Xp
     <a class="xp_wrapper">
       <div class="true_box">
         <div class="xp flex_row">
-          <img class="xp_img" src="<?php $this->_href ?>" alt="<?php echo $this->_alt ?>">
+          <div class="img_wrapper">
+            <img class="xp_img" src="<?php echo objPath('up_img', $this->_href); ?>" alt="<?php echo $this->_alt; ?>">
+          </div>
           <div class="xp_informations flex_column stretched">
             <article>
               <h3 class="txt_centered"><?php echo $this->_title; ?></h3>
