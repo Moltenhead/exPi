@@ -199,6 +199,9 @@ form > input[type="text"], form > input[type="submit"]
 
 .slider_wrapper > .slider_container
 {
+  position: relative;
+  left: 0;
+
   -webkit-transition: left .5s;
   -o-transition: left .5s;
   transition: left .5s;
