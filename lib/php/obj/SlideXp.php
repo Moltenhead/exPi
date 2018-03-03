@@ -4,16 +4,11 @@ class SlideXp extends Xp
   public function print()
   { ?>
     <div class="slide_wrapper flex_row">
-      <figure class="slide_representation">
-        <a href="<?php echo HTTPH .
-        '?wh=affichage_experience&xp=' .
-        $this->_uuid; ?>">
-          <figcaption><?php echo $this->_alt; ?></figcaption>
-        </a>
+      <div class="slide_representation">
         <img src="<?php echo ($this->_href != null) ?
           objPath('up_img', $this->_href) :
           objPath('img', 'bitmap/exPi_logo_placeholder.png'); ?>" alt="<?php echo $this->_alt; ?>">
-      </figure>
+      </div>
       <div class="slide_informations flex_column stretched">
         <article class="slide_description">
           <h1><?php echo$this->_title; ?></h1>

@@ -1,12 +1,13 @@
 /*Contains color selections
 * TODO: adding the palette within this commentary
+* old main color : #00cc66
 */
 
 /* ---------------------- GLOBAL ---------------------- */
 input[type="text"]:placeholder { color:grey; }
 
 /* ---------------------- MAIN NAV ---------------------- */
-#main_nav { background-color: #00cc66; }
+#main_nav { background-color: #6666cc; }
 
 #main_nav a:hover { color: #ffcc33; }
 
@@ -19,29 +20,57 @@ input[type="text"]:placeholder { color:grey; }
 #profile_options_button svg g path { fill: white !important; }
 
 /* ---------------------- SECOND NAV ---------------------- */
-#second_nav { background-color: #00cc66/*old color#ccff99;*/ }
+#second_nav { background-color: #ff9933/*old color#ccff99;*/ }
 
 #second_nav > button.picto > svg path { fill: #ff9933; }
 
 /* ---------------------- MAGIC HAT ---------------------- */
-#magic_hat { background-color: #00cc66; }
+#magic_hat { background-color: #ff9933; }
 
-#magic_hat .slide_representation { background-color: #00cc66;}
+#magic_hat .slide_representation { background-color: transparent; }
+#magic_hat .slide_wrapper > .slide_representation::after
+{
+  background: linear-gradient(90deg, transparent, #ff9933);
+}
 #magic_hat .slide_informations { background-color: #ccffff; }
 
 /* ---------------------- DE BOARD ---------------------- */
-.xp_wrapper { border-color: #cdcdcd; }
-.xp_wrapper.voir { border-color: #00cccc; }
-.xp_wrapper.ecouter { border-color: #ff6633; }
-.xp_wrapper.gouter { border-color: #6600cc; }
-.xp_wrapper.sortir { border-color: #ff0000; }
-.xp_wrapper.rencontrer { border-color: #66cc00; }
-.xp_wrapper.transpirer { border-color: #66cc00; }
-.xp_wrapper.jouer { border-color: #ffff00; }
+.xp_wrapper
+{ border-color: #ccc; }
+.xp_wrapper:hover .img_wrapper::after
+{ background-color: rgba(204,204,204,.8); }
+.xp_wrapper.voir
+{ border-color: #99ffff; }
+.xp_wrapper.voir:hover .img_wrapper::after
+{ background-color: rgba(153,255,255,.8); }
+.xp_wrapper.ecouter
+{ border-color: #ff6633; }
+.xp_wrapper.ecouter:hover .img_wrapper::after
+{ background-color: rgba(255,102,51,.8); }
+.xp_wrapper.gouter
+{ border-color: #6600cc; }
+.xp_wrapper.gouter:hover .img_wrapper::after
+{ background-color: rgba(102,0,204,.8); }
+.xp_wrapper.sortir
+{ border-color: #ff0000; }
+.xp_wrapper.sortir:hover .img_wrapper::after
+{ background-color: rgba(255,0,0,.8); }
+.xp_wrapper.rencontrer
+{ border-color: #66cc00; }
+.xp_wrapper.rencontrer:hover .img_wrapper::after
+{ background-color: rgba(102,204,0,.8); }
+.xp_wrapper.transpirer
+{ border-color: #66cc00; }
+.xp_wrapper.transpirer:hover .img_wrapper::after
+{ background-color: rgba(102,204,0,.8); }
+.xp_wrapper.jouer
+{ border-color: #ffcc00; }
+.xp_wrapper.jouer:hover .img_wrapper::after
+{ background-color: rgba(255,204,0,.8); }
 
 .xp_wrapper > .true_box
 {
-  background-color: rgba(0,0,0,.05);
+  background-color: rgba(0,0,0,.005);
   /*border-color: #999;*/
 }
 .xp_wrapper .xp_informations
@@ -49,4 +78,4 @@ input[type="text"]:placeholder { color:grey; }
   /*border-color: rgba(0,0,0,1);*/
 }
 
-.xp > .img_wrapper { background-color: rgba(0,204,102,.5);}
+.xp > .img_wrapper { background-color: transparent;}
