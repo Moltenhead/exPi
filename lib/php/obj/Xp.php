@@ -8,6 +8,18 @@ class Xp
   protected $_short_description;
   protected $_date_maj;
 
+  //utilitaire de test
+  protected $_class = array(
+    '',
+    'voir',
+    'ecouter',
+    'gouter',
+    'sortir',
+    'rencontrer',
+    'transpirer',
+    'jouer'
+  );
+
   public function __construct($uuid, $title, $href, $alt, $short_descr, $date_update)
   {
     $this->_uuid = $uuid;

@@ -231,6 +231,7 @@ form > input[type="text"], form > input[type="submit"]
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 
+  opacity: .2;
   -webkit-filter: grayscale(85%) blur(2px);
   -o-filter: grayscale(85%) blur(2px);
   filter: grayscale(85%) blur(2px);

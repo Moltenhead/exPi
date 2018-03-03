@@ -30,11 +30,23 @@ input[type="text"]:placeholder { color:grey; }
 #magic_hat .slide_informations { background-color: #ccffff; }
 
 /* ---------------------- DE BOARD ---------------------- */
-.xp_wrapper { border-color: #00cc66; }
+.xp_wrapper { border-color: #cdcdcd; }
+.xp_wrapper.voir { border-color: #00cccc; }
+.xp_wrapper.ecouter { border-color: #ff6633; }
+.xp_wrapper.gouter { border-color: #6600cc; }
+.xp_wrapper.sortir { border-color: #ff0000; }
+.xp_wrapper.rencontrer { border-color: #66cc00; }
+.xp_wrapper.transpirer { border-color: #66cc00; }
+.xp_wrapper.jouer { border-color: #ffff00; }
+
 .xp_wrapper > .true_box
 {
-  background-color: rgba(0,204,102,.1);
-  border-color: #00cc66;
+  background-color: rgba(0,0,0,.05);
+  /*border-color: #999;*/
+}
+.xp_wrapper .xp_informations
+{
+  /*border-color: rgba(0,0,0,1);*/
 }
 
-.xp > .img_wrapper { background-color: rgba(204,204,204,.5);}
+.xp > .img_wrapper { background-color: rgba(0,204,102,.5);}
