@@ -8,7 +8,7 @@ class BoardXp extends Xp
     $this->_uuid; ?>" class="xp_wrapper <?php echo $this->_class[rand(0,count($this->_class)-1)]; ?>" title="en savoir + sur <?php echo $this->_title; ?>">
       <div class="true_box">
         <div class="xp flex_row">
-          <div class="img_wrapper">
+          <div class="img_wrapper noselect">
             <img class="xp_img" src="<?php echo ($this->_href != null) ?
               objPath('up_img', $this->_href) :
               objPath('img', 'bitmap/exPi_logo_placeholder.png'); ?>" alt="<?php echo $this->_alt; ?>">

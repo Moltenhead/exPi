@@ -4,7 +4,7 @@ class SlideXp extends Xp
   public function print()
   { ?>
     <div class="slide_wrapper flex_row">
-      <div class="slide_representation">
+      <div class="slide_representation noselect">
         <img src="<?php echo ($this->_href != null) ?
           objPath('up_img', $this->_href) :
           objPath('img', 'bitmap/exPi_logo_placeholder.png'); ?>" alt="<?php echo $this->_alt; ?>">

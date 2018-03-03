@@ -88,7 +88,7 @@
 #magic_hat .slide_wrapper > .slide_representation::after
 {
   content: "";
-  width: 100%;
+  width: 80%;
   height: 100%;
 
   position: absolute;
@@ -104,8 +104,10 @@
   height: 95%;
   padding: 10px 15px;
 
-  -webkit-box-shadow: -3px 0 2px rgba(0,0,0,.2);
-  box-shadow: -3px 0 2px rgba(0,0,0,.2);
+  inner-border-left: ;
+
+  -webkit-box-shadow: 0 0 2px rgba(0,0,0,.2);
+  box-shadow: 0 0 2px rgba(0,0,0,.2);
 
   position: absolute;
   right: 15px;
