@@ -1,6 +1,8 @@
 <?php
 class Pagination
 {
+  private $_max_display = 5;//maximum displayed links to pages
+
   protected $_max_page;
   protected $_actual_page;
 
@@ -11,20 +13,18 @@ class Pagination
       (int) $_GET['page'] :
       1;
 
-    $que_nb_lines = $pdo->query(
-      'SELECT COUNT(id) AS nb
-        FROM experiences' .
-      (isset($_POST['search']) AND !empty($_POST['search'])) ?
-          ' WHERE MATCH(
-            e.title,
-            e.short_description,
-            e.long_description)
-              AGAINST(' . $db->quote($_POST['search']) . ')' :
-          ' LIMIT 100';
-    );
     $data_nb_lines = $que_nb_lines->fetch(PDO::FETCH_COLUMN, 0);
-
     $this->_max_page = $data_nb_lines / ($pagination + $slides_number);
   }
+
+  public function print()
+  { ?>
+    <form action="?wh<?php echo htmlspecialchars($_GET['wh']); ?>" method="POST" class="pagination_wrapper">
+      <input type="hidden" name="search" value="<?php echo $_POST['search']; ?>">
+      <?php for ($i = 0; $i < $this->_max_display; $i++) { ?>
+      <input type="submit" name="page" value="<?php echo $i; ?>">
+      <?php } ?>
+    </nav>
+  <?php }
 }
 ?>
