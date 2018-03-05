@@ -2,7 +2,7 @@
 class Pagination
 {
   private $_max_display = 5;//maximum displayed indexes
-  //declarations
+  //properties declarations
   private $_first_index;
   private $_max_page;
   private $_actual_page;
