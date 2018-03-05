@@ -1,5 +1,5 @@
 <?php //TODO: in need of evolution for theme and places matching
-$real_pagination = (int) ($page - 1) * ($pagination + $slides_number);
+$real_pagination = (int) ($page - 1) * ($xp_per_page); echo $page;
 
 $slides = array();
 $que_skel = 'SELECT
@@ -16,7 +16,7 @@ $que_skel = 'SELECT
   FROM experiences e
     LEFT JOIN experiences_images i ON e.img_uuid = i.uuid
     LEFT JOIN locations_places p ON e.place_id = p.id';
-if (isset($_POST['search']) AND !empty($_POST['search'])) {
+if (isset($_POST['search']) AND !empty($_POST['search']) AND $_POST['search'] != null) {
   $que_skel .= ' WHERE MATCH(
       e.title,
       e.short_description,
@@ -29,7 +29,7 @@ if (isset($_POST['type']) AND !empty($_POST['type']) AND $_POST['type'] != 0) {
 }
 
 $que_skel .= ' ORDER BY e.id DESC LIMIT ' . $slides_number . ' OFFSET ' . $real_pagination;
-
+echo $que_skel;
 $que_slides = $db->query($que_skel);
 
 while ($data_slides = $que_slides->fetch(PDO::FETCH_ASSOC)) {

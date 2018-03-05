@@ -6,24 +6,28 @@ class Pagination
   private $_first_index;
   private $_max_page;
   private $_actual_page;
+  private $_max_xp;
 
-  //ask for a nb of rows returned by a query on construct
-  private function __construct($nb_rows)
+  /*ask for a nb of rows returned by a query on construct
+  * and max nb of xp on one page
+  */
+  public function __construct($xp_per_page, $nb_rows)
   {
+    $this->_max_xp = ($xp_per_page);
     $this->_actual_page = (isset($_GET['page']) && $_GET['page'] != null) ?
       (int) $_GET['page'] :
       1;//if no get_page then page is the first
 
-    $this->_max_page = $nb_rows / ($pagination + $slides_number);
+    $this->_max_page = $nb_rows / $this->_max_xp;
 
-    $this->$_first_index = ($this->_actual_page <= round($this->_max_display / 2)) ?
+    $this->_first_index = ($this->_actual_page <= round($this->_max_display / 2)) ?
       1:
       $this->_actual_page - round($this->_max_display / 2);
   }
 
   public function print()
   { ?>
-    <form action="?wh<?php echo htmlspecialchars($_GET['wh']); ?>"
+    <form action="?wh=<?php echo $page_inf->get('class'); ?>"
       method="POST"
       class="pagination_wrapper"
     >

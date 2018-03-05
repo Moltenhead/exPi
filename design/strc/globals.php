@@ -5,12 +5,15 @@ $style_ext = '.css';
 //'http' or 'https'
 $protocole_select = 'http'; // TODO: a éditer lors du passage HTTPS
 
-//where to start for first page enumeration
-$starting_page = 1;
+$max_default_query_rows = 100;
+
+$default_page = 1;
 //how much xps within the de_board
 $pagination = 24;
 //how much slides within the magic_hat (meant to be a multiple of 3)
 $slides_number = 9;
+
+$xp_per_page = $pagination + $slides_number;
 
 //object typed existing directories
 $href_opt = array (
@@ -188,6 +191,6 @@ function __autoload($class_name)
 $page;
 (isset($_GET['page']) && !empty($_GET['page']) && $_GET['page'] != null) ?
   $page = (int) $_GET['page'] :
-  $page = $starting_page;
+  $page = $default_page;
 ;
 ?>
