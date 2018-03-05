@@ -1,5 +1,5 @@
 <?php //TODO: in need of evolution for theme and places matching
-$real_pagination = (int) ($page - 1) * ($xp_per_page); echo $page;
+$real_pagination = (int) ($page - 1) * ($xp_per_page);
 
 $slides = array();
 $que_skel = 'SELECT

@@ -1,4 +1,4 @@
-<?php
+<?php error_reporting(E_ALL);
   //url auto-prefixing
   (preg_match('#/ex[pP]{1}i/#', $_SERVER['PHP_SELF'])) ?
     define(

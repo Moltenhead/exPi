@@ -25,13 +25,13 @@ class Pagination
       $this->_actual_page - round($this->_max_display / 2);
   }
 
-  public function print()
+  public function print($where_inf, $request)
   { ?>
-    <form action="?wh=<?php echo $page_inf->get('class'); ?>"
+    <form action="?wh=<?php echo $where_inf->get('class'); ?>"
       method="POST"
       class="pagination_wrapper"
     >
-      <input type="hidden" name="search" value="<?php echo $_POST['search']; ?>">
+      <input type="hidden" name="search" value="<?php echo $request['search']; ?>">
       <?php for (
         $i = $this->_first_index;
         $i < ($this->_first_index + $this->_max_display);
