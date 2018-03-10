@@ -29,7 +29,7 @@ if (isset($_POST['type']) AND !empty($_POST['type']) AND $_POST['type'] != 0) {
 }
 
 $que_skel .= ' ORDER BY e.id DESC LIMIT ' . $slides_number . ' OFFSET ' . $real_pagination;
-echo $que_skel;
+
 $que_slides = $db->query($que_skel);
 
 while ($data_slides = $que_slides->fetch(PDO::FETCH_ASSOC)) {
