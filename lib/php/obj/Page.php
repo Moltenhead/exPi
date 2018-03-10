@@ -7,12 +7,15 @@ class Page
   private $_nav_sections = array();
   private $_nav_description;
 
+  private $_httph;
+
   public function __construct($id, $name, $class, $nav_descr)
   {
     $this->_id = $id;
     $this->_name = $name;
     $this->_class = $class;
     $this->_nav_description = $nav_descr;
+    $this->_httph = HTTPH . '?wh=' . $class;
   }
 
   public function push_section($title, $class)
@@ -22,19 +25,28 @@ class Page
 
   public function get($select)
   {
-    if ($select == 'id') {
-      return $this->_id;
-    } else if ($select == 'name') {
-      return $this->_name;
-    } else if ($select == 'class') {
-      return $this->_class;
-    } else if ($select == 'nav_descr') {
-      return $this->_nav_description;
-    } else {
-      trigger_error(
-        'invalid parameter, expecting \'id\' OR \'name\' OR \'class\'',
-        E_USER_ERROR
-      );
+    switch ($select) {
+      case 'id' :
+        return $this->_id;
+        break;
+      case 'name' :
+        return $this->_name;
+        break;
+      case 'class' :
+        return $this->_class;
+        break;
+      case 'nav_descr' :
+        return $this->_nav_description;
+        break;
+      case 'httph' :
+        return $this->_httph;
+        break;
+      default :
+        trigger_error(
+          'invalid parameter, expecting \'id\' OR \'name\' OR \'class\'',
+          E_USER_ERROR
+        );
+        break;
     }
   }
 

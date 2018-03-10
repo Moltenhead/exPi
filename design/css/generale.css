@@ -259,4 +259,24 @@ form > input[type="text"], form > input[type="submit"]
   -o-filter: grayscale(85%) blur(2px);
   filter: grayscale(85%) blur(2px);
 }
+
+/*NO FIND*/
+#no_find
+{
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+#no_find > h1
+{
+  font-size: 40px;
+  margin: 0;
+}
+#no_find > p
+{
+  font-size: 11.5px;
+}
 /*-----------*/

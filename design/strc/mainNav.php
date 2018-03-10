@@ -1,9 +1,13 @@
 <div class="main_wrapper flex_row aligned">
-  <a class="home_link logo no_depth flex_row centered" href="" title="exPi">
+  <a class="home_link logo no_depth flex_row centered" href="<?php echo HTTPH; ?>" title="exPi">
       <?php echo file_get_contents(objPath('img', 'svg/exPi_logo_v8.svg')); ?>
   </a>
   <div id="global_nav" class="flex_row spaced aligned">
-    <form class="search_bar flex_row spaced" action="" method="">
+    <form
+      class="search_bar flex_row spaced"
+      action="<?php echo HTTPH . '?wh=accueil' ?>"
+      method="POST"
+      >
       <input type="text" name="search" placeholder="Envie de ...">
       <div class="select_wrapper activable"> <!-- TODO: besoin d'une foncton js pour "focusable" - bug avec activable -->
         <select name="type">

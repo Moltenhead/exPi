@@ -48,7 +48,12 @@ define('VIEW_ROOT', ROOT . PREFIX . '/lib/php/view/');
 
 /* ------------------------- LINKS -------------------------*/
 define('H_SELECT', $protocole_select);
-define('HTTPH', H_SELECT . '://' . $_SERVER['HTTP_HOST'] . PREFIX);
+define(
+  'HTTPH',
+  H_SELECT . '://' . htmlspecialchars($_SERVER['HTTP_HOST']) . PREFIX
+);
+$HTTPH = HTTPH;
+
 //useful links
 define('H_CSS', HTTPH . 'design/css/');
 define('H_FNT', HTTPH . 'design/fnt/');
