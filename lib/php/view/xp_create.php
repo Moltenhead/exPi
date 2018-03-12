@@ -11,6 +11,8 @@
       <figcaption></figcaption>
       <img src="" alt="">
     </figure>
-
+    <input form="xp_datas" type="file" name="img">
   </div>
+
+  <button class="send_xp">Ajouter l'expérience</button>
 </div>
