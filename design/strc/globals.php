@@ -30,7 +30,8 @@ $root_opt = array (
   'PAGE',
   'OBJ',
   'MOD',
-  'VIEW'
+  'VIEW',
+  'CONTROL'
 );
 
 /* -------------------- ACTIVE FILE PATHS ---------------------*/
@@ -45,6 +46,7 @@ define('PAGE_ROOT', ROOT . PREFIX . '/pages/');
 define('OBJ_ROOT', ROOT . PREFIX . '/lib/php/obj/');
 define('MOD_ROOT', ROOT . PREFIX . '/lib/php/mod/');
 define('VIEW_ROOT', ROOT . PREFIX . '/lib/php/view/');
+define('CONTROL_ROOT', ROOT . PREFIX . '/lib/php/contr/');
 
 /* ------------------------- LINKS -------------------------*/
 define('H_SELECT', $protocole_select);
