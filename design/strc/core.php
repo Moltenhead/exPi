@@ -1,15 +1,19 @@
 <?php
 $allowed_pages = array(
   1,
+  2,
   4
 );
 
-if (isset($page_inf)) {
-  $page_id = (int) $page_inf->get('id');
-  if (!empty($page_id) && in_array($page_id, $allowed_pages)) {
-    switch ($page_id) {
+if (isset($where_inf)) {
+  $where_id = (int) $where_inf->get('id');
+  if (!empty($where_id) && in_array($where_id, $allowed_pages)) {
+    switch ($where_id) {
       case 1 :
         include_once(objPath('page', 'home.php'));
+        break;
+      case 2 :
+        include_once(objPath('page', 'xp_create.php'));
         break;
       case 4 :
         include_once(objPath('page', 'xp_display.php'));

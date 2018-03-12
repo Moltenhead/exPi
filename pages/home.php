@@ -1,4 +1,3 @@
-<div class="main_wrapper flex_column aligned">
 <?php
 require_once(objPath('mod', 'search.php'));
 require_once(objPath('mod', 'pagination_query.php'));
@@ -14,4 +13,3 @@ if ($nb_rows > 0) {
   include_once(objPath('view', 'no_find.php'));
 }
 ?>
-</div>

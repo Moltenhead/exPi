@@ -40,9 +40,11 @@
     </nav>
 
     <main>
+      <div class="main_wrapper flex_column aligned">
       <?php
         include_once(objPath('strc', 'core.php'));
       ?>
+      </div>
     </main>
 
     <footer>
