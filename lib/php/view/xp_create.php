@@ -13,7 +13,4 @@
     </figure>
 
   </div>
-
-
-
 </div>
