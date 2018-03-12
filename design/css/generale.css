@@ -1,3 +1,6 @@
+/*VISIBILITY*/
+.hidden { visibility: hidden; }
+
 /*TEXT*/
 .txt_justified
 {
