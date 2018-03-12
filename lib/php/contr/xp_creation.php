@@ -1,7 +1,7 @@
 <?php
 $allowed_disp = array(
-  'create',
-  'how-to'
+  'creer',
+  'charte'
 );
 
 if (isset($_GET['disp']) && !empty($_GET['disp']) && $_GET['disp'] != null) {
@@ -11,7 +11,7 @@ if (isset($_GET['disp']) && !empty($_GET['disp']) && $_GET['disp'] != null) {
       case 'create':
         include_once(objPath('view', 'xp_create.php'));
         break;
-      case 'how-to':
+      case 'charte':
         include_once(objPath('view', 'xp_howto.php'));
         break;
 
