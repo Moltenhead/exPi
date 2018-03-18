@@ -1,4 +1,9 @@
 <?php
+/*Manage routing through xp xp_creation
+* TODO: removing when structure has been reworked
+*/
+
+//Allowed pages within xp_creation
 $allowed_disp = array(
   'creer',
   'charte'
