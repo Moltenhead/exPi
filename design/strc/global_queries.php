@@ -1,7 +1,7 @@
 <?php
 /* -------------------- PAGE MANAGEMENT ---------------------*/
-$que_p_names = $db->query('SELECT class FROM pages');
-$pages_names = $que_p_names->fetchAll(PDO::FETCH_COLUMN, 0);
+$que_pages_names = $db->query('SELECT class FROM pages');
+$pages_names = $que_pages_names->fetchAll(PDO::FETCH_COLUMN, 0);
 
 $wh;
 if (isset($_GET['wh']) && $_GET['wh'] != null) {
