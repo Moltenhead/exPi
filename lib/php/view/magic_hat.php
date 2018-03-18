@@ -1,5 +1,5 @@
 <div id="magic_wrapper" class="flex_row">
-  <button class="picto big_picto slider_button" title="expériences précédentes">
+  <button class="picto big_picto slider_button go_left" title="expériences précédentes">
     <?php echo file_get_contents(objPath('img', 'svg/arrow.svg')); ?>
   </button>
   <div id="magic_hat" class="slider_wrapper flex_row">
@@ -24,7 +24,7 @@
     <?php } ?>
     </div>
   </div>
-  <button class="picto big_picto slider_button" title="expériences suivantes">
+  <button class="picto big_picto slider_button go_right" title="expériences suivantes">
     <?php echo file_get_contents(objPath('img', 'svg/arrow.svg')); ?>
   </button>
 </div>
