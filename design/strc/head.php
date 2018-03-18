@@ -9,6 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <?php
+  //CSS linking
   styLink(array (
     'style',
     'normalize',
@@ -19,10 +20,13 @@
     'css_magic_hat',
     'css_de_board',
     'css_footer',
-    htmlspecialchars(CSSELF)
+    $csself
     )
   );
 
+  /*If can't access to JQ CDN then load server contained JQ version
+  * TODO: make it functional
+  */
   $handle = curl_init("https://code.jquery.com/jquery-3.2.1.min.js");
   curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
 
@@ -42,5 +46,6 @@
 
   curl_close($handle);
 
+  //JS linking
   scriptLink('main');
 ?>

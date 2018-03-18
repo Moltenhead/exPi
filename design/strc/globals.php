@@ -68,16 +68,9 @@ define('H_UP_IMG', HTTPH . 'uploads/img/');
 define('STYLE_EXT', $style_ext);
 
 /* -------------------- ACTIVE FILE NAMES ---------------------*/
-$a__name = substr(
-  PHP_SELF, strrpos(PHP_SELF, '/') + 1,
-  strlen(PHP_SELF) - strrpos(PHP_SELF, '/')
-);
-$a__shortname = substr(
-  $a__name, 0,
-  strlen($a__name) - strrpos($a__name, '.') + 1
-);
-//to call with styLink()
-define('CSSELF', 'css_' . $a__shortname);
+$csself = (isset($_GET['wh'])) ?
+  'css_' . htmlspecialchars($_GET['wh']) :
+  'css_accueil';
 
 /* --------------------- TOOLS ---------------------*/
 /*OBJECT PATH GENERATOR*/
