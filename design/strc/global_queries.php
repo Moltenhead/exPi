@@ -18,10 +18,7 @@ $que_wh = $db->query(
   'SELECT id,
     title,
     class,
-    first_nav_title AS first_title,
-    first_nav_class AS first_class,
-    second_nav_title AS second_title,
-    second_nav_class AS second_class,
+    pages_nav_ids,
     nav_description
       FROM pages
         WHERE class = ' . $db->quote($wh)
@@ -32,13 +29,13 @@ $que_wh->closeCursor();
 $data_wh = $data_wh[0];
 
 $where_inf = new Page(
+  $db,
   $data_wh['id'],
   $data_wh['title'],
   $data_wh['class'],
+  $data_wh['pages_nav_ids'],
   $data_wh['nav_description']
 );
-$where_inf->push_section($data_wh['first_title'], $data_wh['first_class']);
-$where_inf->push_section($data_wh['second_title'], $data_wh['second_class']);
 
 /* -------------------- TYPES DEFINITION -------------------- */
 $que_types = $db->query(

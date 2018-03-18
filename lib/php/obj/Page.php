@@ -1,72 +1,101 @@
 <?php
 class Page
 {
-  private $_id;
-  private $_name;
-  private $_class;
-  private $_nav_sections = array();
-  private $_nav_description;
+  private $id;
+  private $name;
+  private $class;
+  private $order_value;
+  private $nav_sections = array();
+  private $nav_description;
 
-  private $_httph;
+  private $httph;
 
-  public function __construct($id, $name, $class, $nav_descr)
+  //$db where pages_nav are stocked on first argument
+  public function __construct($db, $id, $name, $class, $nav_sections, $nav_descr)
   {
-    $this->_id = $id;
-    $this->_name = $name;
-    $this->_class = $class;
+    $this->id = $id;
+    $this->name = $name;
+    $this->class = $class;
+
+    $navs = preg_split('/[-]+/', $nav_sections);
+    $where_str;
+    if (count($navs) > 0) {
+      $where_str = ' WHERE id = ' . (int) $navs[0];
+      for ($i = 1; $i < count($navs); $i++) {
+        $where_str .= ' OR id = ' . (int) $navs[$i];
+      }
+    } else {
+      $where_str = '';
+    }
+
+    $que_navs = $db->query(
+      'SELECT
+        title,
+        class,
+        order_value,
+        description,
+        pages_link_ids
+        FROM pages_navs' .
+        $where_str
+      );
+
+    while ($data_navs = $que_navs->fetch(PDO::FETCH_ASSOC)) {
+      array_push($this->nav_sections, array(
+          'title' => htmlspecialchars($data_navs['title']),
+          'class' => htmlspecialchars($data_navs['class']),
+          'order_value' => htmlspecialchars($data_navs['order_value']),
+          'description' => htmlspecialchars($data_navs['description']),
+          'links_ids' => htmlspecialchars($data_navs['pages_link_ids']),
+        )
+      );
+    }
+
     $this->_nav_description = $nav_descr;
     $this->_httph = HTTPH . '?wh=' . $class;
   }
 
-  public function push_section($title, $class)
-  {
-    array_push($this->_nav_sections, array('title' => $title, 'class' => $class));
-  }
-
-  public function get($select)
-  {
-    switch ($select) {
-      case 'id' :
-        return $this->_id;
-        break;
-      case 'name' :
-        return $this->_name;
-        break;
-      case 'class' :
-        return $this->_class;
-        break;
-      case 'nav_descr' :
-        return $this->_nav_description;
-        break;
-      case 'httph' :
-        return $this->_httph;
-        break;
-      default :
-        trigger_error(
-          'invalid parameter, expecting \'id\' OR \'name\' OR \'class\'',
-          E_USER_ERROR
-        );
-        break;
+  public function __get($property) {
+    if (property_exists($this, $property)) {
+        return $this->$property;
+    } else {
+      $trace = debug_backtrace();
+      trigger_error(
+          'Undefined property via __get() : ' . $property .
+          ' in ' . $trace[0]['file'] .
+          ' line ' . $trace[0]['line'],
+          E_USER_NOTICE);
+      return null;
     }
   }
 
-  public function get_section($index, $select)
+  public function hasNavSections()
+  {
+    if (count($this->nav_sections) >= 1) {
+      return TRUE;
+    } else {
+      return FALSE;
+    }
+  }
+
+  public function getNav($index, $select)
   {
     $index = $index || 0;
-    if ($select == 'title' || $select == 'class') {
-      return $this->_nav_sections[$index][$select];
-    } else {
-      return 'parameter error';
-    }
+    //$select = $select || 'title';
+    return ($this->nav_sections[$index][$select]) ?
+       $this->nav_sections[$index][$select] :
+       trigger_error('parameter error', E_USER_ERROR);
   }
 
-  public function has_mutiple()
+  public function showNav($index)
   {
-    if (count($this->_nav_sections) > 1) {
-      return true;
-    } else {
-      return false;
-    }
+    $index = $index || 0;
+    echo
+      '<div class="nav_section">
+        <h3 class="section_header">' . $this->getNav($index, 'title') . '</h3>
+        <ul class="link_box">' .
+        //TODO: add links auto implementation
+        '</ul>
+      </div>';
   }
 }
 ?>

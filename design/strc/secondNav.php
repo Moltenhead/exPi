@@ -1,74 +1,7 @@
 <div class="main_wrapper flex_column spaced aligned">
-<?php //TODO: insert needed tables for the following code to work
-
-// checking if there is a page_id for the active page
-if (!empty($where_inf->get('id'))) {
-  $id = $where_inf->get('id');
-  //important informations query
-  $que_nav_inf = $db->query(
-    'SELECT COUNT(*),
-      MAX(section_id)
-      FROM pages_links
-        WHERE page_id = ' . $id
-);
-  //usable informations query
-  $que_nav_links = $db->query(
-    'SELECT section_id,
-      title,
-      class,
-      href
-      FROM pages_links
-        WHERE page_id = ' . $id
-);
-
-  //stocking first query datas
-  $data_nav_inf = $que_nav_inf->fetch(PDO::FETCH_NUM);
-  $que_nav_inf->closeCursor();
-
-  $nb_lines = $data_nav_inf[0];
-  if ($nb_lines >= 1) {
-    /* Creating an array of LinksCollection that contains as much LinkCollection
-    * as it is needed
-    */
-    $l_collections = array();
-    $max_section = $data_nav_inf[1];
-    for ($i = 0; $i < $max_section; $i++) {
-      array_push($l_collections, new LinksCollection);
-    }
-
-    //push all links to the associated index within $l_collections
-    while ($data_nav_links = $que_nav_links->fetch(PDO::FETCH_ASSOC)) {
-      $link = new Link(
-        $data_nav_links['title'],
-        $data_nav_links['class'],
-        $data_nav_links['href']
-      );
-      $l_collections[$data_nav_links['section_id'] - 1]->push($link);
-    }
-    $que_nav_links->closeCursor();
+<?php
+include_once(objPath('control', 'secondNav_sections.php'));
 ?>
-  <div class="nav_section">
-    <h3 class="section_header"><?php echo $where_inf->get_section(0, 'title'); ?></h3>
-    <ul class="link_box">
-    <?php for ($i = 0; $i < count($l_collections[0]); $i++) { ?>
-      <li><?php @$l_collections[0]->print_a($i, 'blank'); // @ = stfu error operator ?></li>
-    <?php } ?>
-    </ul>
-  </div>
-    <?php if ($where_inf->has_mutiple()) { ?>
-  <div class="nav_section">
-    <h3 class="section_header"><?php echo $where_inf->get_section(1, 'title'); ?></h3>
-    <ul class="link_box">
-    <?php ?>
-    </ul>
-  </div>
-    <?php }
-  } else { ?>
-  <h3 class="section_header">No links</h3>
-  <?php }
-}else { ?>
-  <h3 class="section_header">No page index</h3>
-<?php } ?>
 </div>
 <button class="picto micro_picto activable parent_transmissive" title="<?php echo $where_inf->get('nav_descr') ?>">
   <?php echo file_get_contents(objPath('img', 'svg/arrow.svg')); ?>

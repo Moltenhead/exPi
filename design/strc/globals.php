@@ -79,14 +79,12 @@ function objPath($access_type, $object_name)
   global $href_opt, $root_opt;
 
   //option list string, used in $access_type missmatch cases
-  $opt_count = count($href_opt) - 1;
   $opt_string = '';
+  foreach ($root_opt as $opt_id => $opt) {
+    $opt_string .= '<b>"' . $opt . '"</b> or ';
+  }
   foreach ($href_opt as $opt_id => $opt) {
-    if ($opt_id < $opt_count) {
-      $opt_string .= '<b>"' . $opt . '"</b> or ';
-    } else if ($opt_id === $opt_count) {
-      $opt_string .= '<b>"' . $opt . '"</b>';
-    }
+    $opt_string .= '<b>"' . $opt . '"</b> or ';
   }
 
   if (gettype($object_name) === 'string') {
