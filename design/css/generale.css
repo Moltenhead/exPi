@@ -199,18 +199,18 @@ form > input[type="text"], form > input[type="submit"]
 
   overflow: hidden;
 }
-.slider_wrapper > button
+.slider_wrapper:not(.up_nav) .slider_button
 {
   position: absolute;
 
   top: 60%;
 }
-.slider_wrapper > button:first-child
+.slider_wrapper:not(.up_nav) .slider_button.go_left
 {
   left: 0;
   transform: rotate(180deg);
 }
-.slider_wrapper > button:last-child
+.slider_wrapper:not(.up_nav) .slider_button.go_right
 {
   right: 0;
 }
