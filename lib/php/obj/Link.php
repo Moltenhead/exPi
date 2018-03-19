@@ -1,31 +1,54 @@
 <?php
 class Link
 {
-  private $_title;
-  private $_href;
-  private $_class;
+  private $title;
+  private $href;
+  private $class;
+  private $order_value;
 
-  public function __construct($title, $href, $class)
+  public function __construct($title, $href, $class, $order_value)
   {
-    $this->_title = $title;
-    $this->_href = $href;
-    $this->_class = $class;
+    $this->title = $title;
+    //regex to transform the link if PHP readable
+    if (preg_match('/constant\(\'([\w_]+)\'\)/', $href)) {
+      $re = '/.*?constant\(\'([\w_]+)\'\).*/';
+      preg_match($re, $href, $matches);
+      $this->href = constant($matches[1]);
+
+      $re = '/.*?(?!\()\'([\w =?_\-:\/]+)\'(?!\))$/';
+      $this->href .= (preg_match($re, $href, $matches)) ?
+        $matches[1] :
+        '';
+    } else {
+      $this->href = $href;
+    }
+
+    $this->class = $class;
+    $this->oreder_value = $order_value;
   }
 
-  public function get($select)
+  public function __get($property)
   {
-    if ($select == 'title') {
-      return $this->_title;
-    } else if ($select == 'href') {
-      return $this->_href;
-    } else if ($select == 'class') {
-      return $this->_class;
+    if (property_exists($this, $this->$property)) {
+      return $this->$property;
     } else {
+      $trace = debug_backtrace();
       trigger_error(
-        'invalid parameter, expecting \'title\' OR \'href\' OR \'class\'',
-        E_USER_ERROR
+        'invalid parameter, got ' . $property .
+        ' in ' . $trace[0]['file'] .
+        ' line ' . $trace[0]['line'],
+        E_USER_NOTICE
       );
     }
+  }
+
+  public function show($target)
+  {
+    $true_target = (isset($target) && $target != null) ? $target : '_self';
+    echo '<a href="' . $this->href .
+      '" target="' . $true_target . '">' .
+      $this->title .
+      '</a>';
   }
 }
 ?>

@@ -62,7 +62,7 @@ class Pagination
 
     $print = '<div class="flex_row aligned">
       <label>pages :</label>
-      <form action="' . $where_inf->get('httph') .
+      <form action="' . $where_inf->httph .
       '" method="POST" class="pagination_wrapper">';
     if (isset($_POST['search']) && $_POST['search'] != null) {
       $print .= '<input type="hidden" name="search" value="' .

@@ -9,10 +9,12 @@ class Page
   private $nav_description;
 
   private $httph;
+  private $db;
 
   //$db where pages_nav are stocked on first argument
   public function __construct($db, $id, $name, $class, $nav_sections, $nav_descr)
   {
+    $this->db = $db;
     $this->id = $id;
     $this->name = $name;
     $this->class = $class;
@@ -36,22 +38,25 @@ class Page
         description,
         pages_link_ids
         FROM pages_navs' .
-        $where_str
+        $where_str .
+          ' ORDER BY order_value DESC'
       );
 
     while ($data_navs = $que_navs->fetch(PDO::FETCH_ASSOC)) {
-      array_push($this->nav_sections, array(
-          'title' => htmlspecialchars($data_navs['title']),
+      array_push(
+        $this->nav_sections,
+        array(
+          'title' => $data_navs['title'],
           'class' => htmlspecialchars($data_navs['class']),
-          'order_value' => htmlspecialchars($data_navs['order_value']),
+          'order_value' => (int) $data_navs['order_value'],
           'description' => htmlspecialchars($data_navs['description']),
           'links_ids' => htmlspecialchars($data_navs['pages_link_ids']),
         )
       );
     }
 
-    $this->_nav_description = $nav_descr;
-    $this->_httph = HTTPH . '?wh=' . $class;
+    $this->nav_description = $nav_descr;
+    $this->httph = HTTPH . '?wh=' . $class;
   }
 
   public function __get($property) {
@@ -79,22 +84,29 @@ class Page
 
   public function getNav($index, $select)
   {
-    $index = $index || 0;
-    //$select = $select || 'title';
-    return ($this->nav_sections[$index][$select]) ?
-       $this->nav_sections[$index][$select] :
-       trigger_error('parameter error', E_USER_ERROR);
+    if (array_key_exists($select, $this->nav_sections[$index])) {
+      return $this->nav_sections[$index][$select];
+    } else {
+      $trace = debug_backtrace();
+      trigger_error(
+        'parameter error : ' . $select .
+        ' in ' . $trace[0]['file'] .
+        ' line ' . $trace[0]['line'],
+        E_USER_NOTICE
+      );
+    }
   }
 
-  public function showNav($index)
+  public function showNav($index, $target)
   {
-    $index = $index || 0;
     echo
-      '<div class="nav_section">
+      '<div class="nav_section ' . $this->getNav($index, 'class') . '">
         <h3 class="section_header">' . $this->getNav($index, 'title') . '</h3>
-        <ul class="link_box">' .
-        //TODO: add links auto implementation
-        '</ul>
+        <ul class="link_box">';
+        $links = new LinksCollection(
+          $this->db, $this->nav_sections[$index]['links_ids']);
+        $links->showAll($target);
+        echo '</ul>
       </div>';
   }
 }

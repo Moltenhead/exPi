@@ -6,7 +6,7 @@ $allowed_pages = array(
 );
 
 if (isset($where_inf)) {
-  $where_id = (int) $where_inf->get('id');
+  $where_id = (int) $where_inf->id;
   if (!empty($where_id) && in_array($where_id, $allowed_pages)) {
     switch ($where_id) {
       case 1 :
