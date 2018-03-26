@@ -1,6 +1,6 @@
 /*VISIBILITY*/
 .hidden { visibility: hidden; }
-.yverflow { overflow-y: auto; }
+.yverflow { overflow-y: auto !important; }
 
 /*TEXT*/
 .txt_justified
@@ -11,6 +11,7 @@
 }
 .txt_centered { text-align: center; }
 .txt_right { text-align: right; }
+.txt_baseline { vertical-align: baseline; }
 
 /*INTERACTIONS*/
 .noselect
@@ -41,11 +42,22 @@
 .spaced { justify-content: space-around; }
 .centered { justify-content: center;}
 .stretched { justify-content: space-between; }
+.end_placed { justify-content: flex-end; }
 .aligned
 {
   -ms-align-items: center;
   align-items: center;
 }
+.baselined
+{
+  -ms-align-items: baseline;
+  align-items: baseline;
+}
+.end_aligned
+{
+  -ms-align-items: flex-end;
+  align-items: flex-end;
+}
 .nowrap { flex-wrap: nowrap; }
 /*-----------*/
 
@@ -194,6 +206,10 @@ form > input[type="text"], form > input[type="submit"]
 .avatar { border-radius: 50%; }
 /*-----------*/
 
+/*FORMS*/
+.option_wrapper * { cursor: pointer; }
+/*-----------*/
+
 /*SLIDERS*/
 .slider_wrapper
 {
@@ -306,6 +322,37 @@ form > input[type="text"], form > input[type="submit"]
   -webkit-filter: grayscale(85%) blur(2px);
   -o-filter: grayscale(85%) blur(2px);
   filter: grayscale(85%) blur(2px);
+
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s;
+}
+
+.obscurer
+{
+  width: 100%;
+  height:100%;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 70;
+
+  opacity: 0;
+  -webkit-transition: opacity .2s;
+  -o-transition: opacity .2s;
+  transition: opacity .2s;
+
+  pointer-events: none;
+}
+
+.obscurer.active
+{
+  opacity: 1;
+
+  pointer-events: initial;
 }
 
 /*NO FIND*/

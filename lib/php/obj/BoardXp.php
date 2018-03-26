@@ -3,9 +3,12 @@ class BoardXp extends Xp
 {
   public function print()
   { ?>
-    <a href="<?php echo HTTPH .
-    '?wh=affichage_experience&xp=' .
-    $this->_uuid; ?>" class="xp_wrapper <?php echo $this->_class[rand(0,count($this->_class)-1)]; ?>" title="en savoir + sur <?php echo $this->_title; ?>">
+    <a
+      href="<?php echo HTTPH .
+        '?wh=affichage_experience&xp=' .
+        $this->_uuid; ?>"
+      class="xp_wrapper <?php echo $this->_class[rand(0,count($this->_class)-1)];//TODO: replace by it's true type when removing the placeholders ?>"
+      title="en savoir + sur <?php echo $this->_title; ?>">
       <div class="true_box">
         <div class="xp flex_row">
           <div class="img_wrapper noselect">

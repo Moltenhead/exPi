@@ -1,3 +1,4 @@
+<!--TODO: implement real howto -->
 <div id="xp_howto_wrapper">
   <article class="xp_howto">
     <h1>Lorem Ipsum</h1>

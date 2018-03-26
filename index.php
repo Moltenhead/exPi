@@ -22,7 +22,7 @@
   </head>
 
   <body>
-    <div id="background_sticker" class="logo big_logo">
+    <div id="background_sticker" class="logo big_logo" title="exPi: répertoire libre et collaboratif d'expériences">
       <?php
         echo file_get_contents(objPath('img', 'svg/exPi_logo_v8.svg'));
       ?>
@@ -38,6 +38,8 @@
         include_once(objPath('strc', 'secondNav.php'));
       ?>
     </nav>
+
+    <div class="obscurer"></div>
 
     <main>
       <div class="main_wrapper flex_column aligned">

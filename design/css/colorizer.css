@@ -24,6 +24,9 @@ input[type="text"]:placeholder { color:grey; }
 
 #second_nav > button.picto > svg path { fill: #ff9933; }
 
+/* ---------------------- MAIN ---------------------- */
+.obscurer { background-color: rgba(0,0,0,.2) }
+
 /* ---------------------- MAGIC HAT ---------------------- */
 #magic_hat { background-color: #ff9933; }
 
