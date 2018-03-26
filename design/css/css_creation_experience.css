@@ -10,8 +10,34 @@
   height: 10%;
 }
 
-#xp_create_wrapper .slider_container
+#xp_create_wrapper .slider_view
 {
   width: 100%;
   height: 90%;
+}
+
+#xp_create_wrapper .slider_container
+{
+  width: 200%;
+}
+
+#xp_howto_wrapper
+{
+  width: 50%;
+
+  overflow-y: auto;
+}
+
+#xp_howto_wrapper .xp_howto h1
+{
+  text-align: center;
+
+  margin-top: 0;
+}
+
+#xp_howto_wrapper .xp_howto p
+{
+  text-align: justify;
+
+  margin-bottom: 15px;
 }
