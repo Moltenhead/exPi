@@ -1,7 +1,7 @@
 <div id="xp_wrapper">
   <form
     id="xp_datas"
-    action="<?php echo objPath('mod', 'xp_create.php') ?>"
+    action="<?php echo objPath('control', 'xp_crud.php') . '?from=' . $where_inf->class ?>"
     method="post"
     class="flex_column">
     <div class="main_wrapper flex_row">
