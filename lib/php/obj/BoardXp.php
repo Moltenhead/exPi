@@ -1,6 +1,17 @@
 <?php
 class BoardXp extends Xp
 {
+  public function __construct($uuid, $title, $img, $img_alt, $short_descr,$created_at, $date_update)
+  {
+    $this->uuid = $uuid;
+    $this->title = $title;
+    $this->img = $img;
+    $this->img_alt = $img_alt;
+    $this->short_description = $short_descr;
+    $this->date_create = $created_at;
+    $this->date_update = $date_update;
+  }
+
   public function print()
   { ?>
     <a

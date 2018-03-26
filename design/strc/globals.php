@@ -39,14 +39,14 @@ define('PHP_SELF', htmlspecialchars($_SERVER['PHP_SELF']));
 define('URI', htmlspecialchars($_SERVER['REQUEST_URI']));
 
 /* ------------------------- ROOTS -------------------------*/
-define('ROOT', htmlspecialchars($_SERVER['DOCUMENT_ROOT']));
+define('ROOT', htmlspecialchars($_SERVER['DOCUMENT_ROOT']) . PREFIX);
 //useful roots
-define('STRC_ROOT', ROOT . PREFIX . '/design/strc/');
-define('PAGE_ROOT', ROOT . PREFIX . '/pages/');
-define('OBJ_ROOT', ROOT . PREFIX . '/lib/php/obj/');
-define('MOD_ROOT', ROOT . PREFIX . '/lib/php/mod/');
-define('VIEW_ROOT', ROOT . PREFIX . '/lib/php/view/');
-define('CONTROL_ROOT', ROOT . PREFIX . '/lib/php/contr/');
+define('STRC_ROOT', ROOT . '/design/strc/');
+define('PAGE_ROOT', ROOT . '/pages/');
+define('OBJ_ROOT', ROOT . '/lib/php/obj/');
+define('MOD_ROOT', ROOT . '/lib/php/mod/');
+define('VIEW_ROOT', ROOT . '/lib/php/view/');
+define('CONTROL_ROOT', ROOT . '/lib/php/contr/');
 
 /* ------------------------- LINKS -------------------------*/
 define('H_SELECT', $protocole_select);

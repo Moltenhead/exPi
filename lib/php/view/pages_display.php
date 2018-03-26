@@ -26,7 +26,7 @@
       ?>
     </nav>
 
-    <div class="obscurer"></div>
+    <div id="obscurer"></div>
 
     <main>
       <div class="main_wrapper flex_column aligned">

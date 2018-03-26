@@ -8,7 +8,8 @@ class Xp
   protected $img_alt;
   protected $short_description;
   protected $long_description;
-  protected $categories;
+  protected $themes;
+  protected $date_create;
   protected $date_update;
 
   /*test utilitary
@@ -25,14 +26,27 @@ class Xp
     'jouer'
   );
 
-  public function __construct($uuid, $title, $img, $img_alt, $short_descr, $long_descr, $categories, $date_update)
+  public function __construct(
+    $uuid,
+    $title,
+    $type,
+    $img,
+    $img_alt,
+    $short_descr,
+    $long_descr,
+    $themes,
+    $date_create,
+    $date_update)
   {
     $this->uuid = $uuid;
     $this->title = $title;
+    $this->type = $type;
     $this->img = $img;
     $this->img_alt = $img_alt;
     $this->short_description = $short_descr;
     $this->short_description = $long_descr;
+    $this->themes = $themes;
+    $this->date_create = $date_create;
     $this->date_update = $date_update;
   }
 

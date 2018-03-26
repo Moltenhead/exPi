@@ -4,7 +4,7 @@
   height: 85vh;
 }
 
-.xp_representation input[name="img_alt"], .xp_contents input[name="title"], .xp_contents input[name="categories"]
+.xp_representation input[name="img_alt"], .xp_contents input[name="title"], .xp_contents input[name="themes"]
 {
   overflow: hidden;
 
@@ -13,7 +13,7 @@
   transition: width .6s;
 }
 
-.xp_representation input[name="img_alt"]:focus, .xp_contents input[name="title"]:focus, .xp_contents input[name="categories"]:focus
+.xp_representation input[name="img_alt"]:focus, .xp_contents input[name="title"]:focus, .xp_contents input[name="themes"]:focus
 {
   overflow-y: auto;
 
@@ -177,13 +177,13 @@
   padding: 5px;
 }
 
-/*CATEGORIES*/
-#xp_create_wrapper #xp_wrapper .main_wrapper .xp_contents input[name="categories"]
+/*THEMES*/
+#xp_create_wrapper #xp_wrapper .main_wrapper .xp_contents input[name="themes"]
 {
   width: 30%;
   margin-left: 1%;
 }
-#xp_create_wrapper #xp_wrapper .main_wrapper .xp_contents input[name="categories"]:focus
+#xp_create_wrapper #xp_wrapper .main_wrapper .xp_contents input[name="themes"]:focus
 {
   width: 99%;
 }

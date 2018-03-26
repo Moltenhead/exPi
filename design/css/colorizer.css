@@ -5,6 +5,7 @@
 
 /* ---------------------- GLOBAL ---------------------- */
 input[type="text"]:placeholder { color:grey; }
+.error_notice { color: red; }
 
 /* ---------------------- MAIN NAV ---------------------- */
 #main_nav { background-color: #6666cc; }
@@ -25,7 +26,7 @@ input[type="text"]:placeholder { color:grey; }
 #second_nav > button.picto > svg path { fill: #ff9933; }
 
 /* ---------------------- MAIN ---------------------- */
-.obscurer { background-color: rgba(0,0,0,.2) }
+#obscurer { background-color: rgba(0,0,0,.2) }
 
 /* ---------------------- MAGIC HAT ---------------------- */
 #magic_hat { background-color: #ff9933; }
