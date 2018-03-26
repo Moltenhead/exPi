@@ -5,18 +5,18 @@ class SlideXp extends Xp
   { ?>
     <div class="slide_wrapper flex_row">
       <div class="slide_representation noselect">
-        <img src="<?php echo ($this->_href != null) ?
-          objPath('up_img', $this->_href) :
-          objPath('img', 'bitmap/exPi_logo_placeholder.png'); ?>" alt="<?php echo $this->_alt; ?>">
+        <img src="<?php echo ($this->img != null) ?
+          objPath('up_img', $this->img) :
+          objPath('img', 'bitmap/exPi_logo_placeholder.png'); ?>" alt="<?php echo $this->img_alt; ?>">
       </div>
       <div class="slide_informations flex_column stretched">
         <article class="slide_description">
-          <h1><?php echo$this->_title; ?></h1>
-          <p class="txt_justified"><?php echo $this->_short_description; ?></p>
+          <h1><?php echo$this->title; ?></h1>
+          <p class="txt_justified"><?php echo $this->short_description; ?></p>
         </article>
         <nav class="flex_row stretched">
           <?php if (isConnected()) {
-            if (in_array($interest101->get('xps'), $this->_id)) {?>
+            if (in_array($interest101->get('xps'), $this->id)) {?>
             <a href="<?php echo objPath('mod', '') ?>" title="$Ccedil;a m'intéresse">
               +
             </a>
@@ -32,7 +32,7 @@ class SlideXp extends Xp
         </nav>
         <p class="txt_right">
           édité le
-          <span><?php echo $this->_date_update; ?></span>
+          <span><?php echo $this->date_update; ?></span>
         </p>
       </div>
     </div>

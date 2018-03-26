@@ -6,32 +6,32 @@ class BoardXp extends Xp
     <a
       href="<?php echo HTTPH .
         '?wh=affichage_experience&xp=' .
-        $this->_uuid; ?>"
-      class="xp_wrapper <?php echo $this->_class[rand(0,count($this->_class)-1)];//TODO: replace by it's true type when removing the placeholders ?>"
-      title="en savoir + sur <?php echo $this->_title; ?>">
+        $this->uuid; ?>"
+      class="xp_wrapper <?php echo $this->class[rand(0,count($this->class)-1)];//TODO: replace by it's true type when removing the placeholders ?>"
+      title="en savoir + sur <?php echo $this->title; ?>">
       <div class="true_box">
         <div class="xp flex_row">
           <div class="img_wrapper noselect">
-            <img class="xp_img" src="<?php echo ($this->_href != null) ?
-              objPath('up_img', $this->_href) :
-              objPath('img', 'bitmap/exPi_logo_placeholder.png'); ?>" alt="<?php echo $this->_alt; ?>">
+            <img class="xp_img" src="<?php echo ($this->img != null) ?
+              objPath('up_img', $this->img) :
+              objPath('img', 'bitmap/exPi_logo_placeholder.png'); ?>" alt="<?php echo $this->img_alt; ?>">
           </div>
           <div class="xp_informations flex_column stretched">
             <article>
-              <h3 class="txt_centered"><?php echo $this->_title; ?></h3>
-              <p class="txt_justified"><?php echo $this->_short_description; ?></p>
+              <h3 class="txt_centered"><?php echo $this->title; ?></h3>
+              <p class="txt_justified"><?php echo $this->short_description; ?></p>
             </article>
             <div class="txt_right">
               <p>
                 édité le
-                <span><?php echo $this->_date_update; ?></span>
+                <span><?php echo $this->date_update; ?></span>
               </p>
             </div>
           </div>
         </div>
         <nav class="flex_column hovering_nav">
         <?php if (isConnected()) {
-          if (in_array($interest101->get('xps'), $this->_id)) {?>
+          if (in_array($interest101->xps, $this->uuid)) {?>
           <a href="<?php echo objPath('mod', '') ?>" title="$Ccedil;a m'intéresse">
             +
           </a>

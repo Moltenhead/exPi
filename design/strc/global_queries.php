@@ -3,8 +3,8 @@
 $que_pages_names = $db->query('SELECT class FROM pages');
 $pages_names = $que_pages_names->fetchAll(PDO::FETCH_COLUMN, 0);
 $modules_names = array(
-  'xp_create',
-)
+  'xp_crud',
+);
 
 $wh;
 $mod;
@@ -12,8 +12,8 @@ if (isset($_GET['wh']) && $_GET['wh'] != null) {
   (in_array($_GET['wh'], $pages_names)) ?
     $wh = htmlspecialchars($_GET['wh']) :
     $wh = 'accueil';
-} else if (isset($_GET['mod'] && $_GET['mod'] != null)) {
-  (in_array($_GET['wh'], $modules_names)) ?
+} else if (isset($_GET['mod']) && $_GET['mod'] != null) {
+  (in_array($_GET['mod'], $modules_names)) ?
     $mod = htmlspecialchars($_GET['mod']) :
     $mod = null;
 } else {

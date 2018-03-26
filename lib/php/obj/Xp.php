@@ -1,15 +1,20 @@
 <?php
 class Xp
 {
-  protected $_uuid;
-  protected $_title;
-  protected $_href;
-  protected $_alt;
-  protected $_short_description;
-  protected $_date_maj;
+  protected $uuid;
+  protected $title;
+  protected $type;
+  protected $img;
+  protected $img_alt;
+  protected $short_description;
+  protected $long_description;
+  protected $categories;
+  protected $date_update;
 
-  //utilitaire de test
-  protected $_class = array(
+  /*test utilitary
+  * TODO: delete after database population
+  */
+  protected $class = array(
     '',
     'voir',
     'ecouter',
@@ -20,35 +25,49 @@ class Xp
     'jouer'
   );
 
-  public function __construct($uuid, $title, $href, $alt, $short_descr, $date_update)
+  public function __construct($uuid, $title, $img, $img_alt, $short_descr, $long_descr, $categories, $date_update)
   {
-    $this->_uuid = $uuid;
-    $this->_title = $title;
-    $this->_href = $href;
-    $this->_alt = $alt;
-    $this->_short_description = $short_descr;
-    $this->_date_update = $date_update;
+    $this->uuid = $uuid;
+    $this->title = $title;
+    $this->img = $img;
+    $this->img_alt = $img_alt;
+    $this->short_description = $short_descr;
+    $this->short_description = $long_descr;
+    $this->date_update = $date_update;
   }
 
-  public function get($select)
+  public function __get($property)
   {
-    switch ($select) {
-      case 'id' :
-        return $this->_uuid;
-        break;
-      case 'title' :
-        return $this->_title;
-        break;
-      case 'alt' :
-        return $this->_alt;
-        break;
-      case 'short_descr' :
-        return $this->_short_description;
-        break;
-      case 'date_update' :
-        return $this->_date_update;
-        break;
+    if (property_exists($this, $this->$property)) {
+      return $this->$property;
+    } else {
+      $trace = debug_backtrace();
+      trigger_error(
+        'invalid parameter, got ' . $property .
+        ' in ' . $trace[0]['file'] .
+        ' line ' . $trace[0]['line'],
+        E_USER_NOTICE
+      );
     }
+  }
+
+  public function __set($asked, $value)
+  { echo property_exists($this, $this->$asked);
+    if (property_exists($this, $this->$asked)) {
+      $this->$asked = $value;
+    } else if (method_exists($this, $this->$asked)) {
+      $this->$asked;
+    } else {
+      $trace = debug_backtrace();
+      trigger_error(
+        'invalid parameter or method, got ' . $asked .
+        ' in ' . $trace[0]['file'] .
+        ' line ' . $trace[0]['line'],
+        E_USER_NOTICE
+      );
+    }
+
+    return $this;
   }
 }
 ?>
