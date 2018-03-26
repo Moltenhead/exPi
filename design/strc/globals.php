@@ -72,6 +72,10 @@ $csself = (isset($_GET['wh'])) ?
   'css_' . htmlspecialchars($_GET['wh']) :
   'css_accueil';
 
+$jself = (isset($_GET['wh'])) ?
+  'js_' . htmlspecialchars($_GET['wh']) :
+  'js_accueil';
+
 /* --------------------- TOOLS ---------------------*/
 /*OBJECT PATH GENERATOR*/
 function objPath($access_type, $object_name)

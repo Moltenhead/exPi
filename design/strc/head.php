@@ -47,5 +47,8 @@
   curl_close($handle);
 
   //JS linking
-  scriptLink('main');
+  scriptLink(array(
+    'main',
+    $jself
+  ));
 ?>

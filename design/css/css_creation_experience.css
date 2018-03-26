@@ -28,7 +28,7 @@
   overflow-y: hidden;
 }
 
-/* ----------------------- SLIDER MANAGEMENT ----------------------- */
+/* --------------------- SLIDER MANAGEMENT --------------------- */
 #xp_create_wrapper .slider_nav
 {
   width: 15%;
@@ -174,7 +174,7 @@
 
 #xp_create_wrapper #xp_wrapper .main_wrapper .xp_contents #type_radio_selector .option_wrapper input[type="radio"]
 {
-  margin-right: 5px;
+  padding: 5px;
 }
 
 /*CATEGORIES*/
