@@ -38,7 +38,7 @@ class Xp
 
   public function __get($property)
   {
-    if (property_exists($this, $this->$property)) {
+    if (property_exists($this, $property)) {
       return $this->$property;
     } else {
       $trace = debug_backtrace();
@@ -52,10 +52,10 @@ class Xp
   }
 
   public function __set($asked, $value)
-  { echo property_exists($this, $this->$asked);
-    if (property_exists($this, $this->$asked)) {
+  {
+    if (property_exists($this, $asked)) {
       $this->$asked = $value;
-    } else if (method_exists($this, $this->$asked)) {
+    } else if (method_exists($this, $asked)) {
       $this->$asked;
     } else {
       $trace = debug_backtrace();
