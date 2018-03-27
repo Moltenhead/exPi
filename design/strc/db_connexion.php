@@ -1,6 +1,6 @@
 <?php
 if (isset($_ENV['MYSQL_HOST']) && $_ENV['MYSQL_HOST'] === 'db_expi') {
-  $db__host = '0.0.0.0:9006';
+  $db__host = db_expi;
   $db__user = 'expi_master';
   $db__pw = 'Pr0t3ctTh3M@st3r';
 } else {

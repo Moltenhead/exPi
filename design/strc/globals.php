@@ -189,6 +189,17 @@ function __autoload($class_name)
   include objPath('obj', $class_name . '.php');
 }
 
+/* ------------------- cURL --------------------*/
+function curl($url) {
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
+    $data = curl_exec($ch);
+    curl_close($ch);
+
+    return $data;
+}
+
 /* --------------------- PAGINATION MANAGEMENT --------------------- */
 $page;
 (isset($_GET['page']) && !empty($_GET['page']) && $_GET['page'] != null) ?
