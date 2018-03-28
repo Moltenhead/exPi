@@ -76,7 +76,7 @@ if (count($error_codes) > 0) {
 
 
 
-  echo '<form id="error" action="' . HTTPH . '?wh=creation_experience" method="post">' .
+  echo '<form id="error" action="' . HTTPH . 'creation-experience" method="post">' .
       '<input type="hidden" name="error" value="' . $error_full_string . '">' .
       '<input type="hidden" name="title" value="' . $xp->title . '">' .
       '<input type="hidden" name="type" value="' . $xp->type . '">' .
@@ -155,15 +155,15 @@ if ($xp->img != null && $xp->img_alt != null) {
 
 if($db->exec($insert_string)) {
   $db->exec($insert_string);
-  echo '<form id="validity" action="' . HTTPH . '?wh=edition_experience&xp=' . $uui .
+  echo '<form id="validity" action="' . HTTPH . '/edition_experience/xp-' . $uui .
     '" methode="post">' .
       '<input type="hidden" name="validity" value="true">' .
     '</form>' .
-    '<script>document.getElementById(validity).submit;</script>';
+    '<script>document.getElementById(validity).submit();</script>';
 } else {
-  echo '<form id="validity" action="' . HTTPH . '?wh=creation_experience" methode="post">' .
+  echo '<form id="validity" action="' . HTTPH . '/creation_experience" methode="post">' .
       '<input type="hidden" name="validity" value="false">' .
     '</form>' .
-    '<script>document.getElementById(validity).submit;</script>';
+    '<script>document.getElementById(validity).submit();</script>';
 }
 ?>

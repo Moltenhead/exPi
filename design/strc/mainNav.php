@@ -5,7 +5,7 @@
   <div id="global_nav" class="flex_row spaced aligned">
     <form
       class="search_bar flex_row spaced"
-      action="<?php echo HTTPH . '?wh=accueil' ?>"
+      action="<?php echo HTTPH . '/accueil' ?>"
       method="POST"
       >
       <input type="text" name="search" placeholder="Envie de ...">

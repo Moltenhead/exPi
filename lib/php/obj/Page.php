@@ -56,7 +56,7 @@ class Page
     }
 
     $this->nav_description = $nav_descr;
-    $this->httph = HTTPH . '?wh=' . $class;
+    $this->httph = HTTPH . $class;
   }
 
   public function __get($property) {
