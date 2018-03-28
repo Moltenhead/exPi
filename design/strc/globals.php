@@ -39,20 +39,20 @@ define('PHP_SELF', htmlspecialchars($_SERVER['PHP_SELF']));
 define('URI', htmlspecialchars($_SERVER['REQUEST_URI']));
 
 /* ------------------------- ROOTS -------------------------*/
-define('ROOT', htmlspecialchars($_SERVER['DOCUMENT_ROOT']) . PREFIX);
+define('ROOT', htmlspecialchars($_SERVER['DOCUMENT_ROOT']) . PREFIX . '/');
 //useful roots
-define('STRC_ROOT', ROOT . '/design/strc/');
-define('PAGE_ROOT', ROOT . '/pages/');
-define('OBJ_ROOT', ROOT . '/lib/php/obj/');
-define('MOD_ROOT', ROOT . '/lib/php/mod/');
-define('VIEW_ROOT', ROOT . '/lib/php/view/');
-define('CONTROL_ROOT', ROOT . '/lib/php/contr/');
+define('STRC_ROOT', ROOT . 'design/strc/');
+define('PAGE_ROOT', ROOT . 'pages/');
+define('OBJ_ROOT', ROOT . 'lib/php/obj/');
+define('MOD_ROOT', ROOT . 'lib/php/mod/');
+define('VIEW_ROOT', ROOT . 'lib/php/view/');
+define('CONTROL_ROOT', ROOT . 'lib/php/contr/');
 
 /* ------------------------- LINKS -------------------------*/
 define('H_SELECT', $protocole_select);
 define(
   'HTTPH',
-  H_SELECT . '://' . htmlspecialchars($_SERVER['HTTP_HOST']) . PREFIX
+  H_SELECT . '://' . htmlspecialchars($_SERVER['HTTP_HOST']) . PREFIX . '/'
 );
 $HTTPH = HTTPH;
 
