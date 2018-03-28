@@ -1,0 +1,14 @@
+Options +FollowSymlinks
+RewriteEngine on
+
+#home page one "accueil"
+RewriteRule ^accueil$ index.php [L]
+
+#page type redirection
+RewriteRule ^([a-z]+)$ index.php?wh=$1 [L]
+RewriteRule ^([a-z]+)-([a-z]+)$ index.php?wh=$1_$2 [L]
+
+#page enum redirection
+RewriteRule ^(accueil/)?page-([0-9]+)$ index.php?page=$2 [L]
+RewriteRule ^([a-z]+)/page-([0-9]+)$ index.php?wh=$1&page=$2 [L]
+RewriteRule ^([a-z]+)-([a-z]+)/page-([0-9]+)$ index.php?wh=$1_$2&page=$3 [L]
