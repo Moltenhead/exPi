@@ -166,7 +166,7 @@ if($db->exec($insert_string)) {
       FROM experiences
         WHERE id = ' . $db->lastInsertId())->fetch(PDO::FETCH_COLUMN, 0);
 
-  echo '<form id="validity" action="' . HTTPH . 'edition-experience/xp-' . $xp->uuid .
+  echo '<form id="validity" action="' . HTTPH . 'edition-experience/xp=' . $xp->uuid .
     '" methode="post">' .
       '<input type="hidden" name="validity" value="true">' .
     '</form>' .
