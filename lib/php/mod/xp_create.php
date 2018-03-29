@@ -1,15 +1,18 @@
 <?php
+/*TODO: implement duplicate handling
+*/
+
 $error_codes = array();
 $xp = new Xp(null, null, null, null, null, null, null, null, null, null);
 
 if (isset($_POST['title']) && $_POST['title'] != null) {
-  $xp->title = (int) $_POST['title'];
+  $xp->title = htmlspecialchars($_POST['title']);
 } else {
   array_push($error_codes, 0);
 }
 
 if (isset($_POST['type']) && $_POST['type'] != null) {
-  $xp->type = htmlspecialchars($_POST['type']);
+  $xp->type = (int) $_POST['type'];
 } else {
   array_push($error_codes, 1);
 }
@@ -100,6 +103,7 @@ $insert_string = 'INSERT INTO experiences (' .
   'type_id, ' .
   'short_description, ' .
   'long_description, ' .
+  'themes, ' .
   'created_at';
 
 if ($xp->img != null && $xp->img_alt != null) {
@@ -146,24 +150,50 @@ if ($xp->img != null && $xp->img_alt != null) {
 } else {
   $insert_string .= ') ' .
     'VALUES(UUID(), ' .
-    $xp->title . ', ' .
-    $xp->type .', ' .
-    $xp->short_description . ', ' .
-    $xp->long_description . ', ' .
+    $db->quote($xp->title) . ', ' .
+    $db->quote($xp->type) .', ' .
+    $db->quote($xp->short_description) . ', ' .
+    $db->quote($xp->long_description) . ', ' .
+    $db->quote($xp->themes) . ', ' .
     'NOW())';
-}echo $insert_string;
+}
 
 if($db->exec($insert_string)) {
   $db->exec($insert_string);
-  echo '<form id="validity" action="' . HTTPH . '/edition_experience/xp-' . $uui .
+
+  $max_id = $db->query(
+    'SELECT MAX(id) AS id
+      FROM experiences')->fetch(PDO::FETCH_COLUMN, 0);
+
+  $xp->uuid = $db->query(
+    'SELECT e.uuid, MAX(e.id) AS maxid
+      FROM experiences e
+        WHERE e.id = ' . $max_id)->fetch(PDO::FETCH_COLUMN, 0);
+
+  echo '<form id="validity" action="' . HTTPH . 'edition_experience/xp-' . $xp->uuid .
     '" methode="post">' .
       '<input type="hidden" name="validity" value="true">' .
     '</form>' .
-    '<script>document.getElementById(validity).submit();</script>';
+    '<script>
+      window.onload = function () {
+        document.getElementById(\'validity\').submit();
+      }
+    </script>';
 } else {
-  echo '<form id="validity" action="' . HTTPH . '/creation_experience" methode="post">' .
+  echo '<form id="validity" action="' . HTTPH . 'creation_experience" methode="post">' .
       '<input type="hidden" name="validity" value="false">' .
+      '<input type="hidden" name="title" value="' . $xp->title . '">' .
+      '<input type="hidden" name="type" value="' . $xp->type . '">' .
+      '<input type="hidden" name="short_description" value="' . $xp->short_description . '">' .
+      '<input type="hidden" name="long_description" value="' . $xp->long_description . '">' .
+      '<input type="hidden" name="themes" value="' . $xp->themes . '">' .
+      '<input type="file" name="img" value="' . $xp->img . '" style="display: none">' .
+      '<input type="hidden" name="img_alt" value="' . $xp->img_alt . '">' .
     '</form>' .
-    '<script>document.getElementById(validity).submit();</script>';
+    '<script>
+      window.onload = function () {
+        document.getElementById(\'validity\').submit();
+      }
+    </script>';
 }
 ?>
