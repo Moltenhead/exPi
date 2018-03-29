@@ -6,6 +6,7 @@ function isConnected()
 }
 
 /*XP UUID DETECTION*/
+//TODO: avoid PDOException on inexistent uuid
 function xpExists($pdo)
 {
   if ($pdo != null && gettype($pdo) === 'object') {
@@ -13,16 +14,12 @@ function xpExists($pdo)
       if (isset($_GET['xp']) && $_GET['xp'] != null) {
         $xp_uuid = htmlspecialchars($_GET['xp']);
 
-        $que_string = 'SELECT COUNT(id) FROM experiences WHERE uuid = ' .
+        $que_string = 'SELECT id FROM experiences WHERE uuid = ' .
           $xp_uuid;
 
-        if ($pdo->exec($que_string)) {
-          return ($pdo->query($que_string)->fetch(PDO::FETCH_COLUMN, 0) === 1) ?
-            TRUE :
-            FALSE;
-        } else {
-          return FALSE;
-        }
+        return ($pdo->exec($que_string)->rowCount === 1) ?
+          TRUE :
+          FALSE;
       } else {
         return FALSE;
       }
