@@ -28,7 +28,7 @@ $href_opt = array (
 $root_opt = array (
   'STRC',
   'PAGE',
-  'OBJ',
+  'CLASS',
   'MOD',
   'VIEW',
   'CONTROL'
@@ -43,7 +43,7 @@ define('ROOT', htmlspecialchars($_SERVER['DOCUMENT_ROOT']) . PREFIX . '/');
 //useful roots
 define('STRC_ROOT', ROOT . 'design/strc/');
 define('PAGE_ROOT', ROOT . 'pages/');
-define('OBJ_ROOT', ROOT . 'lib/php/obj/');
+define('CLASS_ROOT', ROOT . 'lib/php/class/');
 define('MOD_ROOT', ROOT . 'lib/php/mod/');
 define('VIEW_ROOT', ROOT . 'lib/php/view/');
 define('CONTROL_ROOT', ROOT . 'lib/php/contr/');
@@ -186,7 +186,7 @@ function isConnected()
 /* ------------------- CLASSES AUTOLOADER --------------------*/
 function __autoload($class_name)
 {
-  include objPath('obj', $class_name . '.php');
+  include objPath('class', $class_name . '.php');
 }
 
 /* ------------------- cURL --------------------*/
