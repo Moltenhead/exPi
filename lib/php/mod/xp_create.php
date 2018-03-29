@@ -161,16 +161,12 @@ if ($xp->img != null && $xp->img_alt != null) {
 if($db->exec($insert_string)) {
   $db->exec($insert_string);
 
-  $max_id = $db->query(
-    'SELECT MAX(id) AS id
-      FROM experiences')->fetch(PDO::FETCH_COLUMN, 0);
-
   $xp->uuid = $db->query(
-    'SELECT e.uuid, MAX(e.id) AS maxid
-      FROM experiences e
-        WHERE e.id = ' . $max_id)->fetch(PDO::FETCH_COLUMN, 0);
+    'SELECT uuid
+      FROM experiences
+        WHERE id = ' . $db->lastInsertId())->fetch(PDO::FETCH_COLUMN, 0);
 
-  echo '<form id="validity" action="' . HTTPH . 'edition_experience/xp-' . $xp->uuid .
+  echo '<form id="validity" action="' . HTTPH . 'edition-experience/xp-' . $xp->uuid .
     '" methode="post">' .
       '<input type="hidden" name="validity" value="true">' .
     '</form>' .
@@ -180,7 +176,7 @@ if($db->exec($insert_string)) {
       }
     </script>';
 } else {
-  echo '<form id="validity" action="' . HTTPH . 'creation_experience" methode="post">' .
+  echo '<form id="validity" action="' . HTTPH . 'creation-experience" methode="post">' .
       '<input type="hidden" name="validity" value="false">' .
       '<input type="hidden" name="title" value="' . $xp->title . '">' .
       '<input type="hidden" name="type" value="' . $xp->type . '">' .
