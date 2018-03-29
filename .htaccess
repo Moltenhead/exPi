@@ -14,6 +14,6 @@ RewriteRule ^([a-z]+)/page-([0-9]+)[/]?$ index.php?wh=$1&page=$2 [L]
 RewriteRule ^([a-z]+)-([a-z]+)/page-([0-9]+)[/]?$ index.php?wh=$1_$2&page=$3 [L]
 
 #xp redirection
-RewriteRule ^(accueil/)?xp-([0-9]+)[/]?$ index.php?wh=afichage_experience&xp=$2 [L]
-RewriteRule ^([a-z]+)/xp-([0-9]+)[/]?$ index.php?wh=$1&xp=$2 [L]
-RewriteRule ^([a-z]+)-([a-z]+)/xp-([0-9]+)[/]?$ index.php?wh=$1_$2&xp=$3 [L]
+RewriteRule ^(accueil/)?xp=([a-zA-Z0-9\-]+)[/]?$ index.php?wh=afichage_experience&xp=$2 [L]
+RewriteRule ^([a-z]+)/xp=([a-zA-Z0-9\-]+)[/]?$ index.php?wh=$1&xp=$2 [L]
+RewriteRule ^([a-z]+)-([a-z]+)/xp=([a-zA-Z0-9\-]+)[/]?$ index.php?wh=$1_$2&xp=$3 [L]
