@@ -2,6 +2,7 @@
 $allowed_pages = array(
   1,
   2,
+  3,
   4
 );
 
@@ -14,6 +15,9 @@ if (isset($where_inf)) {
         break;
       case 2 :
         include_once(objPath('page', 'xp_create.php'));
+        break;
+      case 3 :
+        include_once(objPath('page', 'xp_edit.php'));
         break;
       case 4 :
         include_once(objPath('page', 'xp_display.php'));
