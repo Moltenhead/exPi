@@ -65,24 +65,5 @@ class Xp
       );
     }
   }
-
-  public function __set($asked, $value)
-  {
-    if (property_exists($this, $asked)) {
-      $this->$asked = $value;
-    } else if (method_exists($this, $asked)) {
-      $this->$asked;
-    } else {
-      $trace = debug_backtrace();
-      trigger_error(
-        'invalid parameter or method, got ' . $asked .
-        ' in ' . $trace[0]['file'] .
-        ' line ' . $trace[0]['line'],
-        E_USER_NOTICE
-      );
-    }
-
-    return $this;
-  }
 }
 ?>
