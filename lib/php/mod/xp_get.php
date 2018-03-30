@@ -9,7 +9,7 @@ $data_xp = $db->query(
     e.title,
     t.name AS type,
     t.class AS type_class,
-    ei.title AS img,
+    ei.href AS img,
     ei.alt AS img_alt,
     e.short_description,
     e.long_description,
