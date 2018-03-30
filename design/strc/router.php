@@ -55,8 +55,8 @@ define('STYLE_EXT', $style_ext);
 
 /* -------------------- ACTIVE FILE NAMES ---------------------*/
 $csself = (isset($_GET['wh'])) ?
-  'css_' . htmlspecialchars($_GET['wh']) :
-  'css_accueil';
+  'pages/css_' . htmlspecialchars($_GET['wh']) :
+  'pages/css_accueil';
 
 $jself = (isset($_GET['wh'])) ?
   'js_' . htmlspecialchars($_GET['wh']) :
