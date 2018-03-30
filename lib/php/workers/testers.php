@@ -13,16 +13,14 @@ function xpExists($pdo)
     if ($pdo instanceof PDO) {
       if (isset($_GET['xp']) && $_GET['xp'] != null) {
         $xp_uuid = htmlspecialchars($_GET['xp']);
+        $xp_all_uuid = $pdo->query(
+          'SELECT uuid FROM experiences')->fetchAll(PDO::FETCH_COLUMN, 0);
 
-        $que_string = 'SELECT id FROM experiences WHERE uuid = ' .
-          $xp_uuid;
-
-        return ($pdo->exec($que_string)->rowCount === 1) ?
+        return (in_array($xp_uuid, $xp_all_uuid)) ?
           TRUE :
           FALSE;
-      } else {
-        return FALSE;
       }
+
     } else {
       $trace = debug_backtrace();
       trigger_error(

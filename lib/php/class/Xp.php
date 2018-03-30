@@ -4,6 +4,7 @@ class Xp
   protected $uuid;
   protected $title;
   protected $type;
+  protected $type_class;
   protected $img;
   protected $img_alt;
   protected $short_description;
