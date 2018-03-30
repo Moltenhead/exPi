@@ -31,6 +31,7 @@ class Xp
     $uuid,
     $title,
     $type,
+    $type_class,
     $img,
     $img_alt,
     $short_descr,
@@ -42,6 +43,7 @@ class Xp
     $this->uuid = $uuid;
     $this->title = $title;
     $this->type = $type;
+    $this->type_class = $type_class;
     $this->img = $img;
     $this->img_alt = $img_alt;
     $this->short_description = $short_descr;
