@@ -5,5 +5,5 @@
     <figcaption><?php echo $xp->short_description; ?></figcaption>
   </figure>
   <div class="geo"><!--TODO: add geoloc API --></div>
-  <div class="textual"><?php echo $xp->$long_description; ?></div>
+  <div class="textual"><?php echo $xp->long_description; ?></div>
 </div>
