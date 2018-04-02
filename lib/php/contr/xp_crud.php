@@ -10,6 +10,9 @@ if (isset($from) && $from != null) {
     case 'creation_experience':
       include_once(objPath('mod', 'xp_create.php'));
       break;
+    case 'edition_experience':
+      include_once(objPath('mod', 'xp_edit.php'));
+      break;
     default:
       echo $home_redir .
         '" />La page précédente indéquée n\'existe pas.</br>' .
