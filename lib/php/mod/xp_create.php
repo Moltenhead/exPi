@@ -88,8 +88,6 @@ if (count($error_codes) > 0) {
       ' \\ ' . $error_string;
   }
 
-
-
   echo '<form id="error" action="' . HTTPH . 'creation-experience" method="post">' .
       '<input type="hidden" name="error" value="' . $error_full_string . '">' .
       '<input type="hidden" name="title" value="' . $xp->title . '">' .
@@ -178,7 +176,7 @@ if($db->exec($insert_string)) {
         WHERE id = ' . $db->lastInsertId())->fetch(PDO::FETCH_COLUMN, 0);
 
   echo '<form id="validity" action="' . HTTPH . 'edition-experience/xp=' . $xp->uuid .
-    '" methode="post">' .
+    '" method="post">' .
       '<input type="hidden" name="validity" value="true">' .
     '</form>' .
     '<script>
@@ -187,7 +185,7 @@ if($db->exec($insert_string)) {
       }
     </script>';
 } else {
-  echo '<form id="validity" action="' . HTTPH . 'creation-experience" methode="post">' .
+  echo '<form id="validity" action="' . HTTPH . 'creation-experience" method="post">' .
       '<input type="hidden" name="validity" value="false">' .
       '<input type="hidden" name="title" value="' . $xp->title . '">' .
       '<input type="hidden" name="type" value="' . $xp->type . '">' .
