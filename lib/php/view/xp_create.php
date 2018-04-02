@@ -44,11 +44,6 @@
           <div class="radio_wrapper flex_column noselect">
             <label for="type_radio_selector">Type d'expérience :</label>
             <div id="type_radio_selector" class="radio_selector flex_row">
-              <div class="option_wrapper flex_row aligned">
-                <!--TODO: need "tout" to be within db for "checked" matching -->
-                <input id="radio_tout" type="radio" name="type" value="0" checked>
-                <label for="radio_tout">Tout</label>
-              </div>
               <?php for($i = 0; $i < count($types_inf); $i++) { ?>
               <div class="option_wrapper flex_row aligned aligned">
                 <input
