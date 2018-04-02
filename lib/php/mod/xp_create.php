@@ -143,7 +143,7 @@ if ($xp->img != null && $xp->img_alt != null) {
 
         $img_uuid = $db->query('SELECT uuid ' .
           'FROM experiences_images ' .
-          'WHERE id = ' . $db->lastInsertId())->fetch(PDO::FETCH_COLUMN, 0));
+          'WHERE id = ' . $db->lastInsertId())->fetch(PDO::FETCH_COLUMN, 0);
         $insert_string .= ', img_uuid) ' .
           'VALUES(UUID(), ' .
           $xp->title . ', ' .
