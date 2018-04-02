@@ -1,3 +1,3 @@
 <?php
-  include_once(objPath('view', 'xp_edition.php'));
+  include_once(objPath('control', 'xp_edition.php'));
 ?>
