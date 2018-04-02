@@ -96,7 +96,7 @@ if (count($error_codes) > 0) {
       '<input type="hidden" name="short_description" value="' . $xp->short_description . '">' .
       '<input type="hidden" name="long_description" value="' . $xp->long_description . '">' .
       '<input type="hidden" name="themes" value="' . $xp->themes . '">' .
-      '<input type="file" name="img" value="' . $xp->img . '" style="display: none">' .
+      '<input type="file" name="img" value="' . $xp->img . '" style="visibility: hidden">' .
       '<input type="hidden" name="img_alt" value="' . $xp->img_alt . '">' .
     '</form>' .
   '<script>

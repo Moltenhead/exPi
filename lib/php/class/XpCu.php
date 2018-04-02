@@ -3,7 +3,7 @@ class XpCU extends Xp
 {
   public function print()
   {
-    global types_inf;
+    global $types_inf;
 
     $html = '<div class="xp_representation flex_column spaced">' .
       '<figure class="noselect">' .
@@ -47,7 +47,7 @@ class XpCU extends Xp
               '<label for="radio_' . $types_inf[$i]->class . '">' .
                 $types_inf[$i]->name .
               '</label>' .
-            '</div>' .
+            '</div>';
     }
 
     $html .= $types_html .
