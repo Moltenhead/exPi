@@ -27,7 +27,7 @@ function xpExists($pdo)
         'invalide class as parameter, got \'' . $pdo .
         '\' in ' . $trace[0]['file'] .
         ' line ' . $trace[0]['line'] .
-        ', expecting PDO',
+        ', expecting PDOobject',
         E_USER_NOTICE);
     }
   } else if ($pdo != null && gettype($pdo) !== 'object') {
@@ -43,7 +43,8 @@ function xpExists($pdo)
     trigger_error(
       'invalide parameter, got \'' . gettype($pdo) .
       '\' in ' . $trace[0]['file'] .
-      ' line ' . $trace[0]['line'],
+      ' line ' . $trace[0]['line'] .
+      ', expecting PDOobject',
       E_USER_NOTICE);
   }
 }

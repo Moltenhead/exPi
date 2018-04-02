@@ -67,5 +67,20 @@ class Xp
       );
     }
   }
+
+  public function __set($property, $value)
+  {
+    if (property_exists($this, $property)) {
+      $this->$property = $value;
+    } else {
+      $trace = debug_backtrace();
+      trigger_error(
+        'invalid parameter, got ' . $property .
+        ' in ' . $trace[0]['file'] .
+        ' line ' . $trace[0]['line'],
+        E_USER_NOTICE
+      );
+    }
+  }
 }
 ?>

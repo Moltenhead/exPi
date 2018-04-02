@@ -3,7 +3,18 @@
 */
 
 $error_codes = array();
-$xp = new Xp(null, null, null, null, null, null, null, null, null, null);
+$xp = new Xp(
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null,
+  null);
 
 if (isset($_POST['title']) && $_POST['title'] != null) {
   $xp->title = htmlspecialchars($_POST['title']);
