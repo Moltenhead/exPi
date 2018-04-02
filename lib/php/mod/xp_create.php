@@ -141,10 +141,9 @@ if ($xp->img != null && $xp->img_alt != null) {
           $img_slug . ', ' .
           $xp->img_alt );
 
-        $que_last_uuid = $db->query('SELECT MAX(id) AS max_id, uuid ' .
+        $img_uuid = $db->query('SELECT uuid ' .
           'FROM experiences_images ' .
-          'WHERE id = max_id');
-        $img_uuid = $que_maxId->fetch(PDO::FETCH_COLUMN, 1);
+          'WHERE id = ' . $db->lastInsertId())->fetch(PDO::FETCH_COLUMN, 0));
         $insert_string .= ', img_uuid) ' .
           'VALUES(UUID(), ' .
           $xp->title . ', ' .
