@@ -50,7 +50,21 @@
                   id="radio_<?php echo $types_inf[$i]->get('class'); ?>"
                   type="radio"
                   name="type"
-                  value="<?php echo $types_inf[$i]->get('id'); ?>">
+                  value="<?php echo $types_inf[$i]->get('id'); ?>"
+                  <?php
+                  if (
+                    isset($_POST['type']) &&
+                    $_POST['type'] != 0 &&
+                    !empty($_POST['type'])
+                  ) {
+                    echo ($i === (int) $_POST['type']) ?
+                      ' checked="true"' :
+                      '';
+                  } else {
+                    echo ($i === 0) ?
+                      ' checked="true"' :
+                      '';
+                  } ?>>
                 <label for="radio_<?php echo $types_inf[$i]->get('class'); ?>">
                   <?php echo $types_inf[$i]->get('name'); ?>
                 </label>
