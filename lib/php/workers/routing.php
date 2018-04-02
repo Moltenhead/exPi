@@ -22,27 +22,39 @@ function objPath($access_type, $object_name)
           constant(strtoupper($access_type) . '_ROOT') . $object_name;
           //ternary end
       } else {
+        $trace = debug_backtrace();
         trigger_error(
           'invalid parameter, unexpected \'' .
           $access_type .
-          '\' on <b>second parameter</b>, expecting ' .
+          '\' on first parameter' .
+          ' in ' . $trace[0]['file'] .
+          ' line ' . $trace[0]['line'] .
+          ', expecting ' .
           $opt_string,
           E_USER_ERROR
         );
       }
     } else {
+      $trace = debug_backtrace();
       trigger_error(
         'invalid parameter, unexpected ' .
         gettype($access_type) .
-        ' on <b>second parameter</b>, expecting \'string\' type',
+        ' on first parameter' .
+        ' in ' . $trace[0]['file'] .
+        ' line ' . $trace[0]['line'] .
+        ' expecting \'string\' type',
         E_USER_ERROR
       );
     }
   } else {
+    $trace = debug_backtrace();
     trigger_error(
       'invalid parameter, unexpected ' .
-      gettype($style_names) .
-      ' on <b>first parameter</b>, expecting \'string\' type',
+      gettype($object_name) .
+      ' on second parameter' .
+      ' in ' . $trace[0]['file'] .
+      ' line ' . $trace[0]['line'] .
+      ', expecting \'string\' type',
       E_USER_ERROR
     );
   }
