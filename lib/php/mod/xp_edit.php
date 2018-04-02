@@ -88,7 +88,8 @@ if (count($error_codes) > 0) {
       ' \\ ' . $error_string;
   }
 
-  echo '<form id="error" action="' . HTTPH . 'creation-experience" method="post">' .
+  echo '<form id="error" action="' . HTTPH . 'edition-experience/xp=' . $xp->uuid .
+    '" method="post">' .
       '<input type="hidden" name="error" value="' . $error_full_string . '">' .
       '<input type="hidden" name="title" value="' . $xp->title . '">' .
       '<input type="hidden" name="type" value="' . $xp->type . '">' .
@@ -165,7 +166,8 @@ if($db->exec($update_string)) {
       }
     </script>';
 } else {
-  echo '<form id="validity" action="' . HTTPH . 'edition-experience" method="post">' .
+  echo '<form id="validity" action="' . HTTPH . 'edition-experience/xp=' . $xp->uuid .
+    '" method="post">' .
       '<input type="hidden" name="validity" value="false">' .
       '<input type="hidden" name="title" value="' . $xp->title . '">' .
       '<input type="hidden" name="type" value="' . $xp->type . '">' .
