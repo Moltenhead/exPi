@@ -44,10 +44,10 @@ class Xp
     $this->title = $title;
     $this->type = $type;
     $this->type_class = $type_class;
-    $this->img = $img;
+    $this->img = ($img != null) ? objPath('up_img', $img) : $img;
     $this->img_alt = $img_alt;
     $this->short_description = $short_descr;
-    $this->short_description = $long_descr;
+    $this->long_description = $long_descr;
     $this->themes = $themes;
     $this->date_create = $date_create;
     $this->date_update = $date_update;
