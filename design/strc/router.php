@@ -16,7 +16,8 @@ $root_opt = array (
   'CLASS',
   'MOD',
   'VIEW',
-  'CONTROL'
+  'CONTROL',
+  'SVG'
 );
 
 /* -------------------- ACTIVE FILE PATHS ---------------------*/
@@ -33,6 +34,7 @@ define('CLASS_ROOT', ROOT . 'lib/php/class/');
 define('MOD_ROOT', ROOT . 'lib/php/mod/');
 define('VIEW_ROOT', ROOT . 'lib/php/view/');
 define('CONTROL_ROOT', ROOT . 'lib/php/contr/');
+define('SVG_ROOT', ROOT . 'design/img/svg/');
 
 /* ------------------------- LINKS -------------------------*/
 define('H_SELECT', $protocole_select);
@@ -61,4 +63,9 @@ $csself = (isset($_GET['wh'])) ?
 $jself = (isset($_GET['wh'])) ?
   'js_' . htmlspecialchars($_GET['wh']) :
   'js_accueil';
+
+/* ------------------------ MAIN PAGES ------------------------ */
+define('H_CREA_XP', HTTPH . '/creation-experience');
+define('H_EDIT_XP', HTTPH . '/edition-experience/xp=');
+define('H_DISP_XP', HTTPH . '/affichage-experience/xp=');
 ?>
