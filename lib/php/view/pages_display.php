@@ -11,7 +11,7 @@
   <body>
     <div id="background_sticker" class="logo big_logo" title="exPi: répertoire libre et collaboratif d'expériences">
       <?php
-        echo file_get_contents(objPath('img', 'svg/exPi_logo_v8.svg'));
+        echo file_get_contents(objPath('svg', 'exPi_logo_v8.svg'));
       ?>
     </div>
 

@@ -7,5 +7,5 @@ include_once(objPath('control', 'secondNav_sections.php'));
   class="picto micro_picto activable parent_transmissive"
   title="<?php echo $where_inf->nav_description ?>
   ">
-  <?php echo file_get_contents(objPath('img', 'svg/arrow.svg')); ?>
+  <?php echo file_get_contents(objPath('svg', 'arrow.svg')); ?>
 </button>
