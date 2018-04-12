@@ -39,7 +39,7 @@ class SlideXp extends Xp
           } ?>
           <a href="<?php echo HTTPH .
           'affichage_experience/xp=' .
-          $this->_uuid; ?>">En savoir +</a>
+          $this->uuid; ?>">En savoir +</a>
         </nav>
         <p class="txt_right">
           édité le
