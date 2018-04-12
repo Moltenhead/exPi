@@ -16,7 +16,7 @@ class BoardXp extends Xp
   { ?>
     <a
       href="<?php echo HTTPH .
-        'affichage_experience/xp=' .
+        'affichage-experience/xp=' .
         $this->uuid; ?>"
       class="xp_wrapper <?php echo $this->class[rand(0,count($this->class)-1)];//TODO: replace by it's true type when removing the placeholders ?>"
       title="en savoir + sur <?php echo $this->title; ?>">
