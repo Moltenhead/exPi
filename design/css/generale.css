@@ -1,6 +1,7 @@
 /*VISIBILITY*/
 .hidden { visibility: hidden; }
 .yverflow { overflow-y: auto !important; }
+.noverflow { overflow: hidden; }
 
 /*TEXT*/
 .txt_justified
