@@ -10,11 +10,12 @@
     method="post"
     class="flex_column"<?php echo (isset($_POST['error'])) ?
       ' style="height: 95%;"' :
-      ''; ?>>
+      ''; ?>
+    enctype="multipart/form-data">
     <input type="hidden" name="uuid" value="<?php echo htmlspecialchars($_GET['xp']); ?>">
     <div class="main_wrapper flex_row">
       <?php
-      require_once(objPath('control', 'xp_edit.php'));
+      include_once(objPath('view', 'xp_edit_db.php'));
       ?>
     </div>
     <nav class="nav_wrapper flex_row end_placed">
