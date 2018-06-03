@@ -49,7 +49,9 @@ function objPath($access_type, $object_name)
   } else if (is_null($object_name)) {
     $trace = debug_backtrace();
     trigger_error(
-      'second parameter is NULL.',
+      'second parameter is NULL' .
+      ' in ' . $trace[0]['file'] .
+      ' line ' . $trace[0]['line'],
       E_USER_NOTICE
     );
     return Null;
