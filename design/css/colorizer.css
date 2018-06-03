@@ -28,15 +28,41 @@ input[type="text"]:placeholder { color:grey; }
 /* ---------------------- MAIN ---------------------- */
 #obscurer { background-color: rgba(0,0,0,.2) }
 
-/* ---------------------- MAGIC HAT ---------------------- */
-#magic_hat { background-color: #ff9933; }
+/* ---------------------- PAGINER ---------------------- */
+.paginer > form > input.actual { color: #6666cc; }
 
-#magic_hat .slide_representation { background-color: transparent; }
+/* ---------------------- MAGIC HAT ---------------------- */
+/*#magic_hat { background-color: #ff9933; }*/
+
+/*#magic_hat .slide_representation { background-color: transparent; }
 #magic_hat .slide_wrapper > .slide_representation::after
-{
-  background: linear-gradient(90deg, transparent, #ff9933);
-}
-#magic_hat .slide_informations { background-color: #ccffff; }
+{ background: linear-gradient(90deg, transparent, #ff9933); }*/
+#magic_hat .slide_informations { background-color: #ffffff; }
+
+#magic_hat .slide_wrapper { background-color: (204,204,204,.8); }
+#magic_hat .slide_wrapper > .slide_representation::after
+{ background: linear-gradient(90deg, transparent, #ccc); }
+#magic_hat .slide_wrapper.voir { background-color: rgba(153,255,255,.8); }
+#magic_hat .slide_wrapper.voir > .slide_representation::after
+{ background: linear-gradient(90deg, transparent, #99ffff); }
+#magic_hat .slide_wrapper.ecouter { background-color: rgba(255,102,51,.8); }
+#magic_hat .slide_wrapper.ecouter > .slide_representation::after
+{ background: linear-gradient(90deg, transparent, #ff6633); }
+#magic_hat .slide_wrapper.gouter { background-color: rgba(102,0,204,.8); }
+#magic_hat .slide_wrapper.gouter > .slide_representation::after
+{ background: linear-gradient(90deg, transparent, #6600cc); }
+#magic_hat .slide_wrapper.sortir { background-color: rgba(255,0,0,.8); }
+#magic_hat .slide_wrapper.sortir > .slide_representation::after
+{ background: linear-gradient(90deg, transparent, #ff0000); }
+#magic_hat .slide_wrapper.rencontrer { background-color: rgba(102,204,0,.8); }
+#magic_hat .slide_wrapper.rencontrer > .slide_representation::after
+{ background: linear-gradient(90deg, transparent, #66cc00); }
+#magic_hat .slide_wrapper.transpirer { background-color: rgba(102,204,0,.8); }
+#magic_hat .slide_wrapper.transpirer > .slide_representation::after
+{ background: linear-gradient(90deg, transparent, #66cc00); }
+#magic_hat .slide_wrapper.jouer { background-color: rgba(255,204,0,.8); }
+#magic_hat .slide_wrapper.jouer > .slide_representation::after
+{ background: linear-gradient(90deg, transparent, #ffcc00); }
 
 /* ---------------------- DE BOARD ---------------------- */
 .xp_wrapper
@@ -83,3 +109,52 @@ input[type="text"]:placeholder { color:grey; }
 }
 
 .xp > .img_wrapper { background-color: transparent;}
+
+/* ---------------------- XP_DISPLAY ---------------------- */
+#xp_display_wrapper .xp_representation > .infos > .xp_type > h1
+{
+  color: #fff;
+  -webkit-transition: color .5s;
+  -o-transition: color .5s;
+  transition: color .5s;
+}
+#xp_display_wrapper .xp_representation:hover > .infos > .xp_type > h1
+{
+  color: #000;
+  -webkit-transition: color .2s;
+  -o-transition: color .2s;
+  transition: color .2s;
+}
+
+#xp_display_wrapper .xp_representation::after
+{ background-color: rgba(204,204,204,.5); }
+#xp_display_wrapper .left_bordered
+{ border-left-color: rgba(204,204,204,.5); }
+#xp_display_wrapper.voir .xp_representation::after
+{ background-color: rgba(153,255,255,.5); }
+#xp_display_wrapper.voir .left_bordered
+{ border-left-color: rgba(153,255,255,.5); }
+#xp_display_wrapper.ecouter .xp_representation::after
+{ background-color: rgba(255,102,51,.5); }
+#xp_display_wrapper.ecouter .left_bordered
+{ border-left-color: rgba(255,102,51,.5); }
+#xp_display_wrapper.gouter .xp_representation::after
+{ background-color: rgba(102,0,204,.5); }
+#xp_display_wrapper.gouter .left_bordered
+{ border-left-color: rgba(102,0,204,.5); }
+#xp_display_wrapper.sortir .xp_representation::after
+{ background-color: rgba(255,0,0,.5); }
+#xp_display_wrapper.sortir .left_bordered
+{ border-left-color: rgba(255,0,0,.5); }
+#xp_display_wrapper.rencontrer .xp_representation::after
+{ background-color: rgba(102,204,0,.5); }
+#xp_display_wrapper.rencontrer .left_bordered
+{ border-left-color: rgba(102,204,0,.5); }
+#xp_display_wrapper.transpirer .xp_representation::after
+{ background-color: rgba(102,204,0,.5); }
+#xp_display_wrapper.transpirer .left_bordered
+{ border-left-color: rgba(102,204,0,.5); }
+#xp_display_wrapper.jouer .xp_representation::after
+{ background-color: rgba(255,204,0,.5); }
+#xp_display_wrapper.jouer .left_bordered
+{ border-left-color: rgba(255,204,0,.5); }
