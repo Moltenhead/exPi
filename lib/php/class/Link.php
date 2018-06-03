@@ -1,13 +1,15 @@
 <?php
 class Link
 {
+  private $id;
   private $title;
   private $href;
   private $class;
   private $order_value;
 
-  public function __construct($title, $href, $class, $order_value)
+  public function __construct($id, $title, $href, $class, $order_value)
   {
+    $this->id = $id;
     $this->title = $title;
     //regex to transform the link if PHP readable
     if (preg_match('/constant\(\'([\w_]+)\'\)/', $href)) {
@@ -37,8 +39,7 @@ class Link
         'invalid parameter, got ' . $property .
         ' in ' . $trace[0]['file'] .
         ' line ' . $trace[0]['line'],
-        E_USER_NOTICE
-      );
+        E_USER_NOTICE);
     }
   }
 
