@@ -10,13 +10,14 @@
     method="post"
     class="flex_column"<?php echo (isset($_POST['error'])) ?
       ' style="height: 95%;"' :
-      ''; ?>>
+      ''; ?>
+    enctype="multipart/form-data">
     <div class="main_wrapper flex_row">
       <div class="xp_representation flex_column spaced">
         <figure class="noselect">
           <figcaption>Image de représentation :</figcaption>
-          <img <?php echo (isset($_POST['img']['tmp_name'])) ?
-            'src="' . $_POST['img']['tmp_name'] . '"' :
+          <img <?php echo (isset($_FILES['img']['tmp_name'])) ?
+            'src="' . $_FILES['img']['tmp_name'] . '"' :
             ''; ?> alt="">
         </figure>
         <div class="img_infos flex_column end_placed">
@@ -88,17 +89,17 @@
             echo (isset($_POST['long_description'])) ?
               $_POST['long_description'] :
               ''; ?></textarea>
-          <div class="categories_wrapper flex_column">
+          <!--TODO: div class="categories_wrapper flex_column">
             <label for="input_categoreis" class="noselect">Catégories :</label>
             <input
               id="input_themes"
               type="text"
               name="themes"
-              placeholder="Ajoutez un thème d'expérience"
-              <?php echo (isset($_POST['themes'])) ?
+              placeholder="Ajoutez un thème d'expérience"-->
+              <?php/* echo (isset($_POST['themes'])) ?
                 'value="' . $_POST['themes'] . '"' :
-                ''; ?>>
-          </div>
+                ''; */?><!-->
+          </div-->
         </div>
       </div>
     </div>
