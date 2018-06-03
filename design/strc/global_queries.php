@@ -52,10 +52,10 @@ if (isset($wh) && $wh != null) {
         WHERE is_used = 1'
   );
 
-  $types_inf = array();
+  $types_inf = [];
   while ($data_types = $que_types->fetch(PDO::FETCH_ASSOC)) {
     $type = new Type($data_types['id'], $data_types['name'], $data_types['class']);
-    array_push($types_inf, $type);
+    $types_inf[$data_types['id']] = $type;
   }
   //TODO:define('TYPES', $types_inf);
 }
