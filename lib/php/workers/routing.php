@@ -46,6 +46,13 @@ function objPath($access_type, $object_name)
         E_USER_ERROR
       );
     }
+  } else if (is_null($object_name)) {
+    $trace = debug_backtrace();
+    trigger_error(
+      'second parameter is NULL.',
+      E_USER_NOTICE
+    );
+    return Null;
   } else {
     $trace = debug_backtrace();
     trigger_error(

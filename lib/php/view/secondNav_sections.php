@@ -1,5 +1,7 @@
 <?php
 for ($i = 0; $i < count($where_inf->nav_sections); $i++) {
-  $where_inf->showNav($i, '_self');
+  if ((!isConnected() && ($i < 2 || $i > 3)) || isConnected()) {
+    $where_inf->showNav($i, '_self');
+  }
 }
 ?>

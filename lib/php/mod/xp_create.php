@@ -167,14 +167,12 @@ if ($xp->img != null && $xp->img_alt != null) {
 }
 
 if($db->exec($insert_string)) {
-  $db->exec($insert_string);
-
   $xp->uuid = $db->query(
     'SELECT uuid
       FROM experiences
         WHERE id = ' . $db->lastInsertId())->fetch(PDO::FETCH_COLUMN, 0);
 
-  echo '<form id="validity" action="' . HTTPH . 'edition-experience/xp=' . $xp->uuid .
+  echo '<form id="validity" action="' . HTTPH . 'affichage-experience/xp=' . $xp->uuid .
     '" method="post">' .
       '<input type="hidden" name="validity" value="true">' .
     '</form>' .

@@ -12,7 +12,7 @@
       <div class="select_wrapper activable"> <!-- TODO: besoin d'une foncton js pour "focusable" - bug avec activable -->
         <select name="type">
           <?php for($i = 0; $i < count($types_inf); $i++) { ?>
-          <option value="<?php echo $types_inf[$i]->get('class'); ?>" class="micro_picto"><?php echo $types_inf[$i]->get('name'); ?></option>
+          <option value="<?php echo $types_inf[$i]->get('id'); ?>" class="micro_picto"><?php echo $types_inf[$i]->get('name'); ?></option>
           <?php } ?>
         </select>
       </div>
@@ -28,9 +28,9 @@
       <img class="micro_picto avatar" src="" alt="">
     </a>
     <?php } else { ?>
-      <div id="connect_nav">
+      <!--TODO: div id="connect_nav">
         <a href="">je participe</a>
-      </div>
+      </div-->
     <?php } ?>
   </div>
 </div>

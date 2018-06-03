@@ -13,14 +13,19 @@ if (isset($_POST['search']) || isset($_POST['type'])) {
         short_description,
         long_description)
           AGAINST(' . $db->quote($_POST['search']) . ')';
-  }
-
-  if (
+    if (
+      isset($_POST['type']) &&
+      !empty($_POST['type']) &&
+      $_POST['type'] >= 0
+    ) {
+      $que_skel .= ' AND type_id = ' . (int) $_POST['type'];
+    }
+  } else if (
     isset($_POST['type']) &&
     !empty($_POST['type']) &&
-    $_POST['type'] != 0
+    $_POST['type'] >= 0
   ) {
-    $que_skel .= ' AND type_id = ' . (int) $_POST['type'];
+    $que_skel .= ' WHERE type_id = ' . (int) $_POST['type'];
   }
 } else {
   $que_skel .= ' LIMIT ' . $max_default_query_rows;

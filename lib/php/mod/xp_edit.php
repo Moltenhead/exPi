@@ -154,7 +154,6 @@ if ($xp->img != null && $xp->img_alt != null) {
 $update_string .= ' WHERE uuid = ' . $db->quote($xp->uuid);
 
 if($db->exec($update_string)) {
-  $db->exec($update_string);
 
   echo '<form id="validity" action="' . HTTPH . 'edition-experience/xp=' . $xp->uuid .
     '" method="post">' .

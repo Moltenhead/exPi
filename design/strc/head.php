@@ -9,46 +9,53 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <?php
-  //CSS linking
-  styLink(array (
-    'style',
-    'normalize',
-    'generale',
-    'colorizer',
-    'css_mainNav',
-    'css_secondNav',
-    'css_magic_hat',
-    'css_de_board',
-    'css_footer',
-    $csself
-    )
-  );
+//CSS linking
+styLink(array (
+  'style',
+  'normalize',
+  'generale',
+  'colorizer',
+  'css_mainNav',
+  'css_secondNav',
+  'css_magic_hat',
+  'css_de_board',
+  'css_footer',
+  $csself
+  )
+);
 
-  /*If can't access to JQ CDN then load server contained JQ version
-  * TODO: make it functional
-  */
-  $handle = curl_init("https://code.jquery.com/jquery-3.2.1.min.js");
-  curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
+/*If can't access to JQ CDN then load server contained JQ version
+* TODO: make it functional
+*/
+$handle = curl_init("https://code.jquery.com/jquery-3.2.1.min.js");
+curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
 
-  /* Get the HTML or whatever is linked in $url. */
-  $response = curl_exec($handle);
+/* Get the HTML or whatever is linked in $url. */
+$response = curl_exec($handle);
 
-  /* Check for 404 (file not found). */
-  $httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
-  if($httpCode == 404) {
-    scriptLink('jquery-3.2.1.min');
-  } else {
-    echo '<script
-    			  src="https://code.jquery.com/jquery-3.2.1.min.js"
-    			  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    			  crossorigin="anonymous"></script>';
-  }
+/* Check for 404 (file not found). */
+$httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
+if($httpCode == 404) {
+  scriptLink('jquery-3.2.1.min');
+} else {
+  echo '<script
+  			  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  			  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  			  crossorigin="anonymous"></script>';
+}
 
-  curl_close($handle);
+curl_close($handle);
 
-  //JS linking
-  scriptLink(array(
-    'main',
-    $jself
-  ));
+//Google API linker on experience display
+if ($where_inf->id == 4) {
+  echo '<script async defer
+  src="https://maps.googleapis.com/maps/api/js?v3&key=AIzaSyDit5N2F3ppOpoPz0OQH4z3P8-UTiYD8xQ&callback=initMap">
+  </script>';
+}
+
+//JS linking
+scriptLink(array(
+  'main',
+  $jself
+));
 ?>

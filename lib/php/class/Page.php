@@ -1,14 +1,14 @@
 <?php
 class Page
 {
-  private $id;
-  private $name;
-  private $class;
-  private $order_value;
-  private $nav_sections = array();
-  private $nav_description;
+  protected $id;
+  protected $name;
+  protected $class;
+  protected $order_value;
+  protected $nav_sections = array();
+  protected $nav_description;
 
-  private $httph;
+  protected $httph;
   private $db;
 
   //$db where pages_nav are stocked on first argument

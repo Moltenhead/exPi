@@ -1,9 +1,18 @@
 <?php
 class BoardXp extends Xp
 {
-  public function __construct($uuid, $title, $img, $img_alt, $short_descr,$created_at, $date_update)
+  public function __construct(
+    $uuid,
+    $type_class,
+    $title,
+    $img,
+    $img_alt,
+    $short_descr,
+    $created_at,
+    $date_update)
   {
     $this->uuid = $uuid;
+    $this->type_class = $type_class;
     $this->title = $title;
     $this->img = $img;
     $this->img_alt = $img_alt;
@@ -18,14 +27,17 @@ class BoardXp extends Xp
       href="<?php echo HTTPH .
         'affichage-experience/xp=' .
         $this->uuid; ?>"
-      class="xp_wrapper <?php echo $this->class[rand(0,count($this->class)-1)];//TODO: replace by it's true type when removing the placeholders ?>"
+      class="xp_wrapper <?php echo $this->type_class;//TODO: replace by it's true type when removing the placeholders ?>"
       title="en savoir + sur <?php echo $this->title; ?>">
       <div class="true_box">
         <div class="xp flex_row">
           <div class="img_wrapper noselect">
-            <img class="xp_img" src="<?php echo ($this->img != null) ?
-              objPath('up_img', $this->img) :
-              objPath('img', 'bitmap/exPi_logo_placeholder.png'); ?>" alt="<?php echo $this->img_alt; ?>">
+            <img
+              class="xp_img"
+              src="<?php echo ($this->img != null) ?
+                objPath('up_img', $this->img) :
+                objPath('img', 'bitmap/exPi_logo_placeholder.png'); ?>"
+              alt="<?php echo $this->img_alt; ?>">
           </div>
           <div class="xp_informations flex_column stretched">
             <article>
@@ -33,10 +45,12 @@ class BoardXp extends Xp
               <p class="txt_justified"><?php echo $this->short_description; ?></p>
             </article>
             <div class="txt_right">
-              <p>
-                édité le
-                <span><?php echo $this->date_update; ?></span>
-              </p>
+              <?php echo !is_null($this->date_update) ?
+                "édité" :
+                "crée"; ?> le<br/>
+              <span><?php echo (!is_null($this->date_update)) ?
+                $this->date_update :
+                $this->date_create; ?></span>
             </div>
           </div>
         </div>

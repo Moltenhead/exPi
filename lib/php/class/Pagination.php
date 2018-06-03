@@ -60,7 +60,7 @@ class Pagination
   {
     global $HTTPH;// httphost + uri from design/strc/globals.php
 
-    $print = '<div class="flex_row aligned">
+    $print = '<div class=" paginer flex_row aligned">
       <label>pages :</label>
       <form action="' . $where_inf->httph .
       '" method="POST" class="pagination_wrapper">';
