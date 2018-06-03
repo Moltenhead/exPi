@@ -40,16 +40,16 @@ if (isset($_POST['long_description']) && $_POST['long_description'] != null) {
   array_push($error_codes, 3);
 }
 
-if (isset($_POST['themes']) && $_POST['themes'] != null) {
+/*if (isset($_POST['themes']) && $_POST['themes'] != null) {
   $xp->themes = htmlspecialchars($_POST['themes']);
 } else {
   array_push($error_codes, 4);
-}
+}*/
 
 if (isset($_FILES['img']) && $_FILES['img'] != null) {
-  if (isset($_FILES['img_alt']) && $_FILES['img_alt'] != null) {
+  if (isset($_POST['img_alt']) && $_POST['img_alt'] != null) {
     $xp->img = $_FILES['img'];
-    $xp->img_alt = $_FILES['img_alt'];
+    $xp->img_alt = $_POST['img_alt'];
   } else {
     array_push($error_codes, 5);
   }
@@ -89,13 +89,13 @@ if (count($error_codes) > 0) {
   }
 
   echo '<form id="error" action="' . HTTPH . 'edition-experience/xp=' . $xp->uuid .
-    '" method="post">' .
+    '" method="post" enctype="multipart/form-data">' .
       '<input type="hidden" name="error" value="' . $error_full_string . '">' .
       '<input type="hidden" name="title" value="' . $xp->title . '">' .
       '<input type="hidden" name="type" value="' . $xp->type . '">' .
       '<input type="hidden" name="short_description" value="' . $xp->short_description . '">' .
       '<input type="hidden" name="long_description" value="' . $xp->long_description . '">' .
-      '<input type="hidden" name="themes" value="' . $xp->themes . '">' .
+      //TODO: '<input type="hidden" name="themes" value="' . $xp->themes . '">' .
       '<input type="file" name="img" value="' . $xp->img . '" style="visibility: hidden">' .
       '<input type="hidden" name="img_alt" value="' . $xp->img_alt . '">' .
     '</form>' .
@@ -112,7 +112,7 @@ $update_string = 'UPDATE experiences SET ' .
   'type_id = ' . $db->quote($xp->type) . ', ' .
   'short_description = ' . $db->quote($xp->short_description) . ', ' .
   'long_description = ' . $db->quote($xp->long_description) . ', ' .
-  'themes = ' . $db->quote($xp->themes) . ', ' .
+  //'themes = ' . $db->quote($xp->themes) . ', ' .
   'update_last = NOW()';
 
 //TODO: image insertion only if image doesn't already exists
@@ -137,14 +137,18 @@ if ($xp->img != null && $xp->img_alt != null) {
         $db->query(
           'INSERT INTO experiences_images (uuid, href, title, class, alt)' .
           'VALUES(UUID(), ' .
-          $img_name . ', ' .
-          $img_title . ', ' .
-          $img_slug . ', ' .
-          $xp->img_alt );
+            $db->quote($img_name) . ', ' .
+            $db->quote($img_title) . ', ' .
+            $db->quote($img_slug) . ', ' .
+            $db->quote($xp->img_alt) . ')');
 
         $img_uuid = $db->query('SELECT uuid ' .
           'FROM experiences_images ' .
           'WHERE id = ' . $db->lastInsertId())->fetch(PDO::FETCH_COLUMN, 0);
+        $true_path = ROOT . 'uploads/img/' . $img_uuid . '.' . $extension_upload;
+        rename(
+          $img_path,
+          $true_path);
         $update_string .= ', img_uuid = ' . $db->quote($img_uuid);
       }
     }
@@ -155,7 +159,7 @@ $update_string .= ' WHERE uuid = ' . $db->quote($xp->uuid);
 
 if($db->exec($update_string)) {
 
-  echo '<form id="validity" action="' . HTTPH . 'edition-experience/xp=' . $xp->uuid .
+  echo '<form id="validity" action="' . HTTPH . 'affichage-experience/xp=' . $xp->uuid .
     '" method="post">' .
       '<input type="hidden" name="validity" value="true">' .
     '</form>' .
@@ -166,13 +170,13 @@ if($db->exec($update_string)) {
     </script>';
 } else {
   echo '<form id="validity" action="' . HTTPH . 'edition-experience/xp=' . $xp->uuid .
-    '" method="post">' .
+    '" method="post" enctype="multipart/form-data">' .
       '<input type="hidden" name="validity" value="false">' .
       '<input type="hidden" name="title" value="' . $xp->title . '">' .
       '<input type="hidden" name="type" value="' . $xp->type . '">' .
       '<input type="hidden" name="short_description" value="' . $xp->short_description . '">' .
       '<input type="hidden" name="long_description" value="' . $xp->long_description . '">' .
-      '<input type="hidden" name="themes" value="' . $xp->themes . '">' .
+      //TODO: '<input type="hidden" name="themes" value="' . $xp->themes . '">' .
       '<input type="file" name="img" value="' . $xp->img . '" style="display: none">' .
       '<input type="hidden" name="img_alt" value="' . $xp->img_alt . '">' .
     '</form>' .
