@@ -1,3 +1,19 @@
+#to_edition > input[type="submit"]
+{
+  font-size: 3vmin;
+  height: auto;
+
+  position: absolute;
+  top: 7vmin;
+  right: 10vmin;
+}
+#to_edition > input[type="submit"]:hover
+{
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
 #xp_display_wrapper
 {
   width: 80%;
@@ -145,7 +161,7 @@
 }
 #geo > .localisation > .localisation_wrapper > * > label
 {
-  width: 100px;
+  width: 110px;
 
   font-weight: 400;
 }
