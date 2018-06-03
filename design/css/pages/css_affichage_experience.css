@@ -1,0 +1,172 @@
+#xp_display_wrapper
+{
+  width: 80%;
+  height: 85vh;
+}
+
+#xp_display_wrapper > #xp_header
+{
+  width: 100%;
+  height: 10%;
+}
+#xp_display_wrapper > #xp_header > #xp_title
+{
+  font-size: 48px;
+  margin: 0;
+}
+
+#xp_wrapper
+{
+  width: 100%;
+  height: 90%;
+}
+
+.xp_representation
+{
+  width: 30%;
+  height: 100%;
+
+  position: relative;
+
+
+  overflow: hidden;
+}
+
+.xp_representation::after
+{
+  content: '';
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+
+  -webkit-transition: opacity .5s;
+  -o-transition: opacity .5s;
+  transition: opacity .5s;
+}
+.xp_representation:hover::after
+{
+  opacity: .2;
+  -webkit-transition: opacity .2s;
+  -o-transition: opacity .2s;
+  transition: opacity .2s;
+}
+
+.xp_representation > img
+{
+  height: 100%;
+  width: auto;
+
+  position: absolute;
+}
+
+.xp_representation > .infos
+{
+  width: 100%;
+  height: 100%;
+  padding: 25px;
+
+  position: relative;
+  z-index: 20;
+}
+
+.xp_representation > .infos > .xp_type
+{
+}
+
+.xp_representation > .infos > .xp_type > h1
+{
+  margin: 0 0 10px;
+}
+
+.xp_representation > .infos > .xp_short_descr
+{
+  width: 90%;
+  margin-left: 5%;
+
+  text-align: justify;
+}
+
+.xp_content_wrapper
+{
+  width: 70%;
+  height: 100%;
+  padding: 25px 25px 0;
+
+  position: relative;
+}
+
+.xp_content_wrapper > .xp_content
+{
+  padding: 8px 0 8px 10px;
+}
+
+#geo
+{
+  width: 94.5%;
+  height: 40%;
+
+  position: absolute;
+  bottom: 0;
+}
+#geo > .localisation
+{
+  width:50%;
+  height: 100%;
+  padding: 8px 15px 8px 0;
+}
+
+#geo > .localisation > h2
+{
+  height: 10%;
+}
+
+#geo > .localisation > .localisation_wrapper
+{
+  width: 100%;
+  height: 90%;
+  padding: 15px 0 0 20px;
+}
+
+#geo > .localisation > .localisation_wrapper > *
+{
+  width: 100%;
+}
+#geo > .localisation > .localisation_wrapper > *:nth-child(2)
+{
+  margin-bottom: 5%;
+}
+#geo > .localisation > .localisation_wrapper > *:last-child
+{
+  min-height: 50%;
+}
+#geo > .localisation > .localisation_wrapper > * > label
+{
+  width: 100px;
+
+  font-weight: 400;
+}
+#geo > .localisation > .localisation_wrapper > * > label > span
+{
+  margin-left: auto;
+
+  font-weight: 600;
+}
+#geo > .localisation > .localisation_wrapper > * > mark
+{
+  margin-left: 10px;
+}
+
+#geo > .map_wrapper
+{
+  width: 50%;
+  height: 100%;
+}
+#map
+{
+  width: 100%;
+  height: 100%;
+}
