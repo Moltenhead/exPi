@@ -13,7 +13,7 @@ class LinksCollection
     }
 
     $que_links = $db->query(
-      'SELECT title, class, href, order_value
+      'SELECT id, title, class, href, order_value
         FROM pages_links' .
         $where_str .
           ' ORDER BY order_value DESC'
@@ -22,6 +22,7 @@ class LinksCollection
     while ($data_links = $que_links->fetch(PDO::FETCH_ASSOC)) {
       array_push($this->links,
         new Link(
+          $data_links['id'],
           $data_links['title'],
           $data_links['href'],
           $data_links['class'],
