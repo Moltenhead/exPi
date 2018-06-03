@@ -32,6 +32,7 @@ class Page
 
     $que_navs = $db->query(
       'SELECT
+        id,
         title,
         class,
         order_value,
@@ -46,6 +47,7 @@ class Page
       array_push(
         $this->nav_sections,
         array(
+          'id' => $data_navs['id'],
           'title' => $data_navs['title'],
           'class' => htmlspecialchars($data_navs['class']),
           'order_value' => (int) $data_navs['order_value'],
@@ -104,7 +106,8 @@ class Page
         <h3 class="section_header">' . $this->getNav($index, 'title') . '</h3>
         <ul class="link_box">';
         $links = new LinksCollection(
-          $this->db, $this->nav_sections[$index]['links_ids']);
+          $this->db,
+          $this->nav_sections[$index]['links_ids']);
         $links->showAll($target);
         echo '</ul>
       </div>';
