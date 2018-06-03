@@ -22,17 +22,20 @@ class SlideXp extends Xp
   }
 
   public function print()
-  { ?>
+  {
+    $img = ROOT . "uploads/img/" . $this->img;
+    $img_path = ($this->img != NULL && file_exists($img)) ?
+      objPath('up_img', $this->img) :
+      objPath('img', 'bitmap/exPi_logo_placeholder.png');
+    ?>
     <div class="slide_wrapper flex_row <?php echo $this->type_class; ?>">
       <a href="<?php echo HTTPH .
           'affichage-experience/xp=' .
           $this->uuid; ?>"
         class="slide_representation noselect">
-        <img src="<?php echo ($this->img != null) ?
-          objPath('up_img', $this->img) :
-          objPath('img', 'bitmap/exPi_logo_placeholder.png'); ?>" alt="<?php echo $this->img_alt; ?>">
+        <img src="<?php echo $img_path; ?>" alt="<?php echo $this->img_alt; ?>">
       </a>
-      <div class="slide_informations flex_column stretched">
+      <div class="slide_informations flex_column stretched noverflow">
         <article class="slide_description">
           <h1><?php echo$this->title; ?></h1>
           <p class="txt_justified"><?php echo $this->short_description; ?></p>
