@@ -1,16 +1,14 @@
-<div class="xp_representation flex_column spaced">
+<div class="xp_representation flex_column spaced <?php echo $xp->type_class; ?>">
   <figure class="noselect">
+    <img src="<?php echo $img_path; ?>">
     <figcaption>Image de représentation :</figcaption>
-    <img src="<?php echo ($xp->img != null) ?
-      $xp->img :
-      objPath('img', 'exPi_logo_v8.svg'); ?>" alt="<?php echo $xp->img_alt; ?>">
   </figure>
   <div class="img_infos flex_column end_placed">
     <input
       type="file"
       name="img"
       class="noselect"
-      value="<?php echo $xp->uuid; ?>"
+      value="<?php echo $xp->img; ?>">
     <input
       type="text"
       name="img_alt"
@@ -36,7 +34,8 @@
             name="type"
             value="<?php echo $types_inf[$i]->get('id'); ?>"
             <?php
-            echo ($i === (int) $xp->type) ?
+            //TODO: Type class getter
+            echo ($types_inf[$i]->get('class') === $xp->type_class) ?
                 ' checked="true"' :
                 '';
             ?>>
@@ -61,14 +60,14 @@
       placeholder="Description complète"><?php
       echo $xp->long_description;
       ?></textarea>
-    <div class="categories_wrapper flex_column">
-      <label for="input_categoreis" class="noselect">Catégories :</label>
+    <!--TODO: div class="categories_wrapper flex_column">
+      <label for="input_categories" class="noselect">Catégories :</label>
       <input
         id="input_themes"
         type="text"
         name="themes"
         placeholder="Ajoutez un thème d'expérience"
-        value="<?php echo $xp->themes; ?>">
-    </div>
+        value="--><?php //echo $xp->themes; ?><!--">
+    </div-->
   </div>
 </div>
