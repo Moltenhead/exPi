@@ -9,7 +9,8 @@ $data_xp = $db->query(
     e.title,
     t.name AS type,
     t.class AS type_class,
-    ei.href AS img,
+    ei.uuid AS img_uuid,
+    ei.href AS ext,
     ei.alt AS img_alt,
     e.short_description,
     e.long_description,
@@ -21,13 +22,21 @@ $data_xp = $db->query(
         LEFT JOIN experiences_images ei ON ei.uuid = e.img_uuid
           WHERE e.uuid = ' .
             $db->quote($xp_uuid))->fetchAll(PDO::FETCH_ASSOC)[0];
-
+$img_href = join('',
+  [
+    $data_xp['img_uuid'],
+    substr(
+      $data_xp['ext'],
+      strrpos(
+        $data_xp['ext'],
+        '.'))]);
+$img_href = ($img_href && !empty($img_href)) ? $img_href : NULL;
 $xp = new Xp(
   $data_xp['uuid'],
   $data_xp['title'],
   $data_xp['type'],
   $data_xp['type_class'],
-  $data_xp['img'],
+  $img_href,
   $data_xp['img_alt'],
   $data_xp['short_description'],
   $data_xp['long_description'],
