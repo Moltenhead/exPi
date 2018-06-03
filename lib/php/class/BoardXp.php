@@ -22,7 +22,12 @@ class BoardXp extends Xp
   }
 
   public function print()
-  { ?>
+  {
+    $img = ROOT . "uploads/img/" . $this->img;
+    $img_path = ($this->img != NULL && file_exists($img)) ?
+      objPath('up_img', $this->img) :
+      objPath('img', 'bitmap/exPi_logo_placeholder.png');
+    ?>
     <a
       href="<?php echo HTTPH .
         'affichage-experience/xp=' .
