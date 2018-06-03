@@ -39,7 +39,7 @@ input[type="text"]:placeholder { color:grey; }
 { background: linear-gradient(90deg, transparent, #ff9933); }*/
 #magic_hat .slide_informations { background-color: #ffffff; }
 
-#magic_hat .slide_wrapper { background-color: (204,204,204,.8); }
+#magic_hat .slide_wrapper { background-color: rgba(204,204,204,.8); }
 #magic_hat .slide_wrapper > .slide_representation::after
 { background: linear-gradient(90deg, transparent, #ccc); }
 #magic_hat .slide_wrapper.voir { background-color: rgba(153,255,255,.8); }
@@ -109,6 +109,40 @@ input[type="text"]:placeholder { color:grey; }
 }
 
 .xp > .img_wrapper { background-color: transparent;}
+
+/* ---------------------- XP_EDITION ---------------------- */
+#xp_edition_wrapper .xp_representation > figure::after
+{ background-color: rgba(204,204,204,.5); }
+#xp_edition_wrapper .left_bordered
+{ border-left-color: rgba(204,204,204,.5); }
+#xp_edition_wrapper.voir .xp_representation > figure::after
+{ background-color: rgba(153,255,255,.5); }
+#xp_edition_wrapper.voir .left_bordered
+{ border-left-color: rgba(153,255,255,.5); }
+#xp_edition_wrapper.ecouter .xp_representation > figure::after
+{ background-color: rgba(255,102,51,.5); }
+#xp_edition_wrapper.ecouter .left_bordered
+{ border-left-color: rgba(255,102,51,.5); }
+#xp_edition_wrapper.gouter .xp_representation > figure::after
+{ background-color: rgba(102,0,204,.5); }
+#xp_edition_wrapper.gouter .left_bordered
+{ border-left-color: rgba(102,0,204,.5); }
+#xp_edition_wrapper.sortir .xp_representation > figure::after
+{ background-color: rgba(255,0,0,.5); }
+#xp_edition_wrapper.sortir .left_bordered
+{ border-left-color: rgba(255,0,0,.5); }
+#xp_edition_wrapper.rencontrer .xp_representation > figure::after
+{ background-color: rgba(102,204,0,.5); }
+#xp_edition_wrapper.rencontrer .left_bordered
+{ border-left-color: rgba(102,204,0,.5); }
+#xp_edition_wrapper.transpirer .xp_representation > figure::after
+{ background-color: rgba(102,204,0,.5); }
+#xp_edition_wrapper.transpirer .left_bordered
+{ border-left-color: rgba(102,204,0,.5); }
+#xp_edition_wrapper.jouer .xp_representation > figure::after
+{ background-color: rgba(255,204,0,.5); }
+#xp_edition_wrapper.jouer .left_bordered
+{ border-left-color: rgba(255,204,0,.5); }
 
 /* ---------------------- XP_DISPLAY ---------------------- */
 #xp_display_wrapper .xp_representation > .infos > .xp_type > h1
