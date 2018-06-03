@@ -7,7 +7,8 @@ $que_skel = 'SELECT
   e.uuid,
   t.class AS type_class,
   e.title AS xp_title,
-  i.href AS img_href,
+  i.uuid AS img_uuid,
+  i.href AS ext,
   i.alt,
   e.short_description,
   p.title AS place_title,
@@ -52,11 +53,20 @@ if ($db->query($que_skel)) {
 }
 
 while ($data_slides = $que_slides->fetch(PDO::FETCH_ASSOC)) {
+  $img_href = join('',
+    [
+      $data_slides['img_uuid'],
+      substr(
+        $data_slides['ext'],
+        strrpos(
+          $data_slides['ext'],
+          '.'))]);
+  $img_href = ($img_href && !empty($img_href)) ? $img_href : NULL;
   array_push($slides, new SlideXp(
       $data_slides['uuid'],
       $data_slides['type_class'],
       $data_slides['xp_title'],
-      $data_slides['img_href'],
+      ($img_href) ? $img_href : NULL,
       $data_slides['alt'],
       $data_slides['short_description'],
       $data_slides['created_at'],
@@ -72,11 +82,20 @@ $que_board_skel .= ' ' .
 
 $que_board_xps = $db->query($que_board_skel);
 while ($data_board_xps = $que_board_xps->fetch(PDO::FETCH_ASSOC)) {
+  $img_href = join('',
+    [
+      $data_slides['img_uuid'],
+      substr(
+        $data_slides['ext'],
+        strrpos(
+          $data_slides['ext'],
+          '.'))]);
+  $img_href = ($img_href && !empty($img_href)) ? $img_href : NULL;
   array_push($board_xps, new BoardXp(
     $data_board_xps['uuid'],
     $data_board_xps['type_class'],
     $data_board_xps['xp_title'],
-    $data_board_xps['img_href'],
+    $img_href,
     $data_board_xps['alt'],
     $data_board_xps['short_description'],
     $data_board_xps['created_at'],
