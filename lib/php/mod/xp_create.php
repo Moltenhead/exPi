@@ -40,16 +40,16 @@ if (isset($_POST['long_description']) && $_POST['long_description'] != null) {
   array_push($error_codes, 3);
 }
 
-if (isset($_POST['themes']) && $_POST['themes'] != null) {
+/*TODO: if (isset($_POST['themes']) && $_POST['themes'] != null) {
   $xp->themes = htmlspecialchars($_POST['themes']);
 } else {
   array_push($error_codes, 4);
-}
+}*/
 
 if (isset($_FILES['img']) && $_FILES['img'] != null) {
-  if (isset($_FILES['img_alt']) && $_FILES['img_alt'] != null) {
+  if (isset($_POST['img_alt']) && $_POST['img_alt'] != null) {
     $xp->img = $_FILES['img'];
-    $xp->img_alt = $_FILES['img_alt'];
+    $xp->img_alt = $_POST['img_alt'];
   } else {
     array_push($error_codes, 5);
   }
@@ -87,14 +87,14 @@ if (count($error_codes) > 0) {
       $error_string :
       ' \\ ' . $error_string;
   }
-
+var_dump($error_codes);
   echo '<form id="error" action="' . HTTPH . 'creation-experience" method="post">' .
       '<input type="hidden" name="error" value="' . $error_full_string . '">' .
       '<input type="hidden" name="title" value="' . $xp->title . '">' .
       '<input type="hidden" name="type" value="' . $xp->type . '">' .
       '<input type="hidden" name="short_description" value="' . $xp->short_description . '">' .
       '<input type="hidden" name="long_description" value="' . $xp->long_description . '">' .
-      '<input type="hidden" name="themes" value="' . $xp->themes . '">' .
+      //'<input type="hidden" name="themes" value="' . $xp->themes . '">' .
       '<input type="file" name="img" value="' . $xp->img . '" style="display: none">' .
       '<input type="hidden" name="img_alt" value="' . $xp->img_alt . '">' .
     '</form>' .
@@ -112,7 +112,7 @@ $insert_string = 'INSERT INTO experiences (' .
   'type_id, ' .
   'short_description, ' .
   'long_description, ' .
-  'themes, ' .
+  //'themes, ' .
   'created_at';
 
 if ($xp->img != null && $xp->img_alt != null) {
@@ -133,25 +133,33 @@ if ($xp->img != null && $xp->img_alt != null) {
         move_uploaded_file(
           $_FILES['img']['tmp_name'],
           $img_path);
-        $db->query(
-          'INSERT INTO experiences_images (uuid, href, title, class, alt)' .
+
+        $db->exec(
+          'INSERT INTO experiences_images (uuid, href, title, class, alt) ' .
           'VALUES(UUID(), ' .
-          $img_name . ', ' .
-          $img_title . ', ' .
-          $img_slug . ', ' .
-          $xp->img_alt );
+            $db->quote($img_name) . ', ' .
+            $db->quote($img_title) . ', ' .
+            $db->quote($img_slug) . ', ' .
+            $db->quote($xp->img_alt) . ')');
 
         $img_uuid = $db->query('SELECT uuid ' .
           'FROM experiences_images ' .
           'WHERE id = ' . $db->lastInsertId())->fetch(PDO::FETCH_COLUMN, 0);
+
+        $true_path = ROOT . 'uploads/img/' . $img_uuid . '.' . $extension_upload;
+        echo $true_path;
+        rename(
+          $img_path,
+          $true_path);
+
         $insert_string .= ', img_uuid) ' .
           'VALUES(UUID(), ' .
-          $xp->title . ', ' .
-          $xp->type .', ' .
-          $xp->short_description . ', ' .
-          $xp->long_description . ', ' .
-          'NOW(), ' .
-          $img_uuid . ')';
+            $db->quote($xp->title) . ', ' .
+            $db->quote($xp->type) .', ' .
+            $db->quote($xp->short_description) . ', ' .
+            $db->quote($xp->long_description) . ', ' .
+            'NOW(), ' .
+            $db->quote($img_uuid) . ')';
       }
     }
   }
@@ -162,7 +170,7 @@ if ($xp->img != null && $xp->img_alt != null) {
     $db->quote($xp->type) .', ' .
     $db->quote($xp->short_description) . ', ' .
     $db->quote($xp->long_description) . ', ' .
-    $db->quote($xp->themes) . ', ' .
+    //TODO: $db->quote($xp->themes) . ', ' .
     'NOW())';
 }
 
@@ -183,12 +191,12 @@ if($db->exec($insert_string)) {
     </script>';
 } else {
   echo '<form id="validity" action="' . HTTPH . 'creation-experience" method="post">' .
-      '<input type="hidden" name="validity" value="false">' .
+      '<input type="hidden" name="validity" value="false" enctype="multipart/form-data">' .
       '<input type="hidden" name="title" value="' . $xp->title . '">' .
       '<input type="hidden" name="type" value="' . $xp->type . '">' .
       '<input type="hidden" name="short_description" value="' . $xp->short_description . '">' .
       '<input type="hidden" name="long_description" value="' . $xp->long_description . '">' .
-      '<input type="hidden" name="themes" value="' . $xp->themes . '">' .
+      //'<input type="hidden" name="themes" value="' . $xp->themes . '">' .
       '<input type="file" name="img" value="' . $xp->img . '" style="display: none">' .
       '<input type="hidden" name="img_alt" value="' . $xp->img_alt . '">' .
     '</form>' .
