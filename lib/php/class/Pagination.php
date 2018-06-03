@@ -21,9 +21,18 @@ class Pagination
 
     $this->_max_page = ceil($nb_rows / $this->_max_xp);
 
-    $this->_first_index = ($this->_actual_page <= round($this->_max_display / 2)) ?
-      1:
-      $this->_actual_page - round($this->_max_display / 2) + 1;
+    if ($this->_actual_page <= floor($this->_max_display / 2)) {
+      $this->_first_index = 1;
+    } else if (
+      $this->_actual_page + floor($this->_max_display / 2) > $this->_max_page
+    ) {
+      $this->_first_index = $this->_max_page - $this->_max_display;
+    } else {
+      $this->_first_index =
+        $this->_actual_page - floor($this->_max_display / 2) + 1;
+    }
+
+    $this->_first_index = ($this->_first_index <= 0) ? 1 : $this->_first_index;
   }
 
   public function show($select)
@@ -72,7 +81,8 @@ class Pagination
 
     for (
         $i = $this->_first_index;
-        $i < $this->_first_index + $this->_max_display && $i <= $this->_max_page;
+        $i < $this->_first_index + $this->_max_display &&
+          $i <= $this->_max_page;
         $i++
     ) {
       $print .=  '<input type="button" value="' . $i . '" class="page_button';
