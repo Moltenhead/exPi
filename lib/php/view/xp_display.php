@@ -1,10 +1,11 @@
 <?php
-$img = (string) @objPath('up_img', $xp->img);
-$img_path = (file_exists($img)) ?
-  $img :
+$img = ROOT . "uploads/img/" . $xp->img;
+$img_path = ($xp->img != NULL && file_exists($img)) ?
+  objPath('up_img', $xp->img) :
   objPath('img', 'bitmap/exPi_logo_placeholder.png');
-  $lat = rand(-85000,85000)/1000;
-  $lng = rand(-180000,180000)/1000;
+
+$lat = rand(-85000,85000)/1000;
+$lng = rand(-180000,180000)/1000;
 ?>
 <input
   type="hidden"
@@ -14,6 +15,13 @@ $img_path = (file_exists($img)) ?
   type="hidden"
   class="geo_pos lng"
   value="<?php echo $lng ?>">
+
+<form
+  id="to_edition"
+  action="<?php echo HTTPH; ?>edition-experience/xp=<?php echo $xp->uuid; ?>"
+  method="post">
+  <input type="submit" value="&Eacute;diter">
+</form>
 
 <div
   id="xp_display_wrapper"
@@ -43,7 +51,7 @@ $img_path = (file_exists($img)) ?
           <div class="localisation_wrapper flex_column">
             <div class="flex_row">
               <label for="[object Object]" class="flex_row stretched nowrap">
-                <strong>Name</strong>
+                <strong>Nom du lieu</strong>
                 <!--span>:</span-->
               </label>
               <mark></mark>
